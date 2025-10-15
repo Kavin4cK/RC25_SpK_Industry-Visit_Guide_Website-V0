@@ -9,8 +9,28 @@ import {
   Factory,
   Wrench,
   Cog,
-  Zap
+  Zap,
+  Target,
+  Lightbulb,
+  BookOpen,
+  Network,
+  Award,
+  TrendingUp,
+  Eye,
+  Brain,
+  Handshake,
+  CreditCard,
+  Smartphone,
+  Shield,
+  Droplets,
+  Umbrella,
+  Footprints,
+  Pill,
+  Clipboard
 } from 'lucide-react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { ObjectivesSection } from '@/components/ObjectivesSection'
+import { AccessoriesChecklist } from '@/components/AccessoriesChecklist'
 
 export default function Home() {
   return (
@@ -65,6 +85,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Goals and Objectives Section */}
+      <ObjectivesSection />
+
+      {/* Accessories Checklist Section */}
+      <AccessoriesChecklist />
 
       {/* Three-Day Journey Overview */}
       <section className="py-20 bg-white dark:bg-secondary-900">
