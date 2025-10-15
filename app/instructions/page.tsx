@@ -1,277 +1,488 @@
+'use client'
+
+import { useState } from 'react'
 import { 
-  CheckCircle, 
-  AlertCircle, 
-  FileText, 
-  Clock, 
-  Users, 
+  Shirt,
+  Shoe,
+  User,
+  UserCheck,
+  AlertCircle,
+  Info,
+  CheckCircle,
+  XCircle,
+  Download,
+  Share2,
+  Hotel,
   MapPin,
+  Train,
+  Bus,
+  Users,
+  Shield,
+  Clock,
   Phone,
   Mail,
-  Download
+  FileText,
+  BookOpen,
+  Target,
+  Star,
+  Eye,
+  Handshake,
+  Award
 } from 'lucide-react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function Instructions() {
-  const preVisitChecklist = [
-    { id: 1, item: 'Valid student ID card', completed: false },
-    { id: 2, item: 'Signed permission form', completed: false },
-    { id: 3, item: 'Medical clearance certificate', completed: false },
-    { id: 4, item: 'Business casual attire', completed: false },
-    { id: 5, item: 'Notebook and pen', completed: false },
-    { id: 6, item: 'Mobile phone (fully charged)', completed: false },
-    { id: 7, item: 'Emergency contact information', completed: false },
-    { id: 8, item: 'Lunch money or packed lunch', completed: false }
-  ]
+  const [activeTab, setActiveTab] = useState('dress-code')
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [tabsRef, tabsVisible] = useScrollAnimation()
 
-  const safetyGuidelines = [
+  const tabs = [
     {
-      icon: AlertCircle,
-      title: 'Safety First',
-      description: 'Always follow safety instructions and wear provided safety equipment during facility tours.'
+      id: 'dress-code',
+      name: 'Dress Code',
+      icon: Shirt,
+      color: 'blue'
     },
     {
-      icon: Users,
-      title: 'Stay with Group',
-      description: 'Never wander off alone. Always stay with your assigned group and supervisor.'
+      id: 'accommodation',
+      name: 'Accommodation',
+      icon: Hotel,
+      color: 'purple'
     },
     {
-      icon: Phone,
-      title: 'Emergency Contacts',
-      description: 'Keep emergency contact numbers readily available and inform supervisors of any health issues.'
+      id: 'transport',
+      name: 'Transport',
+      icon: Train,
+      color: 'green'
     },
     {
-      icon: MapPin,
-      title: 'Know Your Location',
-      description: 'Be aware of emergency exits and assembly points at each facility.'
+      id: 'conduct',
+      name: 'Conduct Rules',
+      icon: Shield,
+      color: 'red'
     }
   ]
 
-  const conductRules = [
-    'Maintain professional behavior at all times',
-    'Respect company property and equipment',
-    'Ask questions during designated Q&A sessions only',
-    'No photography without explicit permission',
-    'Keep mobile phones on silent mode during presentations',
-    'Follow dress code requirements strictly',
-    'Arrive on time for all scheduled activities',
-    'Show respect to all company representatives and staff'
-  ]
+  const getColorClasses = (color: string) => {
+    const colorMap = {
+      blue: {
+        bg: 'bg-blue-50 dark:bg-blue-900/20',
+        border: 'border-blue-200 dark:border-blue-800',
+        accent: 'border-l-blue-500',
+        icon: 'text-blue-600 dark:text-blue-400',
+        button: 'bg-blue-600 hover:bg-blue-700 text-white',
+        active: 'bg-blue-100 dark:bg-blue-900/40 text-blue-900 dark:text-blue-100'
+      },
+      purple: {
+        bg: 'bg-purple-50 dark:bg-purple-900/20',
+        border: 'border-purple-200 dark:border-purple-800',
+        accent: 'border-l-purple-500',
+        icon: 'text-purple-600 dark:text-purple-400',
+        button: 'bg-purple-600 hover:bg-purple-700 text-white',
+        active: 'bg-purple-100 dark:bg-purple-900/40 text-purple-900 dark:text-purple-100'
+      },
+      green: {
+        bg: 'bg-green-50 dark:bg-green-900/20',
+        border: 'border-green-200 dark:border-green-800',
+        accent: 'border-l-green-500',
+        icon: 'text-green-600 dark:text-green-400',
+        button: 'bg-green-600 hover:bg-green-700 text-white',
+        active: 'bg-green-100 dark:bg-green-900/40 text-green-900 dark:text-green-100'
+      },
+      red: {
+        bg: 'bg-red-50 dark:bg-red-900/20',
+        border: 'border-red-200 dark:border-red-800',
+        accent: 'border-l-red-500',
+        icon: 'text-red-600 dark:text-red-400',
+        button: 'bg-red-600 hover:bg-red-700 text-white',
+        active: 'bg-red-100 dark:bg-red-900/40 text-red-900 dark:text-red-100'
+      }
+    }
+    return colorMap[color as keyof typeof colorMap] || colorMap.blue
+  }
+
+  const dressCodeContent = {
+    title: 'Dress Code Guidelines',
+    description: 'Professional attire requirements for the Integral Coach Factory visit',
+    sections: [
+      {
+        title: 'Boys Dress Code',
+        icon: User,
+        color: 'blue',
+        items: [
+          { text: 'Light colored formal shirt (White, Light Blue, Cream)', required: true },
+          { text: 'Dark colored formal trousers (Black, Navy Blue, Dark Gray)', required: true },
+          { text: 'Closed-toe formal shoes (Black or Brown leather)', required: true },
+          { text: 'Matching leather belt', required: true },
+          { text: 'Well-groomed appearance', required: true }
+        ]
+      },
+      {
+        title: 'Girls Dress Code',
+        icon: User,
+        color: 'purple',
+        items: [
+          { text: 'Light colored formal shirt or blouse', required: true },
+          { text: 'Dark colored formal trousers or knee-length skirt', required: true },
+          { text: 'Closed-toe formal shoes (low heels preferred)', required: true },
+          { text: 'Minimal, professional accessories', required: false },
+          { text: 'Hair tied back for safety', required: true }
+        ]
+      },
+      {
+        title: 'Items to Avoid',
+        icon: XCircle,
+        color: 'red',
+        items: [
+          { text: 'Jeans or casual wear', required: false },
+          { text: 'T-shirts or casual tops', required: false },
+          { text: 'Open-toe shoes or sandals', required: false },
+          { text: 'Excessive jewelry or accessories', required: false },
+          { text: 'Bright or flashy colors', required: false }
+        ]
+      }
+    ]
+  }
+
+  const accommodationContent = {
+    title: 'Accommodation Details',
+    description: 'Hotel arrangements and stay information for your Chennai visit',
+    sections: [
+      {
+        title: 'Hotel Information',
+        icon: Hotel,
+        color: 'blue',
+        items: [
+          { text: 'Hotel Grand Chennai, T. Nagar', required: true },
+          { text: 'Check-in: 2:00 PM on Day 1', required: true },
+          { text: 'Check-out: 8:00 AM on Day 3', required: true },
+          { text: 'AC rooms with modern amenities', required: true },
+          { text: '24/7 room service available', required: false }
+        ]
+      },
+      {
+        title: 'Room Arrangements',
+        icon: Users,
+        color: 'green',
+        items: [
+          { text: 'Twin sharing accommodation', required: true },
+          { text: 'Room allocation by program coordinators', required: true },
+          { text: 'Separate rooms for boys and girls', required: true },
+          { text: 'Room keys to be returned during checkout', required: true }
+        ]
+      },
+      {
+        title: 'Hotel Facilities',
+        icon: Star,
+        color: 'purple',
+        items: [
+          { text: 'Restaurant with multi-cuisine options', required: false },
+          { text: 'Conference room for orientation', required: false },
+          { text: 'Wi-Fi connectivity', required: false },
+          { text: 'Laundry services available', required: false },
+          { text: '24/7 security and front desk', required: true }
+        ]
+      }
+    ]
+  }
+
+  const transportContent = {
+    title: 'Transport Arrangements',
+    description: 'Complete transportation details for your journey',
+    sections: [
+      {
+        title: 'Train Travel',
+        icon: Train,
+        color: 'blue',
+        items: [
+          { text: 'Chennai Mail (12658) - KSR to Chennai Central', required: true },
+          { text: 'Humsafar Express (22353) - Perambur to SMVT', required: true },
+          { text: 'AC 2 Tier / AC 3 Tier accommodation', required: true },
+          { text: 'Arrive 30 minutes early for boarding', required: true },
+          { text: 'Valid ID and tickets required', required: true }
+        ]
+      },
+      {
+        title: 'Local Transport',
+        icon: Bus,
+        color: 'green',
+        items: [
+          { text: 'Air-conditioned bus for local travel', required: true },
+          { text: 'Pickup from Chennai Central to hotel', required: true },
+          { text: 'Transport to ICF and sightseeing locations', required: true },
+          { text: 'Drop to Perambur station on Day 3', required: true }
+        ]
+      },
+      {
+        title: 'Important Notes',
+        icon: AlertCircle,
+        color: 'red',
+        items: [
+          { text: 'No private vehicles allowed during visits', required: true },
+          { text: 'Follow group transportation schedule', required: true },
+          { text: 'Keep emergency contact numbers handy', required: true },
+          { text: 'Report any transport issues immediately', required: true }
+        ]
+      }
+    ]
+  }
+
+  const conductContent = {
+    title: 'Conduct Rules & Guidelines',
+    description: 'Essential behavioral guidelines and safety protocols',
+    sections: [
+      {
+        title: 'Safety Protocols',
+        icon: Shield,
+        color: 'red',
+        items: [
+          { text: 'Follow all safety instructions during factory tours', required: true },
+          { text: 'Wear provided safety equipment when required', required: true },
+          { text: 'Stay with assigned groups at all times', required: true },
+          { text: 'No photography without explicit permission', required: true },
+          { text: 'Report any safety concerns immediately', required: true }
+        ]
+      },
+      {
+        title: 'Professional Behavior',
+        icon: Handshake,
+        color: 'blue',
+        items: [
+          { text: 'Maintain professional demeanor throughout', required: true },
+          { text: 'Respect company property and equipment', required: true },
+          { text: 'Ask questions during designated Q&A sessions', required: true },
+          { text: 'Show respect to all company representatives', required: true },
+          { text: 'Participate actively in all activities', required: true }
+        ]
+      },
+      {
+        title: 'General Guidelines',
+        icon: FileText,
+        color: 'green',
+        items: [
+          { text: 'Arrive on time for all scheduled activities', required: true },
+          { text: 'Keep mobile phones on silent during presentations', required: true },
+          { text: 'No consumption of alcohol or smoking', required: true },
+          { text: 'Follow hotel rules and regulations', required: true },
+          { text: 'Maintain cleanliness in all areas', required: true }
+        ]
+      }
+    ]
+  }
+
+  const getContent = () => {
+    switch (activeTab) {
+      case 'dress-code':
+        return dressCodeContent
+      case 'accommodation':
+        return accommodationContent
+      case 'transport':
+        return transportContent
+      case 'conduct':
+        return conductContent
+      default:
+        return dressCodeContent
+    }
+  }
+
+  const currentContent = getContent()
+  const activeTabData = tabs.find(tab => tab.id === activeTab)
+  const activeColors = activeTabData ? getColorClasses(activeTabData.color) : getColorClasses('blue')
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-secondary-900 dark:to-secondary-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 fade-in-up ${headerVisible ? 'animate' : ''}`}
+        >
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-6">
+            <FileText className="w-8 h-8 text-white" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
             Instructions & Guidelines
           </h1>
-          <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto">
-            Essential information and guidelines to ensure a safe, productive, and successful industry visit experience.
+          <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
+            Comprehensive guidelines and instructions for your Integral Coach Factory visit. 
+            Please read all sections carefully to ensure a safe and successful experience.
           </p>
         </div>
 
-        {/* Pre-Visit Checklist */}
-        <div className="card mb-8">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
-              <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Pre-Visit Checklist
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Complete these items before your industry visit
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {preVisitChecklist.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center p-3 rounded-lg bg-secondary-50 dark:bg-secondary-800 hover:bg-secondary-100 dark:hover:bg-secondary-700 transition-colors duration-200 cursor-pointer"
-              >
-                <div className={`w-6 h-6 rounded-full border-2 mr-3 flex items-center justify-center ${
-                  item.completed 
-                    ? 'bg-green-500 border-green-500' 
-                    : 'border-secondary-300 dark:border-secondary-600'
-                }`}>
-                  {item.completed && <CheckCircle className="w-4 h-4 text-white" />}
-                </div>
-                <span className={`text-sm ${
-                  item.completed 
-                    ? 'text-green-600 dark:text-green-400 line-through' 
-                    : 'text-secondary-700 dark:text-secondary-300'
-                }`}>
-                  {item.item}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <button className="btn-primary flex items-center">
-              <Download className="w-4 h-4 mr-2" />
-              Download Checklist
-            </button>
-          </div>
-        </div>
-
-        {/* Safety Guidelines */}
-        <div className="card mb-8">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-4">
-              <AlertCircle className="w-6 h-6 text-red-600 dark:text-red-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Safety Guidelines
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Critical safety information for all participants
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {safetyGuidelines.map((guideline, index) => {
-              const Icon = guideline.icon
+        {/* Tab Navigation */}
+        <div 
+          ref={tabsRef}
+          className={`mb-12 fade-in-up ${tabsVisible ? 'animate' : ''}`}
+        >
+          <div className="flex flex-wrap justify-center gap-4">
+            {tabs.map((tab, index) => {
+              const Icon = tab.icon
+              const colors = getColorClasses(tab.color)
+              const isActive = activeTab === tab.id
+              
               return (
-                <div key={index} className="p-4 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-red-600 dark:text-red-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-secondary-900 dark:text-white mb-1">
-                        {guideline.title}
-                      </h3>
-                      <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                        {guideline.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`
+                    flex items-center space-x-3 px-6 py-4 rounded-xl font-medium transition-all duration-300
+                    ${isActive 
+                      ? `${colors.active} shadow-lg transform scale-105` 
+                      : 'bg-white dark:bg-secondary-800 text-secondary-700 dark:text-secondary-300 hover:bg-secondary-50 dark:hover:bg-secondary-700'
+                    }
+                    border border-secondary-200 dark:border-secondary-700
+                  `}
+                >
+                  <Icon className={`w-5 h-5 ${isActive ? colors.icon : 'text-secondary-500'}`} />
+                  <span>{tab.name}</span>
+                </button>
               )
             })}
           </div>
         </div>
 
-        {/* Code of Conduct */}
-        <div className="card mb-8">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-              <FileText className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Code of Conduct
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Professional behavior expectations during the visit
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {conductRules.map((rule, index) => (
-              <div key={index} className="flex items-start space-x-3 p-3 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                <div className="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mt-0.5">
-                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
-                    {index + 1}
-                  </span>
-                </div>
-                <p className="text-secondary-700 dark:text-secondary-300">
-                  {rule}
+        {/* Content Section */}
+        <div className={`fade-in-up ${tabsVisible ? 'animate' : ''}`}>
+          <div className={`card ${activeColors.bg} ${activeColors.border} ${activeColors.accent} border-l-4`}>
+            {/* Content Header */}
+            <div className="flex items-center mb-8">
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
+                activeTabData?.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900' :
+                activeTabData?.color === 'purple' ? 'bg-purple-100 dark:bg-purple-900' :
+                activeTabData?.color === 'green' ? 'bg-green-100 dark:bg-green-900' :
+                'bg-red-100 dark:bg-red-900'
+              }`}>
+                {activeTabData && <activeTabData.icon className={`w-6 h-6 ${activeColors.icon}`} />}
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
+                  {currentContent.title}
+                </h2>
+                <p className="text-secondary-600 dark:text-secondary-400">
+                  {currentContent.description}
                 </p>
               </div>
-            ))}
+            </div>
+
+            {/* Content Sections */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              {currentContent.sections.map((section, index) => {
+                const Icon = section.icon
+                const sectionColors = getColorClasses(section.color)
+                
+                return (
+                  <div key={index} className="space-y-4">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                        section.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900' :
+                        section.color === 'purple' ? 'bg-purple-100 dark:bg-purple-900' :
+                        section.color === 'green' ? 'bg-green-100 dark:bg-green-900' :
+                        'bg-red-100 dark:bg-red-900'
+                      }`}>
+                        <Icon className={`w-5 h-5 ${
+                          section.color === 'blue' ? 'text-blue-600 dark:text-blue-400' :
+                          section.color === 'purple' ? 'text-purple-600 dark:text-purple-400' :
+                          section.color === 'green' ? 'text-green-600 dark:text-green-400' :
+                          'text-red-600 dark:text-red-400'
+                        }`} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                        {section.title}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-3">
+                      {section.items.map((item, itemIndex) => (
+                        <div key={itemIndex} className="flex items-start space-x-3 p-3 rounded-lg bg-white/60 dark:bg-secondary-800/60">
+                          <div className="flex-shrink-0 mt-0.5">
+                            {item.required ? (
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                            ) : (
+                              <Info className="w-4 h-4 text-blue-500" />
+                            )}
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm text-secondary-700 dark:text-secondary-300">
+                              {item.text}
+                            </p>
+                            {item.required && (
+                              <span className="inline-block mt-1 px-2 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                                Required
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Important Contacts */}
-        <div className="card mb-8">
+        {/* Action Buttons */}
+        <div className="mt-12 text-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="btn-primary flex items-center justify-center">
+              <Download className="w-4 h-4 mr-2" />
+              Download Complete Guide
+            </button>
+            <button className="btn-secondary flex items-center justify-center">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share Guidelines
+            </button>
+          </div>
+        </div>
+
+        {/* Contact Information */}
+        <div className="mt-16 card bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-l-4 border-l-blue-500">
           <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
-              <Phone className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+              <Phone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Important Contacts
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Key personnel and emergency contacts
+              <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100">
+                Need Help?
+              </h3>
+              <p className="text-blue-700 dark:text-blue-300">
+                Contact our support team for any questions or clarifications
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">
-                Program Staff
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-secondary-400" />
-                  <div>
-                    <p className="font-medium text-secondary-900 dark:text-white">Dr. Sarah Johnson</p>
-                    <p className="text-sm text-secondary-600 dark:text-secondary-400">Program Coordinator</p>
-                    <p className="text-sm text-primary-600 dark:text-primary-400">sarah.johnson@university.edu</p>
-                  </div>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Email Support</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">coordinator@university.edu</p>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-secondary-400" />
-                  <div>
-                    <p className="font-medium text-secondary-900 dark:text-white">Emergency Hotline</p>
-                    <p className="text-sm text-secondary-600 dark:text-secondary-400">24/7 Support</p>
-                    <p className="text-sm text-primary-600 dark:text-primary-400">+1 (555) 987-6543</p>
-                  </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Phone Support</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 98765 43210</p>
                 </div>
               </div>
             </div>
-
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">
-                Company Contacts
-              </h3>
-              <div className="space-y-3">
-                <div className="p-3 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                  <p className="font-medium text-secondary-900 dark:text-white">TechCorp Industries</p>
-                  <p className="text-sm text-secondary-600 dark:text-secondary-400">John Smith, HR Manager</p>
-                  <p className="text-sm text-primary-600 dark:text-primary-400">john.smith@techcorp.com</p>
-                </div>
-                <div className="p-3 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                  <p className="font-medium text-secondary-900 dark:text-white">GreenEnergy Solutions</p>
-                  <p className="text-sm text-secondary-600 dark:text-secondary-400">Maria Garcia, Operations</p>
-                  <p className="text-sm text-primary-600 dark:text-primary-400">maria.garcia@greenenergy.com</p>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Emergency Contact</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 98765 43211</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Download Section */}
-        <div className="card">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-4">
-              Download Resources
-            </h2>
-            <p className="text-secondary-600 dark:text-secondary-400 mb-6">
-              Get all the essential documents and guides for your industry visit
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <button className="btn-secondary flex items-center justify-center">
-                <Download className="w-4 h-4 mr-2" />
-                Complete Guide PDF
-              </button>
-              <button className="btn-secondary flex items-center justify-center">
-                <Download className="w-4 h-4 mr-2" />
-                Safety Manual
-              </button>
-              <button className="btn-secondary flex items-center justify-center">
-                <Download className="w-4 h-4 mr-2" />
-                Company Profiles
-              </button>
+              <div className="flex items-center space-x-3">
+                <Clock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Support Hours</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">24/7 during visit</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -17,10 +17,18 @@ import {
   Info,
   Star,
   Bus,
-  Plane
+  Plane,
+  BarChart3,
+  Route,
+  CalendarDays,
+  Eye
 } from 'lucide-react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function Schedule() {
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [timelineRef, timelineVisible] = useScrollAnimation()
+  const [summaryRef, summaryVisible] = useScrollAnimation()
   const scheduleData = [
     {
       date: '2024-05-23',
@@ -122,6 +130,44 @@ export default function Schedule() {
           type: 'return'
         }
       ]
+    },
+    {
+      date: '2024-05-25',
+      day: 'Saturday',
+      dayNumber: 'Day 3',
+      events: [
+        {
+          time: '08:00 AM',
+          title: 'Hotel Checkout & Breakfast',
+          location: 'Hotel Grand Chennai',
+          description: 'Complete hotel checkout formalities and enjoy breakfast before departure.',
+          type: 'checkout'
+        },
+        {
+          time: '10:30 AM',
+          title: 'Departure from Perambur',
+          location: 'Perambur Railway Station',
+          description: 'Board Humsafar Express for return journey to Bengaluru. Please arrive 30 minutes early.',
+          type: 'departure',
+          trainDetails: {
+            trainName: 'Humsafar Express',
+            trainNumber: '22353',
+            departure: '11:00 AM',
+            arrival: '05:30 PM',
+            platform: 'Platform 2',
+            journeyDuration: '6h 30m',
+            class: 'AC 3 Tier',
+            status: 'On Time'
+          }
+        },
+        {
+          time: '05:30 PM',
+          title: 'Arrival at SMVT Bengaluru',
+          location: 'Sir M. Visvesvaraya Terminal',
+          description: 'Arrive at SMVT Bengaluru. Transfer to campus or home. End of program.',
+          type: 'arrival'
+        }
+      ]
     }
   ]
 
@@ -132,6 +178,8 @@ export default function Schedule() {
       case 'arrival':
         return <MapPin className="w-5 h-5" />
       case 'hotel':
+        return <Hotel className="w-5 h-5" />
+      case 'checkout':
         return <Hotel className="w-5 h-5" />
       case 'orientation':
         return <Info className="w-5 h-5" />
@@ -162,6 +210,8 @@ export default function Schedule() {
         return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
       case 'hotel':
         return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
+      case 'checkout':
+        return 'bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200'
       case 'orientation':
         return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200'
       case 'free':
@@ -187,7 +237,10 @@ export default function Schedule() {
     <div className="min-h-screen py-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-secondary-900 dark:to-secondary-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 fade-in-up ${headerVisible ? 'animate' : ''}`}
+        >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-6">
             <Calendar className="w-8 h-8 text-white" />
           </div>
@@ -332,6 +385,126 @@ export default function Schedule() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Visual Summary Section */}
+        <div 
+          ref={summaryRef}
+          className={`mt-16 fade-in-up ${summaryVisible ? 'animate' : ''}`}
+        >
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4">
+              <BarChart3 className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-secondary-900 dark:text-white mb-4">
+              Journey Summary
+            </h2>
+            <p className="text-lg text-secondary-600 dark:text-secondary-400">
+              Complete overview of your three-day Integral Coach Factory visit
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Total Days */}
+            <div className="card text-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-l-4 border-l-blue-500">
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CalendarDays className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="text-3xl font-bold text-blue-900 dark:text-blue-100 mb-2">3</h3>
+              <p className="text-blue-700 dark:text-blue-300 font-medium">Total Days</p>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">May 23-25, 2024</p>
+            </div>
+
+            {/* Factory Visits */}
+            <div className="card text-center bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 border-l-4 border-l-red-500">
+              <div className="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Factory className="w-8 h-8 text-red-600 dark:text-red-400" />
+              </div>
+              <h3 className="text-3xl font-bold text-red-900 dark:text-red-100 mb-2">2</h3>
+              <p className="text-red-700 dark:text-red-300 font-medium">Factory Visits</p>
+              <p className="text-sm text-red-600 dark:text-red-400 mt-1">ICF & Rail Museum</p>
+            </div>
+
+            {/* Travel Distance */}
+            <div className="card text-center bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-l-4 border-l-green-500">
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Route className="w-8 h-8 text-green-600 dark:text-green-400" />
+              </div>
+              <h3 className="text-3xl font-bold text-green-900 dark:text-green-100 mb-2">700+</h3>
+              <p className="text-green-700 dark:text-green-300 font-medium">KM Travel</p>
+              <p className="text-sm text-green-600 dark:text-green-400 mt-1">Bengaluru ↔ Chennai</p>
+            </div>
+
+            {/* Sightseeing Spots */}
+            <div className="card text-center bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 border-l-4 border-l-purple-500">
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+              </div>
+              <h3 className="text-3xl font-bold text-purple-900 dark:text-purple-100 mb-2">5+</h3>
+              <p className="text-purple-700 dark:text-purple-300 font-medium">Sightseeing Spots</p>
+              <p className="text-sm text-purple-600 dark:text-purple-400 mt-1">Marina Beach, Fort St. George</p>
+            </div>
+          </div>
+
+          {/* Journey Highlights */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="card bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-l-amber-500">
+              <div className="flex items-center mb-4">
+                <Train className="w-6 h-6 text-amber-600 dark:text-amber-400 mr-3" />
+                <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100">
+                  Train Journeys
+                </h3>
+              </div>
+              <ul className="space-y-2 text-amber-800 dark:text-amber-200">
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  Chennai Mail (12658) - Outbound
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  Humsafar Express (22353) - Return
+                </li>
+              </ul>
+            </div>
+
+            <div className="card bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 border-l-4 border-l-teal-500">
+              <div className="flex items-center mb-4">
+                <Building className="w-6 h-6 text-teal-600 dark:text-teal-400 mr-3" />
+                <h3 className="text-lg font-semibold text-teal-900 dark:text-teal-100">
+                  Key Locations
+                </h3>
+              </div>
+              <ul className="space-y-2 text-teal-800 dark:text-teal-200">
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 mr-2" />
+                  Integral Coach Factory
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 mr-2" />
+                  Rail Museum, Perambur
+                </li>
+              </ul>
+            </div>
+
+            <div className="card bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border-l-4 border-l-pink-500">
+              <div className="flex items-center mb-4">
+                <Camera className="w-6 h-6 text-pink-600 dark:text-pink-400 mr-3" />
+                <h3 className="text-lg font-semibold text-pink-900 dark:text-pink-100">
+                  Sightseeing
+                </h3>
+              </div>
+              <ul className="space-y-2 text-pink-800 dark:text-pink-200">
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
+                  Marina Beach
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
+                  Fort St. George
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
