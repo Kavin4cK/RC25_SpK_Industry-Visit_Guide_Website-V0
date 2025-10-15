@@ -2,301 +2,523 @@
 
 import { useState } from 'react'
 import { 
-  HelpCircle, 
-  Search, 
   ChevronDown, 
   ChevronUp, 
+  Plane, 
+  Hotel, 
+  Factory, 
+  HelpCircle,
   MessageCircle,
   Send,
+  X,
   Bot,
-  User
+  User,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Info
 } from 'lucide-react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
-export default function Questions() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
-  const [chatMessages, setChatMessages] = useState([
-    {
-      id: 1,
-      type: 'bot',
-      message: 'Hello! I\'m here to help with your industry visit questions. What would you like to know?',
-      timestamp: new Date()
-    }
+interface FAQItem {
+  id: string
+  question: string
+  answer: string
+  category: 'travel' | 'accommodation' | 'visit' | 'general'
+  priority: 'high' | 'medium' | 'low'
+}
+
+const faqData: FAQItem[] = [
+  // Travel Category
+  {
+    id: 'travel-1',
+    question: 'What time should I arrive at KSR Bengaluru station?',
+    answer: 'Please arrive at KSR Bengaluru station by 8:30 AM on 23rd May. The Chennai Mail (12658) departs at 9:00 AM from Platform 1. Arriving early ensures smooth boarding and group coordination.',
+    category: 'travel',
+    priority: 'high'
+  },
+  {
+    id: 'travel-2',
+    question: 'What documents do I need for train travel?',
+    answer: 'You need a valid government-issued ID (Aadhar Card, Driving License, or Passport) and your train ticket. Keep both documents easily accessible during the journey.',
+    category: 'travel',
+    priority: 'high'
+  },
+  {
+    id: 'travel-3',
+    question: 'Can I bring my own food on the train?',
+    answer: 'Yes, you can bring your own food. However, the train has a pantry car with meals available for purchase. We recommend bringing light snacks and water for the journey.',
+    category: 'travel',
+    priority: 'medium'
+  },
+  {
+    id: 'travel-4',
+    question: 'What happens if I miss the train?',
+    answer: 'If you miss the train, immediately contact the program coordinator at +91 98765 43210. We will arrange alternative transportation to Chennai, but you may miss some scheduled activities.',
+    category: 'travel',
+    priority: 'high'
+  },
+  {
+    id: 'travel-5',
+    question: 'Is there Wi-Fi available on the train?',
+    answer: 'Wi-Fi availability varies by train and route. We recommend downloading any necessary materials beforehand and using mobile data for essential communication.',
+    category: 'travel',
+    priority: 'low'
+  },
+
+  // Accommodation Category
+  {
+    id: 'accommodation-1',
+    question: 'What are the hotel check-in and check-out times?',
+    answer: 'Check-in is at 2:00 PM on Day 1 (23rd May) and check-out is at 8:00 AM on Day 3 (25th May). Early check-in or late check-out may incur additional charges.',
+    category: 'accommodation',
+    priority: 'high'
+  },
+  {
+    id: 'accommodation-2',
+    question: 'What amenities are available at the hotel?',
+    answer: 'Hotel Grand Chennai offers AC rooms, 24/7 room service, restaurant, conference facilities, Wi-Fi, laundry services, and 24/7 security. All rooms are twin-sharing with modern amenities.',
+    category: 'accommodation',
+    priority: 'medium'
+  },
+  {
+    id: 'accommodation-3',
+    question: 'Can I request a single room?',
+    answer: 'Single rooms are not available as per the program arrangement. All participants will be accommodated in twin-sharing rooms with same-gender roommates.',
+    category: 'accommodation',
+    priority: 'medium'
+  },
+  {
+    id: 'accommodation-4',
+    question: 'What should I do if I have issues with my room?',
+    answer: 'Contact the hotel front desk immediately for any room-related issues. For program-specific concerns, reach out to the program coordinator at +91 98765 43210.',
+    category: 'accommodation',
+    priority: 'medium'
+  },
+  {
+    id: 'accommodation-5',
+    question: 'Are meals included in the accommodation?',
+    answer: 'Breakfast is included on Day 2 and Day 3. Lunch and dinner arrangements will be communicated during the program. The hotel restaurant offers various meal options.',
+    category: 'accommodation',
+    priority: 'medium'
+  },
+
+  // Visit Details Category
+  {
+    id: 'visit-1',
+    question: 'What should I expect during the ICF factory tour?',
+    answer: 'The ICF tour includes visiting production lines, quality control areas, and design departments. You will see coach manufacturing processes, safety protocols, and interact with engineers. Photography is restricted in certain areas.',
+    category: 'visit',
+    priority: 'high'
+  },
+  {
+    id: 'visit-2',
+    question: 'What safety equipment will be provided?',
+    answer: 'Safety helmets, safety glasses, and high-visibility vests will be provided during factory tours. You must wear all provided safety equipment and follow safety instructions at all times.',
+    category: 'visit',
+    priority: 'high'
+  },
+  {
+    id: 'visit-3',
+    question: 'Can I take photographs during the visit?',
+    answer: 'Photography is allowed in designated areas only. Some production areas and sensitive equipment are restricted. Always ask for permission before taking photos and respect the company\'s photography policies.',
+    category: 'visit',
+    priority: 'medium'
+  },
+  {
+    id: 'visit-4',
+    question: 'What should I bring for the factory visit?',
+    answer: 'Bring your ID card, notebook, pen, and any required documents. Avoid loose clothing, jewelry, or items that could pose safety risks. Follow the dress code guidelines strictly.',
+    category: 'visit',
+    priority: 'high'
+  },
+  {
+    id: 'visit-5',
+    question: 'Will there be Q&A sessions with engineers?',
+    answer: 'Yes, there will be dedicated Q&A sessions with ICF engineers and management. Prepare your questions in advance and participate actively in these interactive sessions.',
+    category: 'visit',
+    priority: 'medium'
+  },
+
+  // General Category
+  {
+    id: 'general-1',
+    question: 'What is the emergency contact number?',
+    answer: 'For emergencies, contact the program coordinator at +91 98765 43210 or the emergency line at +91 98765 43211. These numbers are available 24/7 during the visit.',
+    category: 'general',
+    priority: 'high'
+  },
+  {
+    id: 'general-2',
+    question: 'What should I do if I feel unwell during the visit?',
+    answer: 'Inform the program coordinator immediately. The hotel has a doctor on call, and we can arrange medical assistance. Keep your health insurance details handy.',
+    category: 'general',
+    priority: 'high'
+  },
+  {
+    id: 'general-3',
+    question: 'Can I leave the group during free time?',
+    answer: 'Free time activities are group-based for safety. If you need to leave the group, inform the coordinator and ensure you have emergency contact numbers. Always travel in pairs or small groups.',
+    category: 'general',
+    priority: 'medium'
+  },
+  {
+    id: 'general-4',
+    question: 'What is the expected weather in Chennai?',
+    answer: 'Chennai in May is hot and humid with temperatures around 35-40°C. Bring light, breathable clothing, sunscreen, and stay hydrated. An umbrella is recommended for sudden showers.',
+    category: 'general',
+    priority: 'medium'
+  },
+  {
+    id: 'general-5',
+    question: 'Will there be a certificate of participation?',
+    answer: 'Yes, all participants will receive a certificate of participation from ICF and the university. Certificates will be distributed at the end of the program.',
+    category: 'general',
+    priority: 'low'
+  }
+]
+
+const categoryIcons = {
+  travel: Plane,
+  accommodation: Hotel,
+  visit: Factory,
+  general: HelpCircle
+}
+
+const categoryColors = {
+  travel: 'bg-blue-500',
+  accommodation: 'bg-purple-500',
+  visit: 'bg-green-500',
+  general: 'bg-orange-500'
+}
+
+const priorityColors = {
+  high: 'text-red-600',
+  medium: 'text-yellow-600',
+  low: 'text-green-600'
+}
+
+const priorityIcons = {
+  high: AlertCircle,
+  medium: Info,
+  low: CheckCircle
+}
+
+// Sample chatbot responses
+const chatbotResponses = [
+  "Hello! I'm here to help with your ICF visit questions. How can I assist you today?",
+  "For train travel, please arrive at KSR by 8:30 AM on 23rd May. The Chennai Mail departs at 9:00 AM.",
+  "Hotel check-in is at 2:00 PM on Day 1 and check-out is at 8:00 AM on Day 3.",
+  "Safety equipment will be provided during factory tours. Please follow all safety instructions.",
+  "For emergencies, contact +91 98765 43210. This number is available 24/7 during the visit.",
+  "Photography is allowed in designated areas only. Always ask for permission before taking photos.",
+  "The ICF tour includes production lines, quality control, and design departments. You'll interact with engineers.",
+  "Breakfast is included on Day 2 and Day 3. Other meals will be arranged during the program.",
+  "Chennai weather in May is hot and humid (35-40°C). Bring light clothing and stay hydrated.",
+  "All participants will receive a certificate of participation from ICF and the university."
+]
+
+export default function QuestionsPage() {
+  const [expandedItems, setExpandedItems] = useState<string[]>([])
+  const [activeCategory, setActiveCategory] = useState<string>('all')
+  const [chatOpen, setChatOpen] = useState(false)
+  const [chatMessages, setChatMessages] = useState<Array<{id: string, text: string, isUser: boolean, timestamp: Date}>>([
+    { id: '1', text: "Hello! I'm here to help with your ICF visit questions. How can I assist you today?", isUser: false, timestamp: new Date() }
   ])
-  const [newMessage, setNewMessage] = useState('')
+  const [inputMessage, setInputMessage] = useState('')
 
-  const faqData = [
-    {
-      id: 1,
-      question: 'What should I bring to the industry visit?',
-      answer: 'You should bring your student ID, signed permission forms, notebook and pen, fully charged mobile phone, and dress in business casual attire. A complete checklist is available in the Instructions section.'
-    },
-    {
-      id: 2,
-      question: 'What is the dress code for the visits?',
-      answer: 'Business casual attire is required. This includes dress pants or skirts, collared shirts or blouses, and closed-toe shoes. Avoid jeans, t-shirts, or overly casual clothing.'
-    },
-    {
-      id: 3,
-      question: 'Can I take photos during the facility tours?',
-      answer: 'Photography is generally not allowed without explicit permission from company representatives. Some areas may have strict no-photography policies for security reasons.'
-    },
-    {
-      id: 4,
-      question: 'What happens if I\'m late for departure?',
-      answer: 'Please arrive 15 minutes early for all departures. If you\'re running late, contact the program coordinator immediately. The bus will not wait for late arrivals.'
-    },
-    {
-      id: 5,
-      question: 'Are meals provided during the visits?',
-      answer: 'Lunch is typically provided at company cafeterias, but it\'s recommended to bring some money or a packed lunch as backup. Dietary restrictions should be communicated in advance.'
-    },
-    {
-      id: 6,
-      question: 'What if I have a medical emergency?',
-      answer: 'In case of a medical emergency, immediately inform your group supervisor or any company representative. Emergency contact numbers are provided in your instruction packet.'
-    },
-    {
-      id: 7,
-      question: 'Can I ask questions during the tours?',
-      answer: 'Yes! Questions are encouraged during designated Q&A sessions. Please wait for appropriate times to ask questions and be respectful of the presenter\'s time.'
-    },
-    {
-      id: 8,
-      question: 'What should I do if I get separated from my group?',
-      answer: 'Stay calm and contact your group supervisor immediately. Do not wander around the facility alone. Wait at a designated meeting point if one has been established.'
-    }
-  ]
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [faqRef, faqVisible] = useScrollAnimation()
+  const [chatbotRef, chatbotVisible] = useScrollAnimation()
 
-  const filteredFAQs = faqData.filter(faq =>
-    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const toggleExpanded = (itemId: string) => {
+    setExpandedItems(prev => 
+      prev.includes(itemId) 
+        ? prev.filter(id => id !== itemId)
+        : [...prev, itemId]
+    )
+  }
 
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!newMessage.trim()) return
+  const filteredFAQs = activeCategory === 'all' 
+    ? faqData 
+    : faqData.filter(item => item.category === activeCategory)
+
+  const handleSendMessage = () => {
+    if (!inputMessage.trim()) return
 
     const userMessage = {
-      id: chatMessages.length + 1,
-      type: 'user' as const,
-      message: newMessage,
+      id: Date.now().toString(),
+      text: inputMessage,
+      isUser: true,
       timestamp: new Date()
     }
 
     setChatMessages(prev => [...prev, userMessage])
-    setNewMessage('')
+    setInputMessage('')
 
     // Simulate bot response
     setTimeout(() => {
-      const botResponse = {
-        id: chatMessages.length + 2,
-        type: 'bot' as const,
-        message: 'Thank you for your question! I\'m processing your request and will provide a helpful response shortly. In the meantime, you might find the answer in our FAQ section above.',
+      const randomResponse = chatbotResponses[Math.floor(Math.random() * chatbotResponses.length)]
+      const botMessage = {
+        id: (Date.now() + 1).toString(),
+        text: randomResponse,
+        isUser: false,
         timestamp: new Date()
       }
-      setChatMessages(prev => [...prev, botResponse])
+      setChatMessages(prev => [...prev, botMessage])
     }, 1000)
   }
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSendMessage()
+    }
+  }
+
   return (
-    <div className="min-h-screen py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
-            Questions & Support
-          </h1>
-          <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto">
-            Find answers to common questions or chat with our AI assistant for instant help.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* FAQ Section */}
-          <div className="space-y-6">
-            <div className="card">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                  <HelpCircle className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                    Frequently Asked Questions
-                  </h2>
-                  <p className="text-secondary-600 dark:text-secondary-400">
-                    Quick answers to common questions
-                  </p>
-                </div>
-              </div>
-
-              {/* Search */}
-              <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search FAQs..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                />
-              </div>
-
-              {/* FAQ Items */}
-              <div className="space-y-4">
-                {filteredFAQs.map((faq) => (
-                  <div
-                    key={faq.id}
-                    className="border border-secondary-200 dark:border-secondary-700 rounded-lg overflow-hidden"
-                  >
-                    <button
-                      onClick={() => setExpandedFAQ(expandedFAQ === faq.id ? null : faq.id)}
-                      className="w-full px-4 py-4 text-left bg-secondary-50 dark:bg-secondary-800 hover:bg-secondary-100 dark:hover:bg-secondary-700 transition-colors duration-200 flex items-center justify-between"
-                    >
-                      <span className="font-medium text-secondary-900 dark:text-white">
-                        {faq.question}
-                      </span>
-                      {expandedFAQ === faq.id ? (
-                        <ChevronUp className="w-5 h-5 text-secondary-400" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-secondary-400" />
-                      )}
-                    </button>
-                    {expandedFAQ === faq.id && (
-                      <div className="px-4 py-4 bg-white dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-700">
-                        <p className="text-secondary-600 dark:text-secondary-400">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Chat Section */}
-          <div className="space-y-6">
-            <div className="card h-full flex flex-col">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
-                  <MessageCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                    AI Assistant
-                  </h2>
-                  <p className="text-secondary-600 dark:text-secondary-400">
-                    Get instant help with your questions
-                  </p>
-                </div>
-              </div>
-
-              {/* Chat Messages */}
-              <div className="flex-1 space-y-4 mb-6 max-h-96 overflow-y-auto">
-                {chatMessages.map((message) => (
-                  <div
-                    key={message.id}
-                    className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div
-                      className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                        message.type === 'user'
-                          ? 'bg-primary-600 text-white'
-                          : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-900 dark:text-white'
-                      }`}
-                    >
-                      <div className="flex items-start space-x-2">
-                        {message.type === 'bot' && (
-                          <Bot className="w-4 h-4 mt-1 flex-shrink-0" />
-                        )}
-                        {message.type === 'user' && (
-                          <User className="w-4 h-4 mt-1 flex-shrink-0" />
-                        )}
-                        <div>
-                          <p className="text-sm">{message.message}</p>
-                          <p className={`text-xs mt-1 ${
-                            message.type === 'user' 
-                              ? 'text-primary-100' 
-                              : 'text-secondary-500 dark:text-secondary-400'
-                          }`}>
-                            {message.timestamp.toLocaleTimeString()}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Chat Input */}
-              <form onSubmit={handleSendMessage} className="flex space-x-2">
-                <input
-                  type="text"
-                  placeholder="Ask a question..."
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  className="flex-1 px-4 py-2 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                />
-                <button
-                  type="submit"
-                  className="btn-primary px-4 py-2"
-                  disabled={!newMessage.trim()}
-                >
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Information */}
-        <div className="mt-12 card">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-4">
-              Still Need Help?
-            </h2>
-            <p className="text-secondary-600 dark:text-secondary-400 mb-6">
-              Contact our support team for personalized assistance
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900">
+      {/* Header Section */}
+      <div 
+        ref={headerRef}
+        className={`fade-in-up ${headerVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Questions & FAQ
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+              Find answers to common questions about your Integral Coach Factory visit
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-4 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                <h3 className="font-semibold text-secondary-900 dark:text-white mb-2">
-                  Program Coordinator
-                </h3>
-                <p className="text-sm text-secondary-600 dark:text-secondary-400 mb-1">
-                  Dr. Sarah Johnson
-                </p>
-                <p className="text-sm text-primary-600 dark:text-primary-400">
-                  sarah.johnson@university.edu
-                </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
+                <HelpCircle className="w-5 h-5 text-blue-500" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {faqData.length} Questions
+                </span>
               </div>
-              <div className="p-4 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                <h3 className="font-semibold text-secondary-900 dark:text-white mb-2">
-                  Emergency Hotline
-                </h3>
-                <p className="text-sm text-secondary-600 dark:text-secondary-400 mb-1">
-                  24/7 Support
-                </p>
-                <p className="text-sm text-primary-600 dark:text-primary-400">
-                  +1 (555) 987-6543
-                </p>
-              </div>
-              <div className="p-4 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                <h3 className="font-semibold text-secondary-900 dark:text-white mb-2">
-                  Technical Support
-                </h3>
-                <p className="text-sm text-secondary-600 dark:text-secondary-400 mb-1">
-                  IT Helpdesk
-                </p>
-                <p className="text-sm text-primary-600 dark:text-primary-400">
-                  support@university.edu
-                </p>
+              <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
+                <MessageCircle className="w-5 h-5 text-green-500" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Live Chat Available
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Category Filter */}
+      <div className="container mx-auto px-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-4">
+          <button
+            onClick={() => setActiveCategory('all')}
+            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              activeCategory === 'all'
+                ? 'bg-blue-500 text-white shadow-lg'
+                : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-slate-700'
+            }`}
+          >
+            All Questions
+          </button>
+          {Object.entries(categoryIcons).map(([category, Icon]) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
+                activeCategory === category
+                  ? `${categoryColors[category as keyof typeof categoryColors]} text-white shadow-lg`
+                  : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div 
+        ref={faqRef}
+        className={`fade-in-up ${faqVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 pb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {filteredFAQs.map((item, index) => {
+                const Icon = categoryIcons[item.category]
+                const PriorityIcon = priorityIcons[item.priority]
+                const isExpanded = expandedItems.includes(item.id)
+                
+                return (
+                  <div
+                    key={item.id}
+                    className={`fade-in-up stagger-${(index % 6) + 1} ${
+                      faqVisible ? 'animate' : ''
+                    }`}
+                  >
+                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      <button
+                        onClick={() => toggleExpanded(item.id)}
+                        className="w-full px-6 py-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className={`p-2 rounded-lg ${categoryColors[item.category]}`}>
+                              <Icon className="w-5 h-5 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                {item.question}
+                              </h3>
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className="text-sm text-gray-500 dark:text-gray-400 capitalize">
+                                  {item.category}
+                                </span>
+                                <PriorityIcon className={`w-4 h-4 ${priorityColors[item.priority]}`} />
+                                <span className={`text-sm font-medium ${priorityColors[item.priority]}`}>
+                                  {item.priority}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex-shrink-0">
+                            {isExpanded ? (
+                              <ChevronUp className="w-5 h-5 text-gray-500" />
+                            ) : (
+                              <ChevronDown className="w-5 h-5 text-gray-500" />
+                            )}
+                          </div>
+                        </div>
+                      </button>
+                      
+                      <div className={`transition-all duration-300 ease-in-out ${
+                        isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}>
+                        <div className="px-6 pb-4">
+                          <div className="border-t border-gray-200 dark:border-slate-700 pt-4">
+                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                              {item.answer}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Chatbot Integration Placeholder */}
+      <div 
+        ref={chatbotRef}
+        className={`fade-in-up ${chatbotVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 pb-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                Need More Help?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                Can't find what you're looking for? Our AI assistant is here to help with any questions about your ICF visit.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => setChatOpen(true)}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 flex items-center gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Start Chat
+                </button>
+                <button className="bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg font-medium transition-colors duration-300">
+                  Contact Support
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Chat Button */}
+      <button
+        onClick={() => setChatOpen(!chatOpen)}
+        className="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+      >
+        {chatOpen ? (
+          <X className="w-6 h-6" />
+        ) : (
+          <MessageCircle className="w-6 h-6" />
+        )}
+      </button>
+
+      {/* Chat Window */}
+      {chatOpen && (
+        <div className="fixed bottom-24 right-6 w-80 h-96 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-gray-200 dark:border-slate-700 z-40 flex flex-col">
+          {/* Chat Header */}
+          <div className="bg-blue-500 text-white p-4 rounded-t-xl flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Bot className="w-5 h-5" />
+              <span className="font-medium">ICF Assistant</span>
+            </div>
+            <button
+              onClick={() => setChatOpen(false)}
+              className="text-white hover:text-gray-200"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Chat Messages */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {chatMessages.map((message) => (
+              <div
+                key={message.id}
+                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+              >
+                <div
+                  className={`max-w-xs px-4 py-2 rounded-lg ${
+                    message.isUser
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white'
+                  }`}
+                >
+                  <p className="text-sm">{message.text}</p>
+                  <p className="text-xs opacity-70 mt-1">
+                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Chat Input */}
+          <div className="p-4 border-t border-gray-200 dark:border-slate-700">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Type your message..."
+                className="flex-1 px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+              />
+              <button
+                onClick={handleSendMessage}
+                disabled={!inputMessage.trim()}
+                className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white p-2 rounded-lg transition-colors duration-300"
+              >
+                <Send className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
