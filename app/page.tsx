@@ -43,10 +43,10 @@ import {
   Luggage
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { ObjectivesSection } from '@/components/ObjectivesSection'
-import { AccessoriesChecklist } from '@/components/AccessoriesChecklist'
-import { DressCodeSection } from '@/components/DressCodeSection'
-import { StationsPreviewSection } from '@/components/StationsPreviewSection'
+import ObjectivesSection from '@/components/ObjectivesSection'
+import AccessoriesChecklist from '@/components/AccessoriesChecklist'
+import DressCodeSection from '@/components/DressCodeSection'
+import StationsPreviewSection from '@/components/StationsPreviewSection'
 
 export default function Home() {
   return (

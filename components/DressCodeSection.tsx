@@ -2,7 +2,7 @@
 
 import { 
   Shirt,
-  Shoe,
+  Footprints,
   User,
   UserCheck,
   AlertCircle,
@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
-export function DressCodeSection() {
+export default function DressCodeSection() {
   const [headerRef, headerVisible] = useScrollAnimation()
   const [cardsRef, cardsVisible] = useScrollAnimation()
   const [guidelinesRef, guidelinesVisible] = useScrollAnimation()
@@ -37,7 +37,7 @@ export function DressCodeSection() {
     {
       item: 'Formal Shoes',
       description: 'Closed-toe formal shoes',
-      icon: Shoe,
+      icon: Footprints,
       required: true,
       examples: ['Black Leather', 'Brown Leather']
     },
@@ -68,7 +68,7 @@ export function DressCodeSection() {
     {
       item: 'Formal Shoes',
       description: 'Closed-toe formal shoes (low heels preferred)',
-      icon: Shoe,
+      icon: Footprints,
       required: true,
       examples: ['Black', 'Brown', 'Navy']
     },

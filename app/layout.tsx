@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import { Navigation } from '@/components/Navigation'
+import ThemeProvider from '@/components/ThemeProvider'
+import Navigation from '@/components/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,11 +27,7 @@ export const metadata: Metadata = {
     title: 'Integral Coach Factory iV 2024 - Industry Visit Guide',
     description: 'Comprehensive guide for the three-day industrial visit to Integral Coach Factory Chennai',
   },
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#3b82f6' },
-    { media: '(prefers-color-scheme: dark)', color: '#1e40af' }
-  ],
+  metadataBase: new URL('https://icf-industry-visit.vercel.app'),
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

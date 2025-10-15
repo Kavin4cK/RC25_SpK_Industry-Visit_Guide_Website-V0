@@ -9,13 +9,13 @@ import {
   TrendingUp,
   Eye,
   Brain,
-  Handshake,
+  Users,
   CheckCircle,
   Star
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
-export function ObjectivesSection() {
+export default function ObjectivesSection() {
   const [headerRef, headerVisible] = useScrollAnimation()
   const [gridRef, gridVisible] = useScrollAnimation()
   const [outcomesRef, outcomesVisible] = useScrollAnimation()
@@ -79,7 +79,7 @@ export function ObjectivesSection() {
       color: 'blue'
     },
     {
-      icon: Handshake,
+      icon: Users,
       title: 'Industry Connections',
       description: 'Professional network expansion',
       color: 'green'

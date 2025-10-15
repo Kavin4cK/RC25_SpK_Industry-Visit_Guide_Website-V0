@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
-export function AccessoriesChecklist() {
+export default function AccessoriesChecklist() {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set())
   const [headerRef, headerVisible] = useScrollAnimation()
   const [gridRef, gridVisible] = useScrollAnimation()

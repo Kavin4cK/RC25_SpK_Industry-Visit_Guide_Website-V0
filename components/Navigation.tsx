@@ -26,7 +26,7 @@ const navigation = [
   { name: 'Arrival & Departure', href: '/arrival-departure', icon: MapPin },
 ]
 
-export function Navigation() {
+export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearchOpen, setIsSearchOpen] = useState(false)

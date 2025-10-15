@@ -17,7 +17,7 @@ import {
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import Link from 'next/link'
 
-export function StationsPreviewSection() {
+export default function StationsPreviewSection() {
   const [headerRef, headerVisible] = useScrollAnimation()
   const [cardsRef, cardsVisible] = useScrollAnimation()
   const [advisoryRef, advisoryVisible] = useScrollAnimation()
