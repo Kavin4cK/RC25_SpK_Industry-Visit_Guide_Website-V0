@@ -50,9 +50,9 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-secondary-200 dark:border-secondary-700">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo - Far Left */}
-          <div className="flex-shrink-0 flex items-center">
+        <div className="flex items-center h-24">
+          {/* Left Section: Logo + Title */}
+          <div className="flex-shrink-0 flex items-center mr-8">
             <Link href="/" className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
               <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36 flex items-center justify-center">
                 <Image
@@ -69,9 +69,9 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex flex-1 justify-center items-center ml-8">
-            <div className="flex items-center space-x-12">
+          {/* Center Section: Navigation Menu */}
+          <div className="hidden md:flex flex-1 justify-center items-center">
+            <div className="flex items-center space-x-8 lg:space-x-12">
               {navigation.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href
@@ -91,8 +91,8 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Search and Theme Toggle - Right */}
-          <div className="hidden md:flex items-center space-x-6 flex-shrink-0 mr-4">
+          {/* Right Section: Search + Theme Toggle */}
+          <div className="hidden md:flex items-center space-x-4 flex-shrink-0 ml-8">
             {/* Search */}
             <button
               onClick={handleSearchClick}
