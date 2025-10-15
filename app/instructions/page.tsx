@@ -365,14 +365,14 @@ export default function Instructions() {
             </div>
 
             {/* Content Sections */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentContent.sections.map((section, index) => {
                 const Icon = section.icon
                 const sectionColors = getColorClasses(section.color)
                 
                 return (
-                  <div key={index} className="space-y-4">
-                    <div className="flex items-center space-x-3 mb-4">
+                  <div key={index} className="space-y-3">
+                    <div className="flex items-center space-x-3 mb-3">
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                         section.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900' :
                         section.color === 'purple' ? 'bg-purple-100 dark:bg-purple-900' :

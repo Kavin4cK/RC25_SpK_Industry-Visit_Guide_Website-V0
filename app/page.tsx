@@ -1,12 +1,13 @@
 'use client'
 
+import Link from 'next/link'
 import { 
   Calendar, 
   MapPin, 
   Users, 
   Clock, 
-  ArrowRight,
-  CheckCircle,
+  ArrowRight, 
+  CheckCircle, 
   Star,
   Factory,
   Wrench,
@@ -69,34 +70,34 @@ export default function Home() {
           <div className="absolute bottom-40 right-1/3 w-14 h-14 bg-white/6 rounded-full floating-animation-delayed"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <div className="text-center">
             {/* Factory Icon */}
-            <div className="flex justify-center mb-6 animate-fade-in">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
-                <Factory className="w-10 h-10 text-white" />
+            <div className="flex justify-center mb-4 sm:mb-6 animate-fade-in">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
+                <Factory className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white animate-fade-in">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white animate-fade-in">
               <span className="block">Integral Coach Factory</span>
-              <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                iV 2024
+              <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-1 sm:mt-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Industry Visit 2025
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed px-2">
               Embark on an extraordinary three-day journey into the heart of railway manufacturing excellence. 
               Discover cutting-edge technology, witness precision engineering, and experience the future of 
               transportation innovation at India's premier coach manufacturing facility.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in">
-              <button className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in px-4">
+              <Link href="/schedule" className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl inline-flex items-center justify-center min-h-[44px]">
                 Explore 3-Day Journey
-                <ArrowRight className="inline ml-2 w-5 h-5" />
-              </button>
-              <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
+                <ArrowRight className="inline ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
+              <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl min-h-[44px]">
                 Download Guide
               </button>
             </div>
@@ -338,18 +339,18 @@ export default function Home() {
       <section className="py-20 gradient-animate-slow text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Ready for Your Integral Coach Factory Journey?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
             Join us for an unforgettable three-day experience exploring India's premier railway manufacturing facility. 
             Discover innovation, witness precision engineering, and be part of the future of transportation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Link href="/schedule" className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl inline-flex items-center justify-center min-h-[44px]">
               View 3-Day Schedule
-            </button>
-            <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
+            </Link>
+            <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl min-h-[44px]">
               Download Complete Guide
             </button>
           </div>

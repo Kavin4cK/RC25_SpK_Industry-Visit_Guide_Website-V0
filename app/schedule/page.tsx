@@ -33,7 +33,7 @@ export default function Schedule() {
   const [summaryRef, summaryVisible] = useScrollAnimation()
   const scheduleData = [
     {
-      date: '2024-05-23',
+      date: '2025-05-23',
       day: 'Thursday',
       dayNumber: 'Day 1',
       events: [
@@ -85,7 +85,7 @@ export default function Schedule() {
       ]
     },
     {
-      date: '2024-05-24',
+      date: '2025-05-24',
       day: 'Friday',
       dayNumber: 'Day 2',
       events: [
@@ -134,7 +134,7 @@ export default function Schedule() {
       ]
     },
     {
-      date: '2024-05-25',
+      date: '2025-05-25',
       day: 'Saturday',
       dayNumber: 'Day 3',
       events: [
@@ -415,7 +415,7 @@ export default function Schedule() {
               </div>
               <h3 className="text-3xl font-bold text-blue-900 dark:text-blue-100 mb-2">3</h3>
               <p className="text-blue-700 dark:text-blue-300 font-medium">Total Days</p>
-              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">May 23-25, 2024</p>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">May 23-25, 2025</p>
             </div>
 
             {/* Factory Visits */}

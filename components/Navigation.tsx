@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { 
   Search, 
@@ -48,23 +49,29 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-secondary-200 dark:border-secondary-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">RC</span>
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo - Far Left */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 flex items-center justify-center">
+                <Image
+                  src={theme === 'dark' ? '/RVCE_White.png' : '/RVCE_BLACK.png'}
+                  alt="RVCE Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <span className="text-xl font-bold text-secondary-900 dark:text-white">
-                Industry Guide
+              <span className="text-sm sm:text-lg lg:text-xl font-bold text-secondary-900 dark:text-white hidden sm:block">
+                SPARK: Industry Visit Guide
               </span>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex flex-1 justify-center items-center ml-8">
+            <div className="flex items-center space-x-12">
               {navigation.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href
@@ -76,7 +83,7 @@ export default function Navigation() {
                       isActive ? 'active' : ''
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 flex-shrink-0" />
                     <span>{item.name}</span>
                   </Link>
                 )
@@ -84,8 +91,8 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Search and Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Search and Theme Toggle - Right */}
+          <div className="hidden md:flex items-center space-x-6 flex-shrink-0 mr-4">
             {/* Search */}
             <button
               onClick={handleSearchClick}
@@ -113,14 +120,14 @@ export default function Navigation() {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={handleSearchClick}
-              className="p-2 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200"
+              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Search"
             >
               <Search className="w-5 h-5 text-secondary-600 dark:text-secondary-300" />
             </button>
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200"
+              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -131,13 +138,13 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200"
+              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <X className="w-5 h-5 text-secondary-600 dark:text-secondary-300" />
+                <X className="w-6 h-6 text-secondary-600 dark:text-secondary-300" />
               ) : (
-                <Menu className="w-5 h-5 text-secondary-600 dark:text-secondary-300" />
+                <Menu className="w-6 h-6 text-secondary-600 dark:text-secondary-300" />
               )}
             </button>
           </div>
@@ -147,14 +154,14 @@ export default function Navigation() {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-700">
+          <div className="px-4 pt-4 pb-6 space-y-3 bg-white dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-700">
             {/* Mobile Search */}
-            <div className="px-3 py-2">
+            <div className="px-2 py-2">
               <button
                 onClick={handleSearchClick}
-                className="w-full flex items-center gap-2 px-4 py-2 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg text-sm hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-all duration-200"
+                className="w-full flex items-center gap-3 px-4 py-3 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg text-sm hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-all duration-200 min-h-[44px]"
               >
-                <Search className="w-4 h-4 text-secondary-400" />
+                <Search className="w-5 h-5 text-secondary-400" />
                 <span className="text-secondary-500 dark:text-secondary-400">Search...</span>
               </button>
             </div>
@@ -167,13 +174,13 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`nav-link flex items-center space-x-3 px-3 py-2 rounded-lg ${
+                  className={`nav-link flex items-center space-x-3 px-4 py-3 rounded-lg min-h-[44px] ${
                     isActive ? 'active bg-primary-50 dark:bg-primary-900/20' : 'hover:bg-secondary-100 dark:hover:bg-secondary-800'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span>{item.name}</span>
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-base">{item.name}</span>
                 </Link>
               )
             })}

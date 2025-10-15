@@ -32,7 +32,7 @@ const searchData: SearchResult[] = [
   // Home page content
   {
     id: 'hero-title',
-    title: 'Integral Coach Factory iV 2024',
+    title: 'Integral Coach Factory iV 2025',
     description: 'Three-day industrial visit to ICF Chennai',
     category: 'Program',
     page: 'Home',
@@ -373,12 +373,12 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative min-h-screen flex items-start justify-center p-4 pt-16">
-        <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden">
+      <div className="relative min-h-screen flex items-start justify-center p-2 sm:p-4 pt-16 sm:pt-20">
+        <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-2xl w-full max-w-2xl max-h-[85vh] sm:max-h-[80vh] overflow-hidden">
           {/* Header */}
-          <div className="flex items-center gap-4 p-6 border-b border-gray-200 dark:border-slate-700">
+          <div className="flex items-center gap-2 sm:gap-4 p-4 sm:p-6 border-b border-gray-200 dark:border-slate-700">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
               <input
                 ref={inputRef}
                 type="text"
@@ -386,15 +386,15 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Search across all pages..."
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                className="w-full pl-9 sm:pl-10 pr-4 py-2.5 sm:py-3 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm sm:text-base"
               />
               {isLoading && (
-                <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 animate-spin" />
+                <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 animate-spin" />
               )}
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
+              className="p-2 sm:p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
               <X className="w-5 h-5 text-gray-500" />
             </button>
