@@ -1,3 +1,5 @@
+'use client'
+
 import { 
   Calendar, 
   Clock, 
@@ -23,7 +25,7 @@ import {
   CalendarDays,
   Eye
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 export default function Schedule() {
   const [headerRef, headerVisible] = useScrollAnimation()

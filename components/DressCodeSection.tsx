@@ -12,7 +12,7 @@ import {
   Download,
   Share2
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 export default function DressCodeSection() {
   const [headerRef, headerVisible] = useScrollAnimation()

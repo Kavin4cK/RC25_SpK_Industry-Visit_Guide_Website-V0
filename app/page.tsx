@@ -1,3 +1,5 @@
+'use client'
+
 import { 
   Calendar, 
   MapPin, 
@@ -42,7 +44,7 @@ import {
   Users2,
   Luggage
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 import ObjectivesSection from '@/components/ObjectivesSection'
 import AccessoriesChecklist from '@/components/AccessoriesChecklist'
 import DressCodeSection from '@/components/DressCodeSection'
@@ -90,11 +92,11 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in">
-              <button className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <button className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
                 Explore 3-Day Journey
                 <ArrowRight className="inline ml-2 w-5 h-5" />
               </button>
-              <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
                 Download Guide
               </button>
             </div>
@@ -344,10 +346,10 @@ export default function Home() {
             Discover innovation, witness precision engineering, and be part of the future of transportation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <button className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
               View 3-Day Schedule
             </button>
-            <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl">
               Download Complete Guide
             </button>
           </div>

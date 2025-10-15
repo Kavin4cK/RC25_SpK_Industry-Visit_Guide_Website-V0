@@ -26,10 +26,10 @@ import {
   Target,
   Star,
   Eye,
-  Handshake,
+  Users2,
   Award
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 export default function Instructions() {
   const [activeTab, setActiveTab] = useState('dress-code')
@@ -245,7 +245,7 @@ export default function Instructions() {
       },
       {
         title: 'Professional Behavior',
-        icon: Handshake,
+        icon: Users2,
         color: 'blue',
         items: [
           { text: 'Maintain professional demeanor throughout', required: true },
@@ -424,11 +424,11 @@ export default function Instructions() {
         {/* Action Buttons */}
         <div className="mt-12 text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary flex items-center justify-center">
+            <button className="btn-primary flex items-center justify-center rounded-2xl">
               <Download className="w-4 h-4 mr-2" />
               Download Complete Guide
             </button>
-            <button className="btn-secondary flex items-center justify-center">
+            <button className="btn-secondary flex items-center justify-center rounded-2xl">
               <Share2 className="w-4 h-4 mr-2" />
               Share Guidelines
             </button>

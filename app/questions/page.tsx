@@ -18,7 +18,7 @@ import {
   AlertCircle,
   Info
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 interface FAQItem {
   id: string

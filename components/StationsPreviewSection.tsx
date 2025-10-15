@@ -14,7 +14,7 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 import Link from 'next/link'
 
 export default function StationsPreviewSection() {

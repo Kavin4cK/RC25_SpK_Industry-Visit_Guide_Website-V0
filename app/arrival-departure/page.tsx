@@ -21,18 +21,16 @@ import {
   Info,
   Building,
   Factory,
-  Museum,
   Car,
   Footprints,
-  Metro,
   Route,
   Calendar,
   Star,
   Eye,
   Brain,
-  Handshake
+  Users2
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 interface FacilityCard {
   id: string
@@ -116,7 +114,7 @@ const facilityData: FacilityCard[] = [
     ],
     features: [
       {
-        icon: Museum,
+        icon: Building,
         title: 'Heritage Collection',
         description: 'Rare collection of vintage locomotives and royal carriages from different eras'
       },
@@ -151,7 +149,7 @@ const ksrTransportOptions: TransportOption[] = [
     duration: '15-20 minutes',
     distance: '2.5 km',
     cost: '₹25-35',
-    icon: Metro,
+    icon: Train,
     color: 'text-purple-600',
     details: [
       'Board at any Purple Line station',
@@ -205,7 +203,7 @@ const smvtTransportOptions: TransportOption[] = [
     duration: '20-25 minutes',
     distance: '4 km',
     cost: '₹30-40',
-    icon: Metro,
+    icon: Train,
     color: 'text-purple-600',
     details: [
       'Board at any Purple Line station',
@@ -319,7 +317,7 @@ export default function ArrivalDeparturePage() {
                         : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                     }`}
                   >
-                    {facility.id === 'icf' ? <Factory className="w-5 h-5" /> : <Museum className="w-5 h-5" />}
+                    {facility.id === 'icf' ? <Factory className="w-5 h-5" /> : <Building className="w-5 h-5" />}
                     {facility.title}
                   </button>
                 ))}
@@ -652,7 +650,7 @@ export default function ArrivalDeparturePage() {
               {/* Team SPARK Signature */}
               <div className="mt-8 pt-6 border-t border-amber-200 dark:border-amber-700 text-center">
                 <div className="flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
-                  <Handshake className="w-5 h-5" />
+                  <Users2 className="w-5 h-5" />
                   <span className="font-semibold">Team SPARK</span>
                 </div>
                 <p className="text-sm text-amber-500 dark:text-amber-500 mt-1">

@@ -13,7 +13,7 @@ import {
   CheckCircle,
   Star
 } from 'lucide-react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 export default function ObjectivesSection() {
   const [headerRef, headerVisible] = useScrollAnimation()
