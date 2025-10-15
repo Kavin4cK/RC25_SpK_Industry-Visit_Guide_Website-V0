@@ -26,11 +26,27 @@ import {
   Umbrella,
   Footprints,
   Pill,
-  Clipboard
+  Clipboard,
+  Shirt,
+  Shoe,
+  User,
+  UserCheck,
+  AlertCircle,
+  Info,
+  Train,
+  Navigation,
+  Phone,
+  ExternalLink,
+  Map,
+  Clock3,
+  Users2,
+  Luggage
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { ObjectivesSection } from '@/components/ObjectivesSection'
 import { AccessoriesChecklist } from '@/components/AccessoriesChecklist'
+import { DressCodeSection } from '@/components/DressCodeSection'
+import { StationsPreviewSection } from '@/components/StationsPreviewSection'
 
 export default function Home() {
   return (
@@ -91,6 +107,12 @@ export default function Home() {
 
       {/* Accessories Checklist Section */}
       <AccessoriesChecklist />
+
+      {/* Dress Code Section */}
+      <DressCodeSection />
+
+      {/* Arrival & Departure Stations Preview */}
+      <StationsPreviewSection />
 
       {/* Three-Day Journey Overview */}
       <section className="py-20 bg-white dark:bg-secondary-900">
