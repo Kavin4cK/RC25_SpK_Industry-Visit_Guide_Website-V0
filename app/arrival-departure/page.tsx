@@ -1,312 +1,664 @@
+'use client'
+
+import { useState } from 'react'
 import { 
   MapPin, 
   Clock, 
-  Bus, 
-  Car, 
-  Train, 
-  Plane,
+  Users, 
+  Phone, 
+  Globe, 
+  Camera, 
+  Shield, 
+  Award,
+  Train,
+  Bus,
   Navigation,
-  Phone,
-  AlertCircle,
+  Map,
+  ExternalLink,
+  ArrowRight,
   CheckCircle,
-  Download
+  AlertCircle,
+  Info,
+  Building,
+  Factory,
+  Museum,
+  Car,
+  Footprints,
+  Metro,
+  Route,
+  Calendar,
+  Star,
+  Eye,
+  Brain,
+  Handshake
 } from 'lucide-react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
-export default function ArrivalDeparture() {
-  const transportationOptions = [
-    {
-      id: 'bus',
-      name: 'University Bus',
-      icon: Bus,
-      description: 'Organized transportation provided by the university',
-      features: ['Free for students', 'Guided by staff', 'Direct to locations', 'Group coordination'],
-      schedule: 'Departure: 8:00 AM from Main Gate',
-      contact: 'Transport Coordinator: +1 (555) 123-4567'
-    },
-    {
-      id: 'car',
-      name: 'Personal Vehicle',
-      icon: Car,
-      description: 'Drive yourself to the visit locations',
-      features: ['Flexible timing', 'Personal space', 'Parking required', 'GPS navigation'],
-      schedule: 'Arrive 15 minutes before scheduled time',
-      contact: 'Parking Info: +1 (555) 234-5678'
-    },
-    {
-      id: 'public',
-      name: 'Public Transportation',
-      icon: Train,
-      description: 'Use local buses, trains, or metro systems',
-      features: ['Cost-effective', 'Environmentally friendly', 'Multiple routes', 'Real-time updates'],
-      schedule: 'Check local transit schedules',
-      contact: 'Transit Info: 511 or visit localtransit.com'
-    }
-  ]
+interface FacilityCard {
+  id: string
+  title: string
+  subtitle: string
+  description: string
+  highlights: string[]
+  features: Array<{
+    icon: any
+    title: string
+    description: string
+  }>
+  imagePlaceholder: string
+  color: string
+  bgColor: string
+}
 
-  const locations = [
-    {
-      name: 'TechCorp Industries',
-      address: '123 Innovation Drive, Silicon Valley, CA 94000',
-      coordinates: '37.7749° N, 122.4194° W',
-      parking: 'Visitor parking available in front of building',
-      access: 'Main entrance on Innovation Drive',
-      specialInstructions: 'Check-in at reception desk with valid ID'
-    },
-    {
-      name: 'GreenEnergy Solutions',
-      address: '456 Eco Park Boulevard, Eco City, CA 95000',
-      coordinates: '37.7849° N, 122.4094° W',
-      parking: 'Designated visitor parking in Eco Park lot',
-      access: 'Security gate - present student ID',
-      specialInstructions: 'Safety briefing required before facility tour'
-    },
-    {
-      name: 'InnovationLab',
-      address: '789 Tech Street, Downtown District, CA 96000',
-      coordinates: '37.7649° N, 122.4294° W',
-      parking: 'Underground parking garage - Level B2',
-      access: 'Main lobby entrance on Tech Street',
-      specialInstructions: 'Badge required - obtain from security desk'
-    }
-  ]
+interface TransportOption {
+  id: string
+  type: 'metro' | 'bus' | 'walking' | 'taxi'
+  title: string
+  description: string
+  duration: string
+  distance?: string
+  cost?: string
+  icon: any
+  color: string
+  details: string[]
+}
 
-  const emergencyContacts = [
-    {
-      name: 'Transportation Emergency',
-      number: '+1 (555) 911-TRAN',
-      description: 'For transportation-related emergencies'
-    },
-    {
-      name: 'Program Coordinator',
-      number: '+1 (555) 123-4567',
-      description: 'Dr. Sarah Johnson - Main contact'
-    },
-    {
-      name: 'University Security',
-      number: '+1 (555) 911-CAMP',
-      description: 'Campus security and safety'
-    },
-    {
-      name: 'Local Emergency',
-      number: '911',
-      description: 'Police, Fire, Medical emergencies'
-    }
-  ]
+const facilityData: FacilityCard[] = [
+  {
+    id: 'icf',
+    title: 'Integral Coach Factory',
+    subtitle: 'India\'s Premier Rail Coach Manufacturing Unit',
+    description: 'Established in 1955, ICF is one of the world\'s largest rail coach manufacturing facilities, producing over 2,500 coaches annually. The factory spans 511 acres and employs over 8,000 skilled workers.',
+    highlights: [
+      'World\'s largest rail coach manufacturer',
+      'Over 2,500 coaches produced annually',
+      '511 acres of manufacturing facility',
+      '8,000+ skilled workforce',
+      'ISO 9001:2015 certified'
+    ],
+    features: [
+      {
+        icon: Factory,
+        title: 'Production Lines',
+        description: 'State-of-the-art manufacturing with automated assembly lines and precision engineering'
+      },
+      {
+        icon: Shield,
+        title: 'Quality Control',
+        description: 'Rigorous testing and quality assurance processes ensuring world-class standards'
+      },
+      {
+        icon: Brain,
+        title: 'R&D Center',
+        description: 'Advanced research and development facility for next-generation rail technology'
+      },
+      {
+        icon: Award,
+        title: 'Certifications',
+        description: 'ISO 9001:2015, ISO 14001:2015, and OHSAS 18001:2007 certified operations'
+      }
+    ],
+    imagePlaceholder: '/api/placeholder/600/400',
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50 dark:bg-blue-900/20'
+  },
+  {
+    id: 'rail-museum',
+    title: 'Rail Museum Chennai',
+    subtitle: 'Heritage of Indian Railways',
+    description: 'The Rail Museum showcases the rich heritage of Indian Railways with vintage locomotives, royal carriages, and interactive exhibits. It\'s a perfect blend of history and technology.',
+    highlights: [
+      'Vintage steam locomotives',
+      'Royal carriages and coaches',
+      'Interactive railway exhibits',
+      'Heritage railway artifacts',
+      'Educational programs'
+    ],
+    features: [
+      {
+        icon: Museum,
+        title: 'Heritage Collection',
+        description: 'Rare collection of vintage locomotives and royal carriages from different eras'
+      },
+      {
+        icon: Eye,
+        title: 'Interactive Exhibits',
+        description: 'Hands-on displays and multimedia presentations about railway technology'
+      },
+      {
+        icon: Camera,
+        title: 'Photo Opportunities',
+        description: 'Perfect spots for photography with historic trains and railway memorabilia'
+      },
+      {
+        icon: Users,
+        title: 'Educational Tours',
+        description: 'Guided tours explaining the evolution of Indian Railways over the decades'
+      }
+    ],
+    imagePlaceholder: '/api/placeholder/600/400',
+    color: 'text-green-600',
+    bgColor: 'bg-green-50 dark:bg-green-900/20'
+  }
+]
+
+const ksrTransportOptions: TransportOption[] = [
+  {
+    id: 'metro-ksr',
+    type: 'metro',
+    title: 'Namma Metro',
+    description: 'Take Purple Line to KSR Bengaluru City Metro Station',
+    duration: '15-20 minutes',
+    distance: '2.5 km',
+    cost: '₹25-35',
+    icon: Metro,
+    color: 'text-purple-600',
+    details: [
+      'Board at any Purple Line station',
+      'Get down at KSR Bengaluru City Metro Station',
+      'Exit towards Platform 1 (Main Station)',
+      'Walk 200m to reach KSR main entrance'
+    ]
+  },
+  {
+    id: 'bus-ksr',
+    type: 'bus',
+    title: 'BMTC Bus',
+    description: 'Multiple bus routes connect to KSR Bengaluru City',
+    duration: '20-30 minutes',
+    distance: '3-5 km',
+    cost: '₹15-25',
+    icon: Bus,
+    color: 'text-red-600',
+    details: [
+      'Routes: 201, 202, 203, 204, 205',
+      'Frequency: Every 5-10 minutes',
+      'Get down at KSR Bengaluru City Bus Stop',
+      'Walk 100m to station entrance'
+    ]
+  },
+  {
+    id: 'walking-ksr',
+    type: 'walking',
+    title: 'Walking Directions',
+    description: 'From nearby landmarks to KSR Bengaluru City',
+    duration: '10-15 minutes',
+    distance: '1-2 km',
+    cost: 'Free',
+    icon: Footprints,
+    color: 'text-green-600',
+    details: [
+      'From Majestic Bus Stand: 800m walk',
+      'From City Railway Station Metro: 200m walk',
+      'From Kempegowda Bus Station: 1.2km walk',
+      'Follow signboards to Platform 1'
+    ]
+  }
+]
+
+const smvtTransportOptions: TransportOption[] = [
+  {
+    id: 'metro-smvt',
+    type: 'metro',
+    title: 'Namma Metro',
+    description: 'Take Purple Line to SMVT Bengaluru Metro Station',
+    duration: '20-25 minutes',
+    distance: '4 km',
+    cost: '₹30-40',
+    icon: Metro,
+    color: 'text-purple-600',
+    details: [
+      'Board at any Purple Line station',
+      'Get down at SMVT Bengaluru Metro Station',
+      'Exit towards Platform 1 (Main Station)',
+      'Walk 150m to reach SMVT main entrance'
+    ]
+  },
+  {
+    id: 'bus-smvt',
+    type: 'bus',
+    title: 'BMTC Bus',
+    description: 'Direct bus routes to SMVT Bengaluru',
+    duration: '25-35 minutes',
+    distance: '5-7 km',
+    cost: '₹20-30',
+    icon: Bus,
+    color: 'text-red-600',
+    details: [
+      'Routes: 301, 302, 303, 304, 305',
+      'Frequency: Every 8-12 minutes',
+      'Get down at SMVT Bengaluru Bus Stop',
+      'Walk 80m to station entrance'
+    ]
+  },
+  {
+    id: 'walking-smvt',
+    type: 'walking',
+    title: 'Walking Directions',
+    description: 'From nearby areas to SMVT Bengaluru',
+    duration: '15-20 minutes',
+    distance: '2-3 km',
+    cost: 'Free',
+    icon: Footprints,
+    color: 'text-green-600',
+    details: [
+      'From Yeshwantpur: 2.5km walk',
+      'From SMVT Metro Station: 150m walk',
+      'From Malleswaram: 1.8km walk',
+      'Follow signboards to Platform 1'
+    ]
+  }
+]
+
+export default function ArrivalDeparturePage() {
+  const [activeFacility, setActiveFacility] = useState('icf')
+  const [activeStation, setActiveStation] = useState('ksr')
+
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [facilitiesRef, facilitiesVisible] = useScrollAnimation()
+  const [transportRef, transportVisible] = useScrollAnimation()
+  const [advisoryRef, advisoryVisible] = useScrollAnimation()
+
+  const selectedFacility = facilityData.find(f => f.id === activeFacility)
+  const selectedTransportOptions = activeStation === 'ksr' ? ksrTransportOptions : smvtTransportOptions
 
   return (
-    <div className="min-h-screen py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
-            Arrival & Departure
-          </h1>
-          <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto">
-            Complete transportation guide with directions, parking information, and emergency contacts for all visit locations.
-          </p>
-        </div>
-
-        {/* Transportation Options */}
-        <div className="card mb-8">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-              <Bus className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Transportation Options
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Choose the best way to get to your industry visits
-              </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900">
+      {/* Header Section */}
+      <div 
+        ref={headerRef}
+        className={`fade-in-up ${headerVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Arrival & Departure
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+              Everything you need to know about reaching your destinations and exploring the facilities
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
+                <MapPin className="w-5 h-5 text-blue-500" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  KSR & SMVT Stations
+                </span>
+              </div>
+              <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
+                <Factory className="w-5 h-5 text-green-500" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  ICF & Rail Museum
+                </span>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {transportationOptions.map((option) => {
-              const Icon = option.icon
-              return (
-                <div key={option.id} className="card hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-3">
-                      <Icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-secondary-900 dark:text-white">
-                      {option.name}
+      {/* Facility Information Section */}
+      <div 
+        ref={facilitiesRef}
+        className={`fade-in-up ${facilitiesVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 pb-16">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+              Visit Destinations
+            </h2>
+            
+            {/* Facility Tabs */}
+            <div className="flex justify-center mb-8">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-2 shadow-lg">
+                {facilityData.map((facility) => (
+                  <button
+                    key={facility.id}
+                    onClick={() => setActiveFacility(facility.id)}
+                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
+                      activeFacility === facility.id
+                        ? `${facility.bgColor} ${facility.color} shadow-md`
+                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                  >
+                    {facility.id === 'icf' ? <Factory className="w-5 h-5" /> : <Museum className="w-5 h-5" />}
+                    {facility.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Facility Details */}
+            {selectedFacility && (
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Left Column - Information */}
+                <div className="space-y-6">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      {selectedFacility.title}
                     </h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                      {selectedFacility.subtitle}
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                      {selectedFacility.description}
+                    </p>
+                    
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Key Highlights:</h4>
+                      {selectedFacility.highlights.map((highlight, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                          <span className="text-gray-700 dark:text-gray-300">{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  
-                  <p className="text-secondary-600 dark:text-secondary-400 mb-4">
-                    {option.description}
-                  </p>
 
-                  <div className="space-y-2 mb-4">
-                    {option.features.map((feature, index) => (
-                      <div key={index} className="flex items-center">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                        <span className="text-sm text-secondary-700 dark:text-secondary-300">
-                          {feature}
-                        </span>
+                  {/* Features Grid */}
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {selectedFacility.features.map((feature, index) => (
+                      <div
+                        key={index}
+                        className={`fade-in-up stagger-${index + 1} ${
+                          facilitiesVisible ? 'animate' : ''
+                        }`}
+                      >
+                        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300">
+                          <div className={`p-3 rounded-lg ${selectedFacility.bgColor} w-fit mb-4`}>
+                            <feature.icon className={`w-6 h-6 ${selectedFacility.color}`} />
+                          </div>
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                            {feature.title}
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-300">
+                            {feature.description}
+                          </p>
+                        </div>
                       </div>
                     ))}
                   </div>
+                </div>
 
-                  <div className="border-t border-secondary-200 dark:border-secondary-700 pt-4">
-                    <div className="flex items-center mb-2">
-                      <Clock className="w-4 h-4 text-secondary-400 mr-2" />
-                      <span className="text-sm font-medium text-secondary-900 dark:text-white">
-                        Schedule:
-                      </span>
+                {/* Right Column - Image Placeholder */}
+                <div className="space-y-6">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
+                    <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                      <div className="text-center">
+                        <Camera className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+                        <p className="text-gray-500 dark:text-gray-400 font-medium">
+                          {selectedFacility.title} Image
+                        </p>
+                        <p className="text-sm text-gray-400 dark:text-gray-500">
+                          High-quality facility photography
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-sm text-secondary-600 dark:text-secondary-400 mb-3">
-                      {option.schedule}
-                    </p>
-                    
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 text-secondary-400 mr-2" />
-                      <span className="text-sm text-secondary-600 dark:text-secondary-400">
-                        {option.contact}
-                      </span>
+                    <div className="p-6">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                        Visual Tour
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                        Experience the facility through our comprehensive visual documentation
+                      </p>
+                      <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center gap-2">
+                        <Eye className="w-4 h-4" />
+                        View Gallery
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Quick Info Cards */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-4 text-center">
+                      <Clock className="w-8 h-8 text-blue-500 mx-auto mb-2" />
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">Visit Duration</p>
+                      <p className="text-lg font-bold text-blue-600">2-3 Hours</p>
+                    </div>
+                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-4 text-center">
+                      <Users className="w-8 h-8 text-green-500 mx-auto mb-2" />
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">Group Size</p>
+                      <p className="text-lg font-bold text-green-600">25-30</p>
                     </div>
                   </div>
                 </div>
-              )
-            })}
+              </div>
+            )}
           </div>
         </div>
+      </div>
 
-        {/* Location Details */}
-        <div className="card mb-8">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
-              <MapPin className="w-6 h-6 text-green-600 dark:text-green-400" />
+      {/* Transportation Section */}
+      <div 
+        ref={transportRef}
+        className={`fade-in-up ${transportVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 pb-16">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+              Getting to Railway Stations
+            </h2>
+
+            {/* Station Tabs */}
+            <div className="flex justify-center mb-8">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-2 shadow-lg">
+                <button
+                  onClick={() => setActiveStation('ksr')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
+                    activeStation === 'ksr'
+                      ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 shadow-md'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                >
+                  <Train className="w-5 h-5" />
+                  KSR Bengaluru
+                </button>
+                <button
+                  onClick={() => setActiveStation('smvt')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
+                    activeStation === 'smvt'
+                      ? 'bg-green-50 dark:bg-green-900/20 text-green-600 shadow-md'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                >
+                  <Train className="w-5 h-5" />
+                  SMVT Bengaluru
+                </button>
+              </div>
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Visit Locations
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Detailed information for each company location
-              </p>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Left Column - Map Placeholder */}
+              <div className="space-y-6">
+                <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
+                  <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
+                    <div className="text-center">
+                      <Map className="w-16 h-16 text-blue-500 mx-auto mb-4" />
+                      <p className="text-blue-700 dark:text-blue-300 font-medium">
+                        Google Maps Integration
+                      </p>
+                      <p className="text-sm text-blue-600 dark:text-blue-400">
+                        {activeStation === 'ksr' ? 'KSR Bengaluru City Station' : 'SMVT Bengaluru Station'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      Interactive Map
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                      Get real-time directions and traffic updates
+                    </p>
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      Open in Maps
+                    </button>
+                  </div>
+                </div>
+
+                {/* Station Info Card */}
+                <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                    <MapPin className="w-5 h-5 text-blue-500" />
+                    Station Information
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600 dark:text-gray-400">Full Name:</span>
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {activeStation === 'ksr' ? 'KSR Bengaluru City' : 'SMVT Bengaluru'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600 dark:text-gray-400">Station Code:</span>
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {activeStation === 'ksr' ? 'SBC' : 'SMVB'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600 dark:text-gray-400">Platforms:</span>
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {activeStation === 'ksr' ? '10 Platforms' : '8 Platforms'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600 dark:text-gray-400">Facilities:</span>
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        AC Waiting, Food Court, Parking
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Transport Options */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                  Transportation Options
+                </h3>
+                
+                {selectedTransportOptions.map((option, index) => (
+                  <div
+                    key={option.id}
+                    className={`fade-in-up stagger-${index + 1} ${
+                      transportVisible ? 'animate' : ''
+                    }`}
+                  >
+                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6">
+                      <div className="flex items-start gap-4">
+                        <div className={`p-3 rounded-lg ${
+                          option.type === 'metro' ? 'bg-purple-100 dark:bg-purple-900/20' :
+                          option.type === 'bus' ? 'bg-red-100 dark:bg-red-900/20' :
+                          option.type === 'walking' ? 'bg-green-100 dark:bg-green-900/20' :
+                          'bg-yellow-100 dark:bg-yellow-900/20'
+                        }`}>
+                          <option.icon className={`w-6 h-6 ${option.color}`} />
+                        </div>
+                        
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-semibold text-gray-900 dark:text-white">
+                              {option.title}
+                            </h4>
+                            <div className="flex items-center gap-4 text-sm">
+                              <span className="text-gray-600 dark:text-gray-400">
+                                {option.duration}
+                              </span>
+                              {option.distance && (
+                                <span className="text-gray-600 dark:text-gray-400">
+                                  {option.distance}
+                                </span>
+                              )}
+                              {option.cost && (
+                                <span className="font-medium text-green-600">
+                                  {option.cost}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          
+                          <p className="text-gray-600 dark:text-gray-300 mb-3">
+                            {option.description}
+                          </p>
+                          
+                          <div className="space-y-1">
+                            {option.details.map((detail, detailIndex) => (
+                              <div key={detailIndex} className="flex items-center gap-2 text-sm">
+                                <ArrowRight className="w-3 h-3 text-gray-400" />
+                                <span className="text-gray-600 dark:text-gray-300">{detail}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="space-y-6">
-            {locations.map((location, index) => (
-              <div key={index} className="p-6 rounded-lg bg-secondary-50 dark:bg-secondary-800">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
-                      {location.name}
-                    </h3>
-                    <div className="flex items-center text-secondary-600 dark:text-secondary-400 mb-1">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      {location.address}
-                    </div>
-                    <div className="flex items-center text-sm text-secondary-500 dark:text-secondary-500">
-                      <Navigation className="w-4 h-4 mr-2" />
-                      {location.coordinates}
-                    </div>
-                  </div>
-                  <button className="btn-primary text-sm px-4 py-2">
-                    Get Directions
-                  </button>
+      {/* Advisory Message Section */}
+      <div 
+        ref={advisoryRef}
+        className={`fade-in-up ${advisoryVisible ? 'animate' : ''}`}
+      >
+        <div className="container mx-auto px-4 pb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl shadow-lg p-8 border border-amber-200 dark:border-amber-800">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+                  <AlertCircle className="w-8 h-8 text-amber-600 dark:text-amber-400" />
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-medium text-secondary-900 dark:text-white mb-2">
-                      Parking Information
-                    </h4>
-                    <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                      {location.parking}
+                
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-amber-800 dark:text-amber-200 mb-4">
+                    Important Advisory
+                  </h3>
+                  
+                  <div className="space-y-4 text-amber-700 dark:text-amber-300">
+                    <p className="font-medium">
+                      Please ensure you have minimal luggage for this industrial visit:
                     </p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-secondary-900 dark:text-white mb-2">
-                      Access Instructions
-                    </h4>
-                    <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                      {location.access}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
-                  <div className="flex items-start">
-                    <AlertCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 mr-2 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-medium text-yellow-800 dark:text-yellow-200 mb-1">
-                        Special Instructions
-                      </h4>
-                      <p className="text-sm text-yellow-700 dark:text-yellow-300">
-                        {location.specialInstructions}
+                    
+                    <ul className="space-y-2 ml-4">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Carry only essential items (clothes, toiletries, documents)</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Use a small backpack or cabin-sized luggage</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Keep valuables and electronics secure at all times</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Follow all safety protocols during factory visits</span>
+                      </li>
+                    </ul>
+                    
+                    <div className="mt-6 pt-4 border-t border-amber-200 dark:border-amber-700">
+                      <p className="text-sm text-amber-600 dark:text-amber-400">
+                        For any queries or assistance, contact the program coordinators.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Emergency Contacts */}
-        <div className="card mb-8">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-4">
-              <Phone className="w-6 h-6 text-red-600 dark:text-red-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-secondary-900 dark:text-white">
-                Emergency Contacts
-              </h2>
-              <p className="text-secondary-600 dark:text-secondary-400">
-                Important numbers for emergencies and support
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {emergencyContacts.map((contact, index) => (
-              <div key={index} className="p-4 rounded-lg bg-secondary-50 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold text-secondary-900 dark:text-white">
-                    {contact.name}
-                  </h3>
-                  <span className="text-lg font-bold text-primary-600 dark:text-primary-400">
-                    {contact.number}
-                  </span>
+              
+              {/* Team SPARK Signature */}
+              <div className="mt-8 pt-6 border-t border-amber-200 dark:border-amber-700 text-center">
+                <div className="flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
+                  <Handshake className="w-5 h-5" />
+                  <span className="font-semibold">Team SPARK</span>
                 </div>
-                <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                  {contact.description}
+                <p className="text-sm text-amber-500 dark:text-amber-500 mt-1">
+                  Industry Visit Coordination Team
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Download Section */}
-        <div className="card">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-4">
-              Download Resources
-            </h2>
-            <p className="text-secondary-600 dark:text-secondary-400 mb-6">
-              Get offline access to all transportation and location information
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <button className="btn-secondary flex items-center justify-center">
-                <Download className="w-4 h-4 mr-2" />
-                Complete Transport Guide
-              </button>
-              <button className="btn-secondary flex items-center justify-center">
-                <Download className="w-4 h-4 mr-2" />
-                Location Maps
-              </button>
-              <button className="btn-secondary flex items-center justify-center">
-                <Download className="w-4 h-4 mr-2" />
-                Emergency Contacts
-              </button>
             </div>
           </div>
         </div>
