@@ -49,12 +49,12 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-secondary-200 dark:border-secondary-700">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-24">
           {/* Logo - Far Left */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
-              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36 flex items-center justify-center">
+          <div className="flex-shrink-0 flex items-center max-w-xs">
+            <Link href="/" className="flex items-center space-x-1 sm:space-x-2 lg:space-x-3">
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center">
                 <Image
                   src={theme === 'dark' ? '/RVCE_White.png' : '/RVCE_BLACK.png'}
                   alt="RVCE Logo"
@@ -63,15 +63,15 @@ export default function Navigation() {
                   priority
                 />
               </div>
-              <span className="text-sm sm:text-lg lg:text-xl font-bold text-secondary-900 dark:text-white hidden sm:block">
+              <span className="text-xs sm:text-sm lg:text-base font-bold text-secondary-900 dark:text-white hidden lg:block">
                 SPARK: Industry Visit Guide
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex flex-1 justify-center items-center ml-8">
-            <div className="flex items-center space-x-12">
+          <div className="hidden md:flex flex-1 justify-center items-center mx-2">
+            <div className="flex items-center space-x-4 lg:space-x-6">
               {navigation.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href
@@ -79,12 +79,13 @@ export default function Navigation() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`nav-link flex items-center space-x-1 ${
+                    className={`nav-link flex items-center space-x-1 text-sm lg:text-base ${
                       isActive ? 'active' : ''
                     }`}
                   >
-                    <Icon className="w-4 h-4 flex-shrink-0" />
-                    <span>{item.name}</span>
+                    <Icon className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0" />
+                    <span className="hidden lg:inline">{item.name}</span>
+                    <span className="lg:hidden">{item.name?.split(' ')[0] || item.name}</span>
                   </Link>
                 )
               })}
@@ -92,26 +93,26 @@ export default function Navigation() {
           </div>
 
           {/* Search and Theme Toggle - Right */}
-          <div className="hidden md:flex items-center space-x-6 flex-shrink-0 mr-4">
+          <div className="hidden md:flex items-center space-x-2 flex-shrink-0">
             {/* Search */}
             <button
               onClick={handleSearchClick}
-              className="flex items-center gap-2 px-4 py-2 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg text-sm hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="flex items-center gap-1 px-2 py-2 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg text-sm hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               <Search className="w-4 h-4 text-secondary-400" />
-              <span className="text-secondary-500 dark:text-secondary-400">Search...</span>
+              <span className="text-secondary-500 dark:text-secondary-400 hidden lg:inline">Search...</span>
             </button>
 
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="p-1.5 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
+                <Sun className="w-4 h-4 text-yellow-500" />
               ) : (
-                <Moon className="w-5 h-5 text-secondary-600" />
+                <Moon className="w-4 h-4 text-secondary-600" />
               )}
             </button>
           </div>

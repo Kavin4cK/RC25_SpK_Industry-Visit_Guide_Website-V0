@@ -33,9 +33,11 @@ export default function ThemeProvider({
   useEffect(() => {
     // Load theme from localStorage on client side
     // First load shows light theme, then check for stored preference
-    const storedTheme = localStorage.getItem(storageKey) as Theme
-    if (storedTheme && storedTheme !== 'light') {
-      setTheme(storedTheme)
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem(storageKey) as Theme
+      if (storedTheme && storedTheme !== 'light') {
+        setTheme(storedTheme)
+      }
     }
     // If no stored theme or stored theme is 'light', keep the default 'light' theme
   }, [storageKey])
