@@ -21,7 +21,6 @@ import {
   TrendingUp,
   Eye,
   Brain,
-  Handshake,
   CreditCard,
   Smartphone,
   Shield,
@@ -31,7 +30,6 @@ import {
   Pill,
   Clipboard,
   Shirt,
-  Shoe,
   User,
   UserCheck,
   AlertCircle,
@@ -89,7 +87,7 @@ export default function Home() {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed px-2">
               Embark on an extraordinary three-day journey into the heart of railway manufacturing excellence. 
               Discover cutting-edge technology, witness precision engineering, and experience the future of 
-              transportation innovation at India's premier coach manufacturing facility.
+              transportation innovation at India&apos;s premier coach manufacturing facility.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in px-4">
@@ -310,7 +308,7 @@ export default function Home() {
                 </h3>
               </div>
               <p className="text-secondary-600 dark:text-secondary-400 mb-4">
-                Learn about Integral Coach Factory's history, capabilities, and manufacturing excellence in railway technology.
+                Learn about Integral Coach Factory&apos;s history, capabilities, and manufacturing excellence in railway technology.
               </p>
               <button className="text-primary-600 dark:text-primary-400 font-medium group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
                 Explore Factory →
@@ -343,7 +341,7 @@ export default function Home() {
             Ready for Your Integral Coach Factory Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
-            Join us for an unforgettable three-day experience exploring India's premier railway manufacturing facility. 
+            Join us for an unforgettable three-day experience exploring India&apos;s premier railway manufacturing facility. 
             Discover innovation, witness precision engineering, and be part of the future of transportation.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">

@@ -416,7 +416,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div className="p-8 text-center">
                 <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
                 <p className="text-gray-500 dark:text-gray-400">
-                  No results found for "{query}"
+                  No results found for &quot;{query}&quot;
                 </p>
                 <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
                   Try different keywords or check spelling

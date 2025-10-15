@@ -322,7 +322,7 @@ export default function AccessoriesChecklist() {
           <div className="mt-8 text-center">
             <div className="inline-flex items-center px-6 py-3 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 rounded-full">
               <CheckCircle className="w-5 h-5 mr-2" />
-              <span className="font-medium">All items packed! You're ready for the visit! 🎉</span>
+              <span className="font-medium">All items packed! You&apos;re ready for the visit! 🎉</span>
             </div>
           </div>
         )}

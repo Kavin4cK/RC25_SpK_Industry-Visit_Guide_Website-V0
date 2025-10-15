@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { 
   Shirt,
-  Shoe,
+  Footprints,
   User,
   UserCheck,
   AlertCircle,
