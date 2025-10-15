@@ -42,7 +42,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="min-h-screen bg-secondary-50 dark:bg-secondary-900 transition-colors duration-300 flex flex-col">
             <Navigation />
-            <main className="pt-16 sm:pt-20 flex-1">
+            <main className="pt-20 sm:pt-24 flex-1">
               {children}
             </main>
             <Footer />

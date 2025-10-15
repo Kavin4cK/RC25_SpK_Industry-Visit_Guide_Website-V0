@@ -373,7 +373,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative min-h-screen flex items-start justify-center p-2 sm:p-4 pt-16 sm:pt-20">
+      <div className="relative min-h-screen flex items-start justify-center p-2 sm:p-4 pt-20 sm:pt-24">
         <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-2xl w-full max-w-2xl max-h-[85vh] sm:max-h-[80vh] overflow-hidden">
           {/* Header */}
           <div className="flex items-center gap-2 sm:gap-4 p-4 sm:p-6 border-b border-gray-200 dark:border-slate-700">

@@ -50,11 +50,11 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-secondary-200 dark:border-secondary-700">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo - Far Left */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
-              <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 flex items-center justify-center">
+              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36 flex items-center justify-center">
                 <Image
                   src={theme === 'dark' ? '/RVCE_White.png' : '/RVCE_BLACK.png'}
                   alt="RVCE Logo"
