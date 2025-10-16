@@ -95,9 +95,6 @@ export default function Home() {
                 Explore 3-Day Journey
                 <ArrowRight className="inline ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
-              <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl min-h-[44px]">
-                Download Guide
-              </button>
             </div>
           </div>
         </div>
@@ -349,9 +346,6 @@ export default function Home() {
             <Link href="/schedule" className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl inline-flex items-center justify-center min-h-[44px]">
               View 3-Day Schedule
             </Link>
-            <button className="btn-secondary bg-white/20 hover:bg-white/30 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-sm border border-white/30 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl min-h-[44px]">
-              Download Complete Guide
-            </button>
           </div>
         </div>
       </section>

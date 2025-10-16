@@ -10,8 +10,6 @@ import {
   Info,
   CheckCircle,
   XCircle,
-  Download,
-  Share2,
   Hotel,
   MapPin,
   Train,
@@ -424,19 +422,6 @@ export default function Instructions() {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="mt-12 text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary flex items-center justify-center rounded-2xl">
-              <Download className="w-4 h-4 mr-2" />
-              Download Complete Guide
-            </button>
-            <button className="btn-secondary flex items-center justify-center rounded-2xl">
-              <Share2 className="w-4 h-4 mr-2" />
-              Share Guidelines
-            </button>
-          </div>
-        </div>
 
         {/* Contact Information */}
         <div className="mt-16 card bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-l-4 border-l-blue-500">

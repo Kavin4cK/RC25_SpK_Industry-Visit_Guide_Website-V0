@@ -10,9 +10,7 @@ import {
   Footprints,
   Pill,
   Clipboard,
-  CheckCircle,
-  Download,
-  Share2
+  CheckCircle
 } from 'lucide-react'
 import useScrollAnimation from '@/hooks/useScrollAnimation'
 
@@ -303,19 +301,6 @@ export default function AccessoriesChecklist() {
           })}
         </div>
 
-        {/* Action Buttons */}
-        <div className="mt-12 text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary flex items-center justify-center">
-              <Download className="w-4 h-4 mr-2" />
-              Download Checklist
-            </button>
-            <button className="btn-secondary flex items-center justify-center">
-              <Share2 className="w-4 h-4 mr-2" />
-              Share with Friends
-            </button>
-          </div>
-        </div>
 
         {/* Completion Message */}
         {checkedCount === totalCount && (
