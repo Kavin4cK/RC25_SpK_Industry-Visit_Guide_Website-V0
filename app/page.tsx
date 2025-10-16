@@ -80,12 +80,12 @@ export default function Home() {
             <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white animate-fade-in">
               <span className="block">Industry Visit Guide</span>
               <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-1 sm:mt-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                December 2024
+                December 2025
               </span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed px-2">
-              Join 65 participants on an extraordinary three-day journey from Bangalore to Chennai (8th-10th December 2024). 
+              Join 65 participants on an extraordinary three-day journey from Bangalore to Chennai (8th-10th December 2025). 
               Discover cutting-edge technology at Integral Coach Factory, explore railway heritage, and experience 
               cultural richness at Matsya Narayana Temple.
             </p>
@@ -120,7 +120,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
-              Your Three-Day Journey (8th-10th December 2024)
+              Your Three-Day Journey (8th-10th December 2025)
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
               Experience the complete manufacturing process at Integral Coach Factory, explore railway heritage, 
@@ -341,7 +341,7 @@ export default function Home() {
             Ready for Your Industry Visit Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
-            Join 65 participants for an unforgettable three-day experience (8th-10th December 2024) exploring 
+            Join 65 participants for an unforgettable three-day experience (8th-10th December 2025) exploring 
             India&apos;s premier railway manufacturing facility and cultural heritage. Discover innovation, 
             witness precision engineering, and immerse yourself in tradition.
           </p>
