@@ -32,7 +32,7 @@ export default function StationsPreviewSection() {
       color: 'blue',
       location: 'Majestic, Bengaluru',
       coordinates: '12.9772° N, 77.5686° E',
-      distance: '15 km from Integral Coach Factory',
+      distance: '12.4 Kms from RVCE',
       travelTime: '45-60 minutes',
       facilities: [
         'Multiple platforms',
@@ -47,7 +47,6 @@ export default function StationsPreviewSection() {
         lng: 77.5686,
         zoom: 15
       },
-      contact: '+91 80 2235 1111',
       address: 'Station Rd, Kempegowda, Bengaluru, Karnataka 560023'
     },
     {
@@ -74,7 +73,6 @@ export default function StationsPreviewSection() {
         lng: 77.6604,
         zoom: 15
       },
-      contact: '+91 80 2235 2222',
       address: 'Baiyappanahalli, Bengaluru, Karnataka 560038'
     }
   ]
@@ -217,15 +215,6 @@ export default function StationsPreviewSection() {
                           <p className="text-xs text-secondary-500 dark:text-secondary-500">Travel Time</p>
                           <p className="text-sm font-medium text-secondary-900 dark:text-white">
                             {station.travelTime}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Phone className="w-4 h-4 text-secondary-400" />
-                        <div>
-                          <p className="text-xs text-secondary-500 dark:text-secondary-500">Contact</p>
-                          <p className="text-sm font-medium text-secondary-900 dark:text-white">
-                            {station.contact}
                           </p>
                         </div>
                       </div>
