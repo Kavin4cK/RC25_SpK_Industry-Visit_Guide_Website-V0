@@ -78,16 +78,16 @@ export default function Home() {
             </div>
             
             <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white animate-fade-in">
-              <span className="block">Integral Coach Factory</span>
+              <span className="block">Industry Visit Guide</span>
               <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-1 sm:mt-2 bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                Industry Visit 2025
+                December 2024
               </span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed px-2">
-              Embark on an extraordinary three-day journey into the heart of railway manufacturing excellence. 
-              Discover cutting-edge technology, witness precision engineering, and experience the future of 
-              transportation innovation at India&apos;s premier coach manufacturing facility.
+              Join 65 participants on an extraordinary three-day journey from Bangalore to Chennai (8th-10th December 2024). 
+              Discover cutting-edge technology at Integral Coach Factory, explore railway heritage, and experience 
+              cultural richness at Matsya Narayana Temple.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in px-4">
@@ -120,11 +120,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
-              Your Three-Day Journey
+              Your Three-Day Journey (8th-10th December 2024)
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
-              Experience the complete manufacturing process from raw materials to finished railway coaches. 
-              Each day offers unique insights into different aspects of railway technology and innovation.
+              Experience the complete manufacturing process at Integral Coach Factory, explore railway heritage, 
+              and immerse yourself in cultural experiences. Each day offers unique insights into technology and tradition.
             </p>
           </div>
 
@@ -139,30 +139,30 @@ export default function Home() {
                   <Wrench className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-4">
-                  Manufacturing Foundations
+                  Journey Begins
                 </h3>
                 <div className="space-y-3 text-left">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Raw material processing</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Departure from KSR Bengaluru</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Welding and fabrication</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Overnight train journey</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Quality control systems</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Arrival at MGR Central Chennai</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Safety protocols</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Hotel check-in and rest</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-secondary-200 dark:border-secondary-700">
                   <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                    <strong>Duration:</strong> 8:00 AM - 5:00 PM<br/>
-                    <strong>Focus:</strong> Core manufacturing processes
+                    <strong>Duration:</strong> 10:40 PM - 7:30 AM<br/>
+                    <strong>Focus:</strong> Travel and arrival
                   </p>
                 </div>
               </div>
@@ -178,30 +178,30 @@ export default function Home() {
                   <Cog className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-4">
-                  Assembly & Integration
+                  Industry & Culture
                 </h3>
                 <div className="space-y-3 text-left">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Coach assembly line</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Integral Coach Factory visit</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Electrical systems</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Chennai Rail Museum</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Interior fittings</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Matsya Narayana Temple</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Testing procedures</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Hotel Blu Ivy stay</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-secondary-200 dark:border-secondary-700">
                   <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                    <strong>Duration:</strong> 8:00 AM - 5:00 PM<br/>
-                    <strong>Focus:</strong> Assembly and integration
+                    <strong>Duration:</strong> 4:30 AM - 9:00 PM<br/>
+                    <strong>Focus:</strong> Industry visits and culture
                   </p>
                 </div>
               </div>
@@ -217,30 +217,30 @@ export default function Home() {
                   <Zap className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-4">
-                  Innovation & Future
+                  Journey Home
                 </h3>
                 <div className="space-y-3 text-left">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">R&D laboratories</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Hotel checkout</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Smart technologies</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Departure from MGR Central</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Sustainability initiatives</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Return journey to Bangalore</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Future projects</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Arrival at KSR Bengaluru</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-secondary-200 dark:border-secondary-700">
                   <p className="text-sm text-secondary-600 dark:text-secondary-400">
-                    <strong>Duration:</strong> 8:00 AM - 4:00 PM<br/>
-                    <strong>Focus:</strong> Innovation and research
+                    <strong>Duration:</strong> 5:00 AM - 1:10 PM<br/>
+                    <strong>Focus:</strong> Return journey
                   </p>
                 </div>
               </div>
@@ -338,11 +338,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Ready for Your Integral Coach Factory Journey?
+            Ready for Your Industry Visit Journey?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
-            Join us for an unforgettable three-day experience exploring India&apos;s premier railway manufacturing facility. 
-            Discover innovation, witness precision engineering, and be part of the future of transportation.
+            Join 65 participants for an unforgettable three-day experience (8th-10th December 2024) exploring 
+            India&apos;s premier railway manufacturing facility and cultural heritage. Discover innovation, 
+            witness precision engineering, and immerse yourself in tradition.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <Link href="/schedule" className="btn-primary bg-white text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl inline-flex items-center justify-center min-h-[44px]">

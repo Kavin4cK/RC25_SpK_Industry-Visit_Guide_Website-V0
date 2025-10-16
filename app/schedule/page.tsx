@@ -33,140 +33,140 @@ export default function Schedule() {
   const [summaryRef, summaryVisible] = useScrollAnimation()
   const scheduleData = [
     {
-      date: '2025-05-23',
-      day: 'Thursday',
+      date: '2024-12-08',
+      day: 'Sunday',
       dayNumber: 'Day 1',
       events: [
         {
-          time: '06:00 AM',
-          title: 'Departure from KSR Bengaluru',
-          location: 'Krantivira Sangolli Rayanna Railway Station',
-          description: 'Gather at KSR station for departure to Chennai. Please arrive 30 minutes early for boarding.',
+          time: '10:40 PM',
+          title: 'Train Departs from Bangalore to Chennai',
+          location: 'KSR Bengaluru Railway Station',
+          description: 'Overnight journey to Chennai. Please arrive 30 minutes early for boarding.',
           type: 'departure',
           trainDetails: {
-            trainName: 'Chennai Mail',
-            trainNumber: '12658',
-            departure: '06:30 AM',
-            arrival: '12:45 PM',
-            platform: 'Platform 1',
-            journeyDuration: '6h 15m',
+            trainName: 'Overnight Express',
+            trainNumber: 'TBD',
+            departure: '10:40 PM',
+            arrival: '04:30 AM',
+            platform: 'Platform TBD',
+            journeyDuration: '5h 50m',
             class: 'AC 2 Tier',
             status: 'On Time'
           }
-        },
-        {
-          time: '12:45 PM',
-          title: 'Arrival at MGR Chennai Central',
-          location: 'MGR Chennai Central Railway Station',
-          description: 'Arrive at Chennai Central. Transfer to hotel for check-in and lunch.',
-          type: 'arrival'
-        },
-        {
-          time: '02:00 PM',
-          title: 'Hotel Check-in & Lunch',
-          location: 'Hotel Grand Chennai',
-          description: 'Check-in to hotel, freshen up, and enjoy lunch at hotel restaurant.',
-          type: 'hotel'
-        },
-        {
-          time: '04:00 PM',
-          title: 'Chennai City Orientation',
-          location: 'Hotel Conference Room',
-          description: 'Briefing session about Chennai, local culture, and safety guidelines.',
-          type: 'orientation'
-        },
-        {
-          time: '06:00 PM',
-          title: 'Free Time & Dinner',
-          location: 'Hotel & Nearby Areas',
-          description: 'Free time to explore nearby areas. Dinner at hotel restaurant.',
-          type: 'free'
         }
       ]
     },
     {
-      date: '2025-05-24',
-      day: 'Friday',
+      date: '2024-12-09',
+      day: 'Monday',
       dayNumber: 'Day 2',
       events: [
         {
-          time: '07:00 AM',
-          title: 'Breakfast & Departure',
-          location: 'Hotel Grand Chennai',
-          description: 'Early breakfast at hotel and departure for Integral Coach Factory.',
+          time: '04:30 AM',
+          title: 'Arrive at Chennai',
+          location: 'MGR Central Railway Station',
+          description: 'Arrive at Chennai Central. Transfer to hotel for check-in and rest.',
+          type: 'arrival'
+        },
+        {
+          time: '04:30 AM - 07:30 AM',
+          title: 'Travel to Hotel, Check-in & Rest',
+          location: 'Hotel Blu Ivy',
+          description: 'Travel to hotel, complete check-in formalities, and get ready for the day.',
+          type: 'hotel'
+        },
+        {
+          time: '07:30 AM - 08:30 AM',
+          title: 'Breakfast',
+          location: 'Hotel Blu Ivy',
+          description: 'Enjoy breakfast at hotel restaurant before starting the day.',
           type: 'breakfast'
         },
         {
-          time: '08:30 AM',
-          title: 'Integral Coach Factory Visit',
-          location: 'ICF, Perambur, Chennai',
+          time: '09:30 AM - 12:30 PM',
+          title: 'Industry Visit',
+          location: 'Integral Coach Factory',
           description: 'Comprehensive tour of coach manufacturing facilities, assembly lines, and quality control systems.',
           type: 'factory'
         },
         {
-          time: '12:00 PM',
-          title: 'Lunch Break',
+          time: '12:30 PM - 01:30 PM',
+          title: 'Lunch Break at ICFHL',
           location: 'ICF Canteen',
           description: 'Lunch at factory canteen with ICF officials and engineers.',
           type: 'lunch'
         },
         {
-          time: '01:30 PM',
-          title: 'Rail Museum Visit',
+          time: '01:30 PM - 03:00 PM',
+          title: 'Visit to Chennai Rail Museum',
           location: 'Rail Museum, Perambur',
           description: 'Explore the rich history of Indian Railways with vintage locomotives and exhibits.',
           type: 'museum'
         },
         {
-          time: '03:30 PM',
-          title: 'Chennai Sightseeing',
-          location: 'Marina Beach & Fort St. George',
-          description: 'Visit iconic Chennai landmarks including Marina Beach and historical monuments.',
+          time: '04:00 PM - 06:30 PM',
+          title: 'Visit to Matsya Narayana Temple',
+          location: 'Matsya Narayana Temple',
+          description: 'Visit the historic Matsya Narayana Temple for cultural and spiritual experience.',
           type: 'sightseeing'
         },
         {
-          time: '06:00 PM',
-          title: 'Return to Hotel',
-          location: 'Hotel Grand Chennai',
-          description: 'Return to hotel for rest and dinner.',
+          time: '07:00 PM - 08:00 PM',
+          title: 'Dinner',
+          location: 'Hotel Blu Ivy',
+          description: 'Return to hotel for dinner and rest.',
+          type: 'dinner'
+        },
+        {
+          time: '09:00 PM onwards',
+          title: 'Return to Hotel & Rest',
+          location: 'Hotel Blu Ivy',
+          description: 'Return to hotel, relax and rest for the night.',
           type: 'return'
         }
       ]
     },
     {
-      date: '2025-05-25',
-      day: 'Saturday',
+      date: '2024-12-10',
+      day: 'Tuesday',
       dayNumber: 'Day 3',
       events: [
         {
-          time: '08:00 AM',
-          title: 'Hotel Checkout & Breakfast',
-          location: 'Hotel Grand Chennai',
-          description: 'Complete hotel checkout formalities and enjoy breakfast before departure.',
+          time: '05:00 AM - 06:00 AM',
+          title: 'Get Ready',
+          location: 'Hotel Blu Ivy',
+          description: 'Wake up, freshen up, and prepare for departure.',
+          type: 'preparation'
+        },
+        {
+          time: '06:15 AM',
+          title: 'Check-out from Hotel',
+          location: 'Hotel Blu Ivy',
+          description: 'Complete hotel checkout formalities and prepare for departure.',
           type: 'checkout'
         },
         {
-          time: '10:30 AM',
-          title: 'Departure from Perambur',
-          location: 'Perambur Railway Station',
-          description: 'Board Humsafar Express for return journey to Bengaluru. Please arrive 30 minutes early.',
+          time: '07:20 AM',
+          title: 'Train Departs from Chennai to Bangalore',
+          location: 'MGR Central Railway Station',
+          description: 'Board train for return journey to Bangalore. Please arrive 30 minutes early.',
           type: 'departure',
           trainDetails: {
-            trainName: 'Humsafar Express',
-            trainNumber: '22353',
-            departure: '11:00 AM',
-            arrival: '05:30 PM',
-            platform: 'Platform 2',
-            journeyDuration: '6h 30m',
-            class: 'AC 3 Tier',
+            trainName: 'Return Express',
+            trainNumber: 'TBD',
+            departure: '07:20 AM',
+            arrival: '01:10 PM',
+            platform: 'Platform TBD',
+            journeyDuration: '5h 50m',
+            class: 'AC 2 Tier',
             status: 'On Time'
           }
         },
         {
-          time: '05:30 PM',
-          title: 'Arrival at SMVT Bengaluru',
-          location: 'Sir M. Visvesvaraya Terminal',
-          description: 'Arrive at SMVT Bengaluru. Transfer to campus or home. End of program.',
+          time: '01:10 PM',
+          title: 'Arrive at Bangalore',
+          location: 'KSR Bengaluru Railway Station',
+          description: 'Arrive at KSR Bengaluru. Transfer to campus or home. End of program.',
           type: 'arrival'
         }
       ]
@@ -183,10 +183,8 @@ export default function Schedule() {
         return <Hotel className="w-5 h-5" />
       case 'checkout':
         return <Hotel className="w-5 h-5" />
-      case 'orientation':
-        return <Info className="w-5 h-5" />
-      case 'free':
-        return <Star className="w-5 h-5" />
+      case 'preparation':
+        return <Clock className="w-5 h-5" />
       case 'breakfast':
         return <Utensils className="w-5 h-5" />
       case 'factory':
@@ -197,6 +195,8 @@ export default function Schedule() {
         return <Building className="w-5 h-5" />
       case 'sightseeing':
         return <Camera className="w-5 h-5" />
+      case 'dinner':
+        return <Utensils className="w-5 h-5" />
       case 'return':
         return <Bus className="w-5 h-5" />
       default:
@@ -214,10 +214,8 @@ export default function Schedule() {
         return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
       case 'checkout':
         return 'bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200'
-      case 'orientation':
+      case 'preparation':
         return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200'
-      case 'free':
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
       case 'breakfast':
         return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200'
       case 'factory':
@@ -228,6 +226,8 @@ export default function Schedule() {
         return 'bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200'
       case 'sightseeing':
         return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200'
+      case 'dinner':
+        return 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200'
       case 'return':
         return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
       default:
@@ -247,11 +247,11 @@ export default function Schedule() {
             <Calendar className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
-            Integral Coach Factory Visit Schedule
+            Industry Visit Schedule - December 2024
           </h1>
           <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
-            Complete timeline for your three-day journey from Bengaluru to Chennai, including train travel, 
-            factory visits, and sightseeing activities.
+            Complete timeline for your three-day journey from Bangalore to Chennai (8th-10th December 2024), 
+            including train travel, factory visits, and cultural experiences.
           </p>
         </div>
 
@@ -415,7 +415,7 @@ export default function Schedule() {
               </div>
               <h3 className="text-3xl font-bold text-blue-900 dark:text-blue-100 mb-2">3</h3>
               <p className="text-blue-700 dark:text-blue-300 font-medium">Total Days</p>
-              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">May 23-25, 2025</p>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">Dec 8-10, 2024</p>
             </div>
 
             {/* Factory Visits */}
@@ -424,7 +424,7 @@ export default function Schedule() {
                 <Factory className="w-8 h-8 text-red-600 dark:text-red-400" />
               </div>
               <h3 className="text-3xl font-bold text-red-900 dark:text-red-100 mb-2">2</h3>
-              <p className="text-red-700 dark:text-red-300 font-medium">Factory Visits</p>
+              <p className="text-red-700 dark:text-red-300 font-medium">Key Visits</p>
               <p className="text-sm text-red-600 dark:text-red-400 mt-1">ICF & Rail Museum</p>
             </div>
 
@@ -435,7 +435,7 @@ export default function Schedule() {
               </div>
               <h3 className="text-3xl font-bold text-green-900 dark:text-green-100 mb-2">700+</h3>
               <p className="text-green-700 dark:text-green-300 font-medium">KM Travel</p>
-              <p className="text-sm text-green-600 dark:text-green-400 mt-1">Bengaluru ↔ Chennai</p>
+              <p className="text-sm text-green-600 dark:text-green-400 mt-1">Bangalore ↔ Chennai</p>
             </div>
 
             {/* Sightseeing Spots */}
@@ -443,9 +443,9 @@ export default function Schedule() {
               <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Eye className="w-8 h-8 text-purple-600 dark:text-purple-400" />
               </div>
-              <h3 className="text-3xl font-bold text-purple-900 dark:text-purple-100 mb-2">5+</h3>
-              <p className="text-purple-700 dark:text-purple-300 font-medium">Sightseeing Spots</p>
-              <p className="text-sm text-purple-600 dark:text-purple-400 mt-1">Marina Beach, Fort St. George</p>
+              <h3 className="text-3xl font-bold text-purple-900 dark:text-purple-100 mb-2">2</h3>
+              <p className="text-purple-700 dark:text-purple-300 font-medium">Cultural Visits</p>
+              <p className="text-sm text-purple-600 dark:text-purple-400 mt-1">Rail Museum, Matsya Narayana Temple</p>
             </div>
           </div>
 
@@ -461,11 +461,11 @@ export default function Schedule() {
               <ul className="space-y-2 text-amber-800 dark:text-amber-200">
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Chennai Mail (12658) - Outbound
+                  Overnight Express - Outbound (10:40 PM)
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Humsafar Express (22353) - Return
+                  Return Express - Return (07:20 AM)
                 </li>
               </ul>
             </div>
@@ -484,7 +484,11 @@ export default function Schedule() {
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 mr-2" />
-                  Rail Museum, Perambur
+                  Chennai Rail Museum
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 mr-2" />
+                  Matsya Narayana Temple
                 </li>
               </ul>
             </div>
@@ -499,11 +503,49 @@ export default function Schedule() {
               <ul className="space-y-2 text-pink-800 dark:text-pink-200">
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
-                  Marina Beach
+                  Hotel Blu Ivy Accommodation
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
-                  Fort St. George
+                  Cultural & Spiritual Experience
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Schedule Disclaimer */}
+        <div className="mt-16">
+          <div className="card bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-l-4 border-l-amber-500">
+            <div className="flex items-center mb-4">
+              <AlertCircle className="w-6 h-6 text-amber-600 dark:text-amber-400 mr-3" />
+              <h3 className="text-xl font-semibold text-amber-900 dark:text-amber-100">
+                Important Notice
+              </h3>
+            </div>
+            <p className="text-amber-800 dark:text-amber-200 mb-4">
+              <strong>Schedule is subject to changes.</strong> Please stay updated with the latest information 
+              from your program coordinators. Any modifications to the itinerary will be communicated 
+              in advance through official channels.
+            </p>
+            <div className="space-y-2 text-amber-700 dark:text-amber-300">
+              <p className="font-medium">Key Points:</p>
+              <ul className="space-y-1 ml-4">
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  All boarding and return at KSR Bengaluru only
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  In Chennai, all activities at MGR Central
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  Hotel: Blu Ivy (3-4 people sharing)
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  Group size: 65 participants
                 </li>
               </ul>
             </div>

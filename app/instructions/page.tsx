@@ -103,15 +103,16 @@ export default function Instructions() {
 
   const dressCodeContent = {
     title: 'Dress Code Guidelines',
-    description: 'Professional attire requirements for the Integral Coach Factory visit',
+    description: 'Professional attire requirements for the Industry Visit',
     sections: [
       {
         title: 'Boys Dress Code',
         icon: User,
         color: 'blue',
         items: [
-          { text: 'Light colored formal shirt (White, Light Blue, Cream)', required: true },
-          { text: 'Dark colored formal trousers (Black, Navy Blue, Dark Gray)', required: true },
+          { text: 'Formal shirt + formal pants (required)', required: true },
+          { text: 'Round necked t-shirts are allowed', required: false },
+          { text: 'Shorts are NOT allowed', required: false },
           { text: 'Closed-toe formal shoes (Black or Brown leather)', required: true },
           { text: 'Matching leather belt', required: true },
           { text: 'Well-groomed appearance', required: true }
@@ -122,8 +123,9 @@ export default function Instructions() {
         icon: User,
         color: 'purple',
         items: [
-          { text: 'Light colored formal shirt or blouse', required: true },
-          { text: 'Dark colored formal trousers or knee-length skirt', required: true },
+          { text: 'Chudidar (required)', required: true },
+          { text: 'Round necked t-shirts are allowed', required: false },
+          { text: 'Shorts are NOT allowed', required: false },
           { text: 'Closed-toe formal shoes (low heels preferred)', required: true },
           { text: 'Minimal, professional accessories', required: false },
           { text: 'Hair tied back for safety', required: true }
@@ -134,8 +136,8 @@ export default function Instructions() {
         icon: XCircle,
         color: 'red',
         items: [
-          { text: 'Jeans or casual wear', required: false },
-          { text: 'T-shirts or casual tops', required: false },
+          { text: 'Shorts (not allowed for both boys and girls)', required: false },
+          { text: 'Casual wear or jeans', required: false },
           { text: 'Open-toe shoes or sandals', required: false },
           { text: 'Excessive jewelry or accessories', required: false },
           { text: 'Bright or flashy colors', required: false }
@@ -153,9 +155,9 @@ export default function Instructions() {
         icon: Hotel,
         color: 'blue',
         items: [
-          { text: 'Hotel Grand Chennai, T. Nagar', required: true },
-          { text: 'Check-in: 2:00 PM on Day 1', required: true },
-          { text: 'Check-out: 8:00 AM on Day 3', required: true },
+          { text: 'Hotel Blu Ivy', required: true },
+          { text: 'Check-in: 4:30 AM - 7:30 AM on Day 2', required: true },
+          { text: 'Check-out: 6:15 AM on Day 3', required: true },
           { text: 'AC rooms with modern amenities', required: true },
           { text: '24/7 room service available', required: false }
         ]
@@ -165,7 +167,7 @@ export default function Instructions() {
         icon: Users,
         color: 'green',
         items: [
-          { text: 'Twin sharing accommodation', required: true },
+          { text: '3-4 people sharing accommodation', required: true },
           { text: 'Room allocation by program coordinators', required: true },
           { text: 'Separate rooms for boys and girls', required: true },
           { text: 'Room keys to be returned during checkout', required: true }
@@ -195,9 +197,10 @@ export default function Instructions() {
         icon: Train,
         color: 'blue',
         items: [
-          { text: 'Chennai Mail (12658) - KSR to Chennai Central', required: true },
-          { text: 'Humsafar Express (22353) - Perambur to SMVT', required: true },
-          { text: 'AC 2 Tier / AC 3 Tier accommodation', required: true },
+          { text: 'All boarding and coming back at KSR Bengaluru only', required: true },
+          { text: 'In Chennai, all activities at MGR Central', required: true },
+          { text: 'Overnight journey: 10:40 PM departure', required: true },
+          { text: 'Return journey: 07:20 AM departure', required: true },
           { text: 'Arrive 30 minutes early for boarding', required: true },
           { text: 'Valid ID and tickets required', required: true }
         ]
@@ -208,9 +211,9 @@ export default function Instructions() {
         color: 'green',
         items: [
           { text: 'Air-conditioned bus for local travel', required: true },
-          { text: 'Pickup from Chennai Central to hotel', required: true },
-          { text: 'Transport to ICF and sightseeing locations', required: true },
-          { text: 'Drop to Perambur station on Day 3', required: true }
+          { text: 'Pickup from MGR Central to Hotel Blu Ivy', required: true },
+          { text: 'Transport to ICF and cultural locations', required: true },
+          { text: 'Drop to MGR Central station on Day 3', required: true }
         ]
       },
       {

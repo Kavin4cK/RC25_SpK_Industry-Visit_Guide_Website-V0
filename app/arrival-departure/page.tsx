@@ -194,55 +194,55 @@ const ksrTransportOptions: TransportOption[] = [
   }
 ]
 
-const smvtTransportOptions: TransportOption[] = [
+const mgrCentralTransportOptions: TransportOption[] = [
   {
-    id: 'metro-smvt',
+    id: 'metro-mgr',
     type: 'metro',
-    title: 'Namma Metro',
-    description: 'Take Purple Line to SMVT Bengaluru Metro Station',
-    duration: '20-25 minutes',
-    distance: '4 km',
-    cost: '₹30-40',
+    title: 'Chennai Metro',
+    description: 'Take Blue Line to Chennai Central Metro Station',
+    duration: '15-20 minutes',
+    distance: '3 km',
+    cost: '₹25-35',
     icon: Train,
     color: 'text-purple-600',
     details: [
-      'Board at any Purple Line station',
-      'Get down at SMVT Bengaluru Metro Station',
+      'Board at any Blue Line station',
+      'Get down at Chennai Central Metro Station',
       'Exit towards Platform 1 (Main Station)',
-      'Walk 150m to reach SMVT main entrance'
+      'Walk 100m to reach MGR Central main entrance'
     ]
   },
   {
-    id: 'bus-smvt',
+    id: 'bus-mgr',
     type: 'bus',
-    title: 'BMTC Bus',
-    description: 'Direct bus routes to SMVT Bengaluru',
-    duration: '25-35 minutes',
-    distance: '5-7 km',
-    cost: '₹20-30',
+    title: 'MTC Bus',
+    description: 'Direct bus routes to MGR Central Chennai',
+    duration: '20-30 minutes',
+    distance: '4-6 km',
+    cost: '₹15-25',
     icon: Bus,
     color: 'text-red-600',
     details: [
-      'Routes: 301, 302, 303, 304, 305',
-      'Frequency: Every 8-12 minutes',
-      'Get down at SMVT Bengaluru Bus Stop',
-      'Walk 80m to station entrance'
+      'Routes: 1A, 1B, 1C, 1D, 1E',
+      'Frequency: Every 5-10 minutes',
+      'Get down at Chennai Central Bus Stop',
+      'Walk 50m to station entrance'
     ]
   },
   {
-    id: 'walking-smvt',
+    id: 'walking-mgr',
     type: 'walking',
     title: 'Walking Directions',
-    description: 'From nearby areas to SMVT Bengaluru',
-    duration: '15-20 minutes',
-    distance: '2-3 km',
+    description: 'From nearby areas to MGR Central Chennai',
+    duration: '10-15 minutes',
+    distance: '1-2 km',
     cost: 'Free',
     icon: Footprints,
     color: 'text-green-600',
     details: [
-      'From Yeshwantpur: 2.5km walk',
-      'From SMVT Metro Station: 150m walk',
-      'From Malleswaram: 1.8km walk',
+      'From Park Town: 1.2km walk',
+      'From Chennai Central Metro: 100m walk',
+      'From Egmore: 1.5km walk',
       'Follow signboards to Platform 1'
     ]
   }
@@ -258,7 +258,7 @@ export default function ArrivalDeparturePage() {
   const [advisoryRef, advisoryVisible] = useScrollAnimation()
 
   const selectedFacility = facilityData.find(f => f.id === activeFacility)
-  const selectedTransportOptions = activeStation === 'ksr' ? ksrTransportOptions : smvtTransportOptions
+  const selectedTransportOptions = activeStation === 'ksr' ? ksrTransportOptions : mgrCentralTransportOptions
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900">
@@ -279,7 +279,7 @@ export default function ArrivalDeparturePage() {
               <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
                 <MapPin className="w-5 h-5 text-blue-500" />
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  KSR & SMVT Stations
+                  KSR Bengaluru & MGR Central Chennai
                 </span>
               </div>
               <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
@@ -458,7 +458,7 @@ export default function ArrivalDeparturePage() {
                   }`}
                 >
                   <Train className="w-5 h-5" />
-                  SMVT Bengaluru
+                  MGR Central Chennai
                 </button>
               </div>
             </div>
@@ -474,7 +474,7 @@ export default function ArrivalDeparturePage() {
                         Google Maps Integration
                       </p>
                       <p className="text-sm text-blue-600 dark:text-blue-400">
-                        {activeStation === 'ksr' ? 'KSR Bengaluru City Station' : 'SMVT Bengaluru Station'}
+                        {activeStation === 'ksr' ? 'KSR Bengaluru City Station' : 'MGR Central Chennai Station'}
                       </p>
                     </div>
                   </div>
@@ -502,13 +502,13 @@ export default function ArrivalDeparturePage() {
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Full Name:</span>
                       <span className="font-medium text-gray-900 dark:text-white">
-                        {activeStation === 'ksr' ? 'KSR Bengaluru City' : 'SMVT Bengaluru'}
+                        {activeStation === 'ksr' ? 'KSR Bengaluru City' : 'MGR Central Chennai'}
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Station Code:</span>
                       <span className="font-medium text-gray-900 dark:text-white">
-                        {activeStation === 'ksr' ? 'SBC' : 'SMVB'}
+                        {activeStation === 'ksr' ? 'SBC' : 'MAS'}
                       </span>
                     </div>
                     <div className="flex justify-between">
