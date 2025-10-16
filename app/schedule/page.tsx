@@ -525,7 +525,7 @@ export default function Schedule() {
             </div>
             <p className="text-amber-800 dark:text-amber-200 mb-4">
               <strong>Schedule is subject to changes.</strong> Please stay updated with the latest information 
-              from your program coordinators. Any modifications to the itinerary will be communicated 
+              from Prathik P Kekare and Harshit Saroha. Any modifications to the itinerary will be communicated 
               in advance through official channels.
             </p>
             <div className="space-y-2 text-amber-700 dark:text-amber-300">
@@ -590,16 +590,19 @@ export default function Schedule() {
             </div>
             <div className="space-y-3 text-blue-800 dark:text-blue-200">
               <div>
-                <strong>Program Coordinator:</strong> Dr. Sarah Johnson
+                <strong>Program Coordinators:</strong>
               </div>
               <div>
-                <strong>Phone:</strong> +91 98765 43210
+                <strong>Prathik P Kekare:</strong> +91 88614 02360
               </div>
               <div>
-                <strong>Email:</strong> coordinator@university.edu
+                <strong>Harshit Saroha:</strong> +91 87083 12327
               </div>
               <div>
-                <strong>Emergency Contact:</strong> +91 98765 43211
+                <strong>Email:</strong> spark.iucee@rvce.edu.in
+              </div>
+              <div>
+                <strong>Emergency Contact:</strong> +91 88614 02360
               </div>
             </div>
           </div>

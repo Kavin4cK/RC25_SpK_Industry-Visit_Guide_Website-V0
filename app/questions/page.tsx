@@ -54,7 +54,7 @@ const faqData: FAQItem[] = [
   {
     id: 'travel-4',
     question: 'What happens if I miss the train?',
-    answer: 'If you miss the train, immediately contact the program coordinator at +91 98765 43210. We will arrange alternative transportation to Chennai, but you may miss some scheduled activities.',
+    answer: 'If you miss the train, immediately contact Prathik P Kekare at +91 88614 02360 or Harshit Saroha at +91 87083 12327. We will arrange alternative transportation to Chennai, but you may miss some scheduled activities.',
     category: 'travel',
     priority: 'high'
   },
@@ -91,7 +91,7 @@ const faqData: FAQItem[] = [
   {
     id: 'accommodation-4',
     question: 'What should I do if I have issues with my room?',
-    answer: 'Contact the hotel front desk immediately for any room-related issues. For program-specific concerns, reach out to the program coordinator at +91 98765 43210.',
+    answer: 'Contact the hotel front desk immediately for any room-related issues. For program-specific concerns, reach out to Prathik P Kekare at +91 88614 02360 or Harshit Saroha at +91 87083 12327.',
     category: 'accommodation',
     priority: 'medium'
   },
@@ -144,14 +144,14 @@ const faqData: FAQItem[] = [
   {
     id: 'general-1',
     question: 'What is the emergency contact number?',
-    answer: 'For emergencies, contact the program coordinator at +91 98765 43210 or the emergency line at +91 98765 43211. These numbers are available 24/7 during the visit.',
+    answer: 'For emergencies, contact Prathik P Kekare at +91 88614 02360 or Harshit Saroha at +91 87083 12327. The emergency contact +91 88614 02360 is available 24/7 during the visit.',
     category: 'general',
     priority: 'high'
   },
   {
     id: 'general-2',
     question: 'What should I do if I feel unwell during the visit?',
-    answer: 'Inform the program coordinator immediately. The hotel has a doctor on call, and we can arrange medical assistance. Keep your health insurance details handy.',
+    answer: 'Inform Prathik P Kekare (+91 88614 02360) or Harshit Saroha (+91 87083 12327) immediately. The hotel has a doctor on call, and we can arrange medical assistance. Keep your health insurance details handy.',
     category: 'general',
     priority: 'high'
   },
@@ -210,7 +210,7 @@ const chatbotResponses = [
   "For train travel, please arrive at KSR by 8:30 AM on 23rd May. The Chennai Mail departs at 9:00 AM.",
   "Hotel check-in is at 2:00 PM on Day 1 and check-out is at 8:00 AM on Day 3.",
   "Safety equipment will be provided during factory tours. Please follow all safety instructions.",
-  "For emergencies, contact +91 98765 43210. This number is available 24/7 during the visit.",
+  "For emergencies, contact +91 88614 02360. This number is available 24/7 during the visit.",
   "Photography is allowed in designated areas only. Always ask for permission before taking photos.",
   "The ICF tour includes production lines, quality control, and design departments. You'll interact with engineers.",
   "Breakfast is included on Day 2 and Day 3. Other meals will be arranged during the program.",

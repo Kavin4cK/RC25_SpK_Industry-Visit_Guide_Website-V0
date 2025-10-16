@@ -640,7 +640,7 @@ export default function ArrivalDeparturePage() {
                     
                     <div className="mt-6 pt-4 border-t border-amber-200 dark:border-amber-700">
                       <p className="text-sm text-amber-600 dark:text-amber-400">
-                        For any queries or assistance, contact the program coordinators.
+                        For any queries or assistance, contact Prathik P Kekare (+91 88614 02360) or Harshit Saroha (+91 87083 12327).
                       </p>
                     </div>
                   </div>

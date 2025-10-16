@@ -168,7 +168,7 @@ export default function Instructions() {
         color: 'green',
         items: [
           { text: '3-4 people sharing accommodation', required: true },
-          { text: 'Room allocation by program coordinators', required: true },
+          { text: 'Room allocation by Prathik P Kekare and Harshit Saroha', required: true },
           { text: 'Separate rooms for boys and girls', required: true },
           { text: 'Room keys to be returned during checkout', required: true }
         ]
@@ -460,23 +460,30 @@ export default function Instructions() {
                 <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <div>
                   <p className="font-medium text-blue-900 dark:text-blue-100">Email Support</p>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">coordinator@university.edu</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">spark.iucee@rvce.edu.in</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <div>
-                  <p className="font-medium text-blue-900 dark:text-blue-100">Phone Support</p>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 98765 43210</p>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Prathik P Kekare</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 88614 02360</p>
                 </div>
               </div>
             </div>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Harshit Saroha</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 87083 12327</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
                 <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <div>
                   <p className="font-medium text-blue-900 dark:text-blue-100">Emergency Contact</p>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 98765 43211</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 88614 02360</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
