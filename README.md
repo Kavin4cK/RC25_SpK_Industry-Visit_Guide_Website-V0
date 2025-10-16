@@ -114,7 +114,6 @@ This project is licensed under the GNU General Public License v2.0 - see the [LI
 ## 📞 Support
 
 For support and questions:
-- **Program Coordinator**: Dr. Sarah Johnson
-- **Email**: sarah.johnson@university.edu
-- **Phone**: +1 (555) 123-4567
-- **Emergency**: +1 (555) 987-6543
+- **Program Assistant Coordinator**: Kavin Krishnan. C
+- **Email**: kavinkrishnanc@gmail.com
+- **Phone**: +91 95133 44481
