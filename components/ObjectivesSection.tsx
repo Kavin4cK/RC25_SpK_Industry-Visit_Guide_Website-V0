@@ -6,19 +6,15 @@ import {
   BookOpen,
   Network,
   Award,
-  TrendingUp,
   Eye,
   Brain,
-  Users,
-  CheckCircle,
-  Star
+  CheckCircle
 } from 'lucide-react'
 import useScrollAnimation from '@/hooks/useScrollAnimation'
 
 export default function ObjectivesSection() {
   const [headerRef, headerVisible] = useScrollAnimation()
   const [gridRef, gridVisible] = useScrollAnimation()
-  const [outcomesRef, outcomesVisible] = useScrollAnimation()
 
   const objectives = [
     {
@@ -71,32 +67,6 @@ export default function ObjectivesSection() {
     }
   ]
 
-  const outcomes = [
-    {
-      icon: TrendingUp,
-      title: 'Technical Knowledge',
-      description: 'Advanced manufacturing processes',
-      color: 'blue'
-    },
-    {
-      icon: Users,
-      title: 'Industry Connections',
-      description: 'Professional network expansion',
-      color: 'green'
-    },
-    {
-      icon: Star,
-      title: 'Practical Experience',
-      description: 'Hands-on learning opportunities',
-      color: 'yellow'
-    },
-    {
-      icon: Target,
-      title: 'Career Clarity',
-      description: 'Future pathway insights',
-      color: 'purple'
-    }
-  ]
 
   const getColorClasses = (color: string) => {
     const colorMap = {
@@ -201,37 +171,6 @@ export default function ObjectivesSection() {
           })}
         </div>
 
-        {/* Key Outcomes */}
-        <div 
-          ref={outcomesRef}
-          className={`mt-16 ${outcomesVisible ? 'animate' : ''}`}
-        >
-          <div className="text-center mb-12 fade-in-up">
-            <h3 className="text-2xl md:text-3xl font-bold text-secondary-900 dark:text-white mb-4">
-              Expected Learning Outcomes
-            </h3>
-            <p className="text-lg text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
-              By the end of this three-day program, students will have gained comprehensive insights into modern manufacturing
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {outcomes.map((outcome, index) => {
-              const Icon = outcome.icon
-              const colors = getColorClasses(outcome.color)
-              return (
-                <div 
-                  key={index}
-                  className={`text-center p-6 rounded-xl bg-white/60 dark:bg-secondary-800/60 backdrop-blur-sm border border-secondary-200 dark:border-secondary-700 fade-in-scale stagger-${index + 1} ${outcomesVisible ? 'animate' : ''}`}
-                >
-                  <Icon className={`w-8 h-8 ${colors.text} mx-auto mb-3`} />
-                  <h4 className="font-semibold text-secondary-900 dark:text-white mb-2">{outcome.title}</h4>
-                  <p className="text-sm text-secondary-600 dark:text-secondary-400">{outcome.description}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
       </div>
     </section>
   )
