@@ -3,50 +3,17 @@
 import { useState } from 'react'
 import { 
   MapPin, 
-  Clock, 
-  Users, 
-  Phone, 
-  Globe, 
-  Camera, 
-  Shield, 
-  Award,
   Train,
   Bus,
-  Navigation,
   Map,
   ExternalLink,
   ArrowRight,
   CheckCircle,
   AlertCircle,
-  Info,
-  Building,
-  Factory,
-  Car,
   Footprints,
-  Route,
-  Calendar,
-  Star,
-  Eye,
-  Brain,
   Users2
 } from 'lucide-react'
 import useScrollAnimation from '@/hooks/useScrollAnimation'
-
-interface FacilityCard {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  highlights: string[]
-  features: Array<{
-    icon: any
-    title: string
-    description: string
-  }>
-  imagePlaceholder: string
-  color: string
-  bgColor: string
-}
 
 interface TransportOption {
   id: string
@@ -60,85 +27,6 @@ interface TransportOption {
   color: string
   details: string[]
 }
-
-const facilityData: FacilityCard[] = [
-  {
-    id: 'icf',
-    title: 'Integral Coach Factory',
-    subtitle: 'India\'s Premier Rail Coach Manufacturing Unit',
-    description: 'Established in 1955, ICF is one of the world\'s largest rail coach manufacturing facilities, producing over 2,500 coaches annually. The factory spans 511 acres and employs over 8,000 skilled workers.',
-    highlights: [
-      'World\'s largest rail coach manufacturer',
-      'Over 2,500 coaches produced annually',
-      '511 acres of manufacturing facility',
-      '8,000+ skilled workforce',
-      'ISO 9001:2015 certified'
-    ],
-    features: [
-      {
-        icon: Factory,
-        title: 'Production Lines',
-        description: 'State-of-the-art manufacturing with automated assembly lines and precision engineering'
-      },
-      {
-        icon: Shield,
-        title: 'Quality Control',
-        description: 'Rigorous testing and quality assurance processes ensuring world-class standards'
-      },
-      {
-        icon: Brain,
-        title: 'R&D Center',
-        description: 'Advanced research and development facility for next-generation rail technology'
-      },
-      {
-        icon: Award,
-        title: 'Certifications',
-        description: 'ISO 9001:2015, ISO 14001:2015, and OHSAS 18001:2007 certified operations'
-      }
-    ],
-    imagePlaceholder: '/api/placeholder/600/400',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50 dark:bg-blue-900/20'
-  },
-  {
-    id: 'rail-museum',
-    title: 'Rail Museum Chennai',
-    subtitle: 'Heritage of Indian Railways',
-    description: 'The Rail Museum showcases the rich heritage of Indian Railways with vintage locomotives, royal carriages, and interactive exhibits. It\'s a perfect blend of history and technology.',
-    highlights: [
-      'Vintage steam locomotives',
-      'Royal carriages and coaches',
-      'Interactive railway exhibits',
-      'Heritage railway artifacts',
-      'Educational programs'
-    ],
-    features: [
-      {
-        icon: Building,
-        title: 'Heritage Collection',
-        description: 'Rare collection of vintage locomotives and royal carriages from different eras'
-      },
-      {
-        icon: Eye,
-        title: 'Interactive Exhibits',
-        description: 'Hands-on displays and multimedia presentations about railway technology'
-      },
-      {
-        icon: Camera,
-        title: 'Photo Opportunities',
-        description: 'Perfect spots for photography with historic trains and railway memorabilia'
-      },
-      {
-        icon: Users,
-        title: 'Educational Tours',
-        description: 'Guided tours explaining the evolution of Indian Railways over the decades'
-      }
-    ],
-    imagePlaceholder: '/api/placeholder/600/400',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50 dark:bg-green-900/20'
-  }
-]
 
 const ksrTransportOptions: TransportOption[] = [
   {
@@ -249,15 +137,12 @@ const mgrCentralTransportOptions: TransportOption[] = [
 ]
 
 export default function ArrivalDeparturePage() {
-  const [activeFacility, setActiveFacility] = useState('icf')
   const [activeStation, setActiveStation] = useState('ksr')
 
   const [headerRef, headerVisible] = useScrollAnimation()
-  const [facilitiesRef, facilitiesVisible] = useScrollAnimation()
   const [transportRef, transportVisible] = useScrollAnimation()
   const [advisoryRef, advisoryVisible] = useScrollAnimation()
 
-  const selectedFacility = facilityData.find(f => f.id === activeFacility)
   const selectedTransportOptions = activeStation === 'ksr' ? ksrTransportOptions : mgrCentralTransportOptions
 
   return (
@@ -273,7 +158,7 @@ export default function ArrivalDeparturePage() {
               Arrival & Departure
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Everything you need to know about reaching your destinations and exploring the facilities
+              Everything you need to know about reaching your destinations
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
@@ -293,133 +178,68 @@ export default function ArrivalDeparturePage() {
         </div>
       </div>
 
-      {/* Facility Information Section */}
+      {/* Advisory Message Section */}
       <div 
-        ref={facilitiesRef}
-        className={`fade-in-up ${facilitiesVisible ? 'animate' : ''}`}
+        ref={advisoryRef}
+        className={`fade-in-up ${advisoryVisible ? 'animate' : ''}`}
       >
         <div className="container mx-auto px-4 pb-16">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-              Visit Destinations
-            </h2>
-            
-            {/* Facility Tabs */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-2 shadow-lg">
-                {facilityData.map((facility) => (
-                  <button
-                    key={facility.id}
-                    onClick={() => setActiveFacility(facility.id)}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
-                      activeFacility === facility.id
-                        ? `${facility.bgColor} ${facility.color} shadow-md`
-                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                    }`}
-                  >
-                    {facility.id === 'icf' ? <Factory className="w-5 h-5" /> : <Building className="w-5 h-5" />}
-                    {facility.title}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Facility Details */}
-            {selectedFacility && (
-              <div className="grid lg:grid-cols-2 gap-8">
-                {/* Left Column - Information */}
-                <div className="space-y-6">
-                  <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                      {selectedFacility.title}
-                    </h3>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                      {selectedFacility.subtitle}
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                      {selectedFacility.description}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl shadow-lg p-8 border border-amber-200 dark:border-amber-800">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+                  <AlertCircle className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+                </div>
+                
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-amber-800 dark:text-amber-200 mb-4">
+                    Important Advisory
+                  </h3>
+                  
+                  <div className="space-y-4 text-amber-700 dark:text-amber-300">
+                    <p className="font-medium">
+                      Please ensure you have minimal luggage for this industrial visit:
                     </p>
                     
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900 dark:text-white">Key Highlights:</h4>
-                      {selectedFacility.highlights.map((highlight, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                          <span className="text-gray-700 dark:text-gray-300">{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Features Grid */}
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {selectedFacility.features.map((feature, index) => (
-                      <div
-                        key={index}
-                        className={`fade-in-up stagger-${index + 1} ${
-                          facilitiesVisible ? 'animate' : ''
-                        }`}
-                      >
-                        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300">
-                          <div className={`p-3 rounded-lg ${selectedFacility.bgColor} w-fit mb-4`}>
-                            <feature.icon className={`w-6 h-6 ${selectedFacility.color}`} />
-                          </div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                            {feature.title}
-                          </h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-300">
-                            {feature.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right Column - Image Placeholder */}
-                <div className="space-y-6">
-                  <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
-                    <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-                      <div className="text-center">
-                        <Camera className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-                        <p className="text-gray-500 dark:text-gray-400 font-medium">
-                          {selectedFacility.title} Image
-                        </p>
-                        <p className="text-sm text-gray-400 dark:text-gray-500">
-                          High-quality facility photography
-                        </p>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                        Visual Tour
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                        Experience the facility through our comprehensive visual documentation
+                    <ul className="space-y-2 ml-4">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Carry only essential items (clothes, toiletries, documents)</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Use a small backpack or cabin-sized luggage</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Keep valuables and electronics secure at all times</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-amber-600" />
+                        <span>Follow all safety protocols during factory visits</span>
+                      </li>
+                    </ul>
+                    
+                    <div className="mt-6 pt-4 border-t border-amber-200 dark:border-amber-700">
+                      <p className="text-sm text-amber-600 dark:text-amber-400">
+                        For any queries or assistance, contact Prathik P Kekare (+91 88614 02360) or Harshit Saroha (+91 87083 12327).
                       </p>
-                      <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center gap-2">
-                        <Eye className="w-4 h-4" />
-                        View Gallery
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Quick Info Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-4 text-center">
-                      <Clock className="w-8 h-8 text-blue-500 mx-auto mb-2" />
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">Visit Duration</p>
-                      <p className="text-lg font-bold text-blue-600">2-3 Hours</p>
-                    </div>
-                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-4 text-center">
-                      <Users className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">Group Size</p>
-                      <p className="text-lg font-bold text-green-600">25-30</p>
                     </div>
                   </div>
                 </div>
               </div>
-            )}
+              
+              {/* Team SPARK Signature */}
+              <div className="mt-8 pt-6 border-t border-amber-200 dark:border-amber-700 text-center">
+                <div className="flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
+                  <Users2 className="w-5 h-5" />
+                  <span className="font-semibold">Team SPARK</span>
+                </div>
+                <p className="text-sm text-amber-500 dark:text-amber-500 mt-1">
+                  Industry Visit Coordination Team
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -590,72 +410,6 @@ export default function ArrivalDeparturePage() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Advisory Message Section */}
-      <div 
-        ref={advisoryRef}
-        className={`fade-in-up ${advisoryVisible ? 'animate' : ''}`}
-      >
-        <div className="container mx-auto px-4 pb-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl shadow-lg p-8 border border-amber-200 dark:border-amber-800">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
-                  <AlertCircle className="w-8 h-8 text-amber-600 dark:text-amber-400" />
-                </div>
-                
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-amber-800 dark:text-amber-200 mb-4">
-                    Important Advisory
-                  </h3>
-                  
-                  <div className="space-y-4 text-amber-700 dark:text-amber-300">
-                    <p className="font-medium">
-                      Please ensure you have minimal luggage for this industrial visit:
-                    </p>
-                    
-                    <ul className="space-y-2 ml-4">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-amber-600" />
-                        <span>Carry only essential items (clothes, toiletries, documents)</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-amber-600" />
-                        <span>Use a small backpack or cabin-sized luggage</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-amber-600" />
-                        <span>Keep valuables and electronics secure at all times</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-amber-600" />
-                        <span>Follow all safety protocols during factory visits</span>
-                      </li>
-                    </ul>
-                    
-                    <div className="mt-6 pt-4 border-t border-amber-200 dark:border-amber-700">
-                      <p className="text-sm text-amber-600 dark:text-amber-400">
-                        For any queries or assistance, contact Prathik P Kekare (+91 88614 02360) or Harshit Saroha (+91 87083 12327).
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Team SPARK Signature */}
-              <div className="mt-8 pt-6 border-t border-amber-200 dark:border-amber-700 text-center">
-                <div className="flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
-                  <Users2 className="w-5 h-5" />
-                  <span className="font-semibold">Team SPARK</span>
-                </div>
-                <p className="text-sm text-amber-500 dark:text-amber-500 mt-1">
-                  Industry Visit Coordination Team
-                </p>
               </div>
             </div>
           </div>
