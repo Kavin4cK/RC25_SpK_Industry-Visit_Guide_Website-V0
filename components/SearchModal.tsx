@@ -32,43 +32,43 @@ const searchData: SearchResult[] = [
   // Home page content
   {
     id: 'hero-title',
-    title: 'Integral Coach Factory iV 2025',
-    description: 'Three-day industrial visit to ICF Chennai',
+    title: 'Industry Visit Guide December 2025',
+    description: '65 Participants join on an extraordinary three-day journey from Bangalore to Chennai',
     category: 'Program',
     page: 'Home',
     icon: Factory,
     url: '/',
-    keywords: ['icf', 'factory', 'visit', 'chennai', 'industrial', 'coach']
+    keywords: ['industry', 'visit', 'guide', '2025', 'december', '65', 'participants', 'bangalore', 'chennai', 'icf', 'factory', 'industrial', 'coach']
   },
   {
     id: 'day1-overview',
-    title: 'Day 1 - Departure to Chennai',
-    description: 'Departure from KSR Bengaluru to MGR Chennai Central',
+    title: 'Day 1 - 8th December - Departure to Chennai',
+    description: '10:40 PM Train departs from Bangalore to Chennai (Overnight Journey)',
     category: 'Schedule',
     page: 'Home',
     icon: Train,
     url: '/',
-    keywords: ['day1', 'departure', 'ksr', 'chennai', 'train', 'travel']
+    keywords: ['day1', '8th', 'december', 'departure', '10:40', 'pm', 'bangalore', 'chennai', 'train', 'overnight', 'journey']
   },
   {
     id: 'day2-overview',
-    title: 'Day 2 - ICF Visit & Sightseeing',
-    description: 'Factory tour, Rail Museum, and Chennai sightseeing',
+    title: 'Day 2 - 9th December - ICF Visit & Sightseeing',
+    description: 'Industry Visit, Rail Museum, Matsya Narayana Temple',
     category: 'Schedule',
     page: 'Home',
     icon: Factory,
     url: '/',
-    keywords: ['day2', 'icf', 'factory', 'museum', 'sightseeing', 'chennai']
+    keywords: ['day2', '9th', 'december', 'icf', 'factory', 'museum', 'matsya', 'narayana', 'temple', 'chennai', 'blu', 'ivy', 'hotel']
   },
   {
     id: 'day3-overview',
-    title: 'Day 3 - Return Journey',
-    description: 'Departure from Perambur to SMVT Bengaluru',
+    title: 'Day 3 - 10th December - Return Journey',
+    description: '7:20 AM Train departs from Chennai to Bangalore',
     category: 'Schedule',
     page: 'Home',
     icon: Train,
     url: '/',
-    keywords: ['day3', 'return', 'perambur', 'smvt', 'journey']
+    keywords: ['day3', '10th', 'december', 'return', '7:20', 'am', 'chennai', 'bangalore', 'journey']
   },
   {
     id: 'objectives',
@@ -93,12 +93,32 @@ const searchData: SearchResult[] = [
   {
     id: 'dress-code',
     title: 'Dress Code Guidelines',
-    description: 'Clothing requirements for boys and girls',
+    description: 'Round neck t-shirts allowed, shorts NOT allowed. Boys: formal shirt+pant, Girls: chudidar',
     category: 'Information',
     page: 'Home',
     icon: Users,
     url: '/',
-    keywords: ['dress', 'code', 'clothing', 'uniform', 'guidelines']
+    keywords: ['dress', 'code', 'clothing', 'uniform', 'guidelines', 'round', 'neck', 't-shirts', 'shorts', 'formal', 'shirt', 'pant', 'chudidar', 'boys', 'girls']
+  },
+  {
+    id: 'contact-info',
+    title: 'Contact Information',
+    description: 'Prathik P Kekare: 88614 02360, Harshit Saroha: 87083 12327, spark.iucee@rvce.edu.in',
+    category: 'Information',
+    page: 'Home',
+    icon: Users,
+    url: '/',
+    keywords: ['contact', 'prathik', 'kekare', '88614', '02360', 'harshit', 'saroha', '87083', '12327', 'spark', 'iucee', 'rvce', 'email']
+  },
+  {
+    id: 'accommodation-info',
+    title: 'Accommodation Details',
+    description: 'Hotel Blu Ivy - 3-4 people sharing accommodation',
+    category: 'Information',
+    page: 'Home',
+    icon: Hotel,
+    url: '/',
+    keywords: ['accommodation', 'hotel', 'blu', 'ivy', 'sharing', '3-4', 'people', 'room']
   },
 
   // Schedule page content
@@ -241,22 +261,32 @@ const searchData: SearchResult[] = [
   {
     id: 'ksr-station',
     title: 'KSR Bengaluru Station',
-    description: 'Getting to KSR Bengaluru City Station',
+    description: 'Getting to KSR Bengaluru City Station - 12.4 Kms from RVCE',
     category: 'Transport',
     page: 'Arrival & Departure',
     icon: MapPin,
     url: '/arrival-departure',
-    keywords: ['ksr', 'bengaluru', 'station', 'metro', 'bus', 'directions']
+    keywords: ['ksr', 'bengaluru', 'station', 'metro', 'bus', 'directions', '12.4', 'kms', 'rvce']
   },
   {
-    id: 'smvt-station',
-    title: 'SMVT Bengaluru Station',
-    description: 'Getting to SMVT Bengaluru Station',
+    id: 'mgr-central',
+    title: 'MGR Central Chennai Station',
+    description: 'Getting to MGR Central Chennai Station',
     category: 'Transport',
     page: 'Arrival & Departure',
     icon: MapPin,
     url: '/arrival-departure',
-    keywords: ['smvt', 'bengaluru', 'station', 'metro', 'bus', 'directions']
+    keywords: ['mgr', 'central', 'chennai', 'station', 'metro', 'bus', 'directions', 'mas']
+  },
+  {
+    id: 'advisory-section',
+    title: 'Important Advisory',
+    description: 'Minimal luggage requirements and safety guidelines',
+    category: 'Instructions',
+    page: 'Arrival & Departure',
+    icon: HelpCircle,
+    url: '/arrival-departure',
+    keywords: ['advisory', 'important', 'luggage', 'minimal', 'safety', 'guidelines', 'backpack', 'cabin-sized']
   },
   {
     id: 'icf-facility',

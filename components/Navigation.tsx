@@ -49,10 +49,10 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-secondary-200 dark:border-secondary-700">
-      <div className="max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
+      <div className="max-w-7xl mx-auto pl-1 pr-2 sm:pl-2 sm:pr-3 lg:pl-3 lg:pr-4">
         <div className="flex items-center justify-between h-24">
           {/* Left Section: RV Logo + SPARK Logo + Title */}
-          <div className="flex-shrink-0 flex items-center mr-4">
+          <div className="flex-shrink-0 flex items-center mr-2">
             <Link href="/" className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
               {/* RV Logo */}
               <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex items-center justify-center">
