@@ -49,13 +49,13 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-secondary-200 dark:border-secondary-700">
-      <div className="max-w-7xl mx-auto pl-1 pr-2 sm:pl-2 sm:pr-3 lg:pl-3 lg:pr-4">
+      <div className="max-w-7xl mx-auto px-0 pr-2 sm:pr-3 lg:pr-4">
         <div className="flex items-center justify-between h-24">
           {/* Left Section: RV Logo + SPARK Logo + Title */}
-          <div className="flex-shrink-0 flex items-center mr-2">
+          <div className="flex-shrink-0 flex items-center mr-6">
             <Link href="/" className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
               {/* RV Logo */}
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex items-center justify-center">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center">
                 <Image
                   src={theme === 'dark' ? '/RVCE_White.png' : '/RVCE_BLACK.png'}
                   alt="RVCE Logo"
@@ -65,7 +65,7 @@ export default function Navigation() {
                 />
               </div>
               {/* SPARK Logo */}
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 flex items-center justify-center">
+              <div className="relative w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 flex items-center justify-center">
                 <Image
                   src="/spark.svg"
                   alt="SPARK Logo"
