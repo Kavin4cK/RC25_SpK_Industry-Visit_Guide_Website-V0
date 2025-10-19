@@ -55,7 +55,7 @@ export default function Navigation() {
           <div className="flex-shrink-0 flex items-center mr-6">
             <Link href="/" className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
               {/* RV Logo */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center">
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 flex items-center justify-center">
                 <Image
                   src={theme === 'dark' ? '/RVCE_White.png' : '/RVCE_BLACK.png'}
                   alt="RVCE Logo"
@@ -65,7 +65,7 @@ export default function Navigation() {
                 />
               </div>
               {/* SPARK Logo */}
-              <div className="relative w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 flex items-center justify-center">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center">
                 <Image
                   src="/spark.svg"
                   alt="SPARK Logo"
