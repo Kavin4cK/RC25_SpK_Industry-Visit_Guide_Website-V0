@@ -85,7 +85,9 @@ export default function Home() {
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed px-2">
-              65 Participants join on an extraordinary three-day journey from Bangalore to Chennai (8th-10th December 2025). 
+              65 Participants join on an extraordinary three-day journey from Bangalore to Chennai (8th-10th December 2025).
+            </p>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto animate-fade-in leading-relaxed px-2">
               Discover cutting-edge technology at Integral Coach Factory, explore railway heritage, and experience 
               cultural richness at Matsya Narayana Temple.
             </p>
