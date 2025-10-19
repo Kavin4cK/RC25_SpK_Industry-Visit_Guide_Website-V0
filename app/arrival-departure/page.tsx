@@ -168,7 +168,7 @@ export default function ArrivalDeparturePage() {
                 </span>
               </div>
               <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-md">
-                <Factory className="w-5 h-5 text-green-500" />
+                <MapPin className="w-5 h-5 text-green-500" />
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   ICF & Rail Museum
                 </span>
