@@ -1,21 +1,36 @@
-# RC25 Industry Visit Guide Website
+# RC25 Industry Visit Guide Website - December 2025
 
-A modern, responsive event management website for industrial visit coordination. Features include dynamic schedule timeline, interactive FAQs with chatbot integration, location guides with embedded maps, comprehensive instructions section, and dark/light theme toggle. Built with clean UI/UX principles for optimal student guidance and event management.
+A modern, responsive event management website for the **65-participant industry visit to Chennai (8th-10th December 2025)**. Features include dynamic schedule timeline, comprehensive search functionality, interactive FAQs with chatbot integration, location guides, detailed instructions, and dark/light theme toggle. Built with clean UI/UX principles for optimal student guidance and event management.
+
+## 🎯 **Visit Overview**
+- **Dates**: December 8-10, 2025
+- **Participants**: 65 students
+- **Destinations**: Integral Coach Factory (ICF) & Rail Museum Chennai
+- **Accommodation**: Hotel Blu Ivy (3-4 people sharing)
+- **Transport**: Overnight train journeys (KSR Bengaluru ↔ MGR Central Chennai)
+- **Cultural Visit**: Matsya Narayana Temple
 
 ## 🚀 Features
 
 - **Modern Design**: Clean, professional interface with smooth animations
 - **Responsive Layout**: Works perfectly on desktop, tablet, and mobile devices
 - **Dark/Light Theme**: Toggle between themes with system preference detection
-- **Interactive Navigation**: Smooth navigation with active state indicators
-- **Search Functionality**: Built-in search for FAQs and content
+- **Enhanced Navigation**: RVCE and SPARK logos with optimized layout
+- **Advanced Search**: Comprehensive search functionality across all pages
 - **AI Chatbot**: Interactive assistant for instant help
 - **Comprehensive Pages**:
-  - Home: Overview and quick actions
-  - Schedule: Detailed timeline with event information
-  - Instructions: Pre-visit checklist and guidelines
-  - Questions: FAQ and AI chat support
-  - Arrival & Departure: Transportation and location guides
+  - **Home**: Visit overview, 3-day journey highlights, and quick actions
+  - **Schedule**: Detailed timeline with exact timings and locations
+  - **Instructions**: Dress code guidelines, accommodation details, and safety protocols
+  - **Questions**: FAQ with updated contact information and AI chat support
+  - **Arrival & Departure**: Transportation guides and station information
+
+## 🔍 **Enhanced Search Functionality**
+- **Real-time search** across all website content
+- **Keyword matching** for schedules, contacts, locations, and instructions
+- **Categorized results** with direct navigation to relevant pages
+- **Keyboard navigation** support (arrow keys, enter, escape)
+- **Updated search database** with current visit details and contact information
 
 ## 🛠️ Tech Stack
 
@@ -24,6 +39,8 @@ A modern, responsive event management website for industrial visit coordination.
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **Theme**: Custom theme provider with dark/light mode
+- **Search**: Custom search modal with comprehensive content indexing
+- **Logos**: RVCE and SPARK branding integration
 
 ## 📦 Installation
 
@@ -58,9 +75,15 @@ A modern, responsive event management website for industrial visit coordination.
 │   ├── questions/         # Questions & FAQ page
 │   └── arrival-departure/ # Transportation guide page
 ├── components/            # Reusable components
-│   ├── Navigation.tsx     # Main navigation component
-│   └── ThemeProvider.tsx  # Theme context provider
+│   ├── Navigation.tsx     # Main navigation with RVCE & SPARK logos
+│   ├── SearchModal.tsx    # Advanced search functionality
+│   ├── ThemeProvider.tsx  # Theme context provider
+│   └── ...other components
 ├── public/               # Static assets
+│   ├── RVCE_White.png    # RVCE logo (dark theme)
+│   ├── RVCE_BLACK.png    # RVCE logo (light theme)
+│   ├── spark.svg         # SPARK logo
+│   └── ...other assets
 └── ...config files
 ```
 
@@ -85,6 +108,36 @@ The website is fully responsive with breakpoints:
 - **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
+
+## 📋 **Recent Updates & Features**
+
+### **Navigation & Branding**
+- ✅ **RVCE Logo Integration**: Prominent RVCE logo with theme-aware display
+- ✅ **SPARK Logo Addition**: SPARK logo alongside RVCE branding
+- ✅ **Optimized Layout**: Left-aligned navigation with minimal padding
+- ✅ **Logo Size Optimization**: RVCE logo 25% larger, SPARK logo appropriately sized
+
+### **Content Updates**
+- ✅ **December 2025 Schedule**: Complete 3-day itinerary with exact timings
+- ✅ **Updated Contact Information**: New coordinators and email addresses
+- ✅ **Hotel Information**: Hotel Blu Ivy accommodation details
+- ✅ **Transport Details**: KSR Bengaluru and MGR Central Chennai information
+- ✅ **Dress Code Guidelines**: Updated requirements for boys and girls
+- ✅ **Advisory Section**: Minimal luggage requirements and safety protocols
+
+### **Technical Improvements**
+- ✅ **Enhanced Search**: Comprehensive search across all pages and content
+- ✅ **Removed Unused Elements**: Cleaned up download buttons and unnecessary sections
+- ✅ **Build Optimization**: Fixed compilation errors and improved performance
+- ✅ **Responsive Design**: Optimized for all device sizes
+
+## 📞 **Contact Information**
+
+### **Program Coordinators**
+- **Prathik P Kekare**: +91 88614 02360
+- **Harshit Saroha**: +91 87083 12327
+- **Email**: spark.iucee@rvce.edu.in
+- **Emergency Contact**: +91 88614 02360
 
 ## 🚀 Deployment
 
@@ -113,7 +166,9 @@ This project is licensed under the GNU General Public License v2.0 - see the [LI
 
 ## 📞 Support
 
-For support and questions:
-- **Program Assistant Coordinator**: Kavin Krishnan. C
+For technical support and development questions:
+- **Developer**: Kavin Krishnan. C
 - **Email**: kavinkrishnanc@gmail.com
 - **Phone**: +91 95133 44481
+
+For program-related inquiries, please contact the program coordinators listed above.
