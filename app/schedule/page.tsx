@@ -503,7 +503,7 @@ export default function Schedule() {
               <ul className="space-y-2 text-pink-800 dark:text-pink-200">
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
-                  Hotel Blu Ivy Accommodation
+                  Royal Paris Hotel Accommodation
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
@@ -541,7 +541,7 @@ export default function Schedule() {
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Hotel: Blu Ivy (3-4 people sharing)
+                  Hotel: Royal Paris (3-4 people sharing)
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
