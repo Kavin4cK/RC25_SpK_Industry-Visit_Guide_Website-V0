@@ -461,11 +461,11 @@ export default function Schedule() {
               <ul className="space-y-2 text-amber-800 dark:text-amber-200">
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Overnight Express - Outbound (10:40 PM)
+                  12658 SBC MAS SF MAIL - Outbound (10:40 PM)
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Return Express - Return (07:20 AM)
+                  22625 SBC DBLDECK EXP - Return (07:25 AM)
                 </li>
               </ul>
             </div>
