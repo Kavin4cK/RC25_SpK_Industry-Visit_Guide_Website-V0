@@ -33,7 +33,7 @@ const faqData: FAQItem[] = [
   {
     id: 'travel-1',
     question: 'What time should I arrive at KSR Bengaluru station?',
-    answer: 'Please arrive at KSR Bengaluru station by 8:30 AM on 23rd May. The Chennai Mail (12658) departs at 9:00 AM from Platform 1. Arriving early ensures smooth boarding and group coordination.',
+    answer: 'Please arrive at KSR Bengaluru station by 10:10 PM on 8th December. Train 12658 SBC MAS SF MAIL departs at 10:40 PM from Platform 1. Arriving early ensures smooth boarding and group coordination.',
     category: 'travel',
     priority: 'high'
   },
@@ -70,14 +70,14 @@ const faqData: FAQItem[] = [
   {
     id: 'accommodation-1',
     question: 'What are the hotel check-in and check-out times?',
-    answer: 'Check-in is at 2:00 PM on Day 1 (23rd May) and check-out is at 8:00 AM on Day 3 (25th May). Early check-in or late check-out may incur additional charges.',
+    answer: 'Check-in is at 4:30 AM - 7:30 AM on Day 2 (9th December) and check-out is at 6:15 AM on Day 3 (10th December). Early check-in or late check-out may incur additional charges.',
     category: 'accommodation',
     priority: 'high'
   },
   {
     id: 'accommodation-2',
     question: 'What amenities are available at the hotel?',
-    answer: 'Hotel Grand Chennai offers AC rooms, 24/7 room service, restaurant, conference facilities, Wi-Fi, laundry services, and 24/7 security. All rooms are twin-sharing with modern amenities.',
+    answer: 'Royal Paris Hotel offers AC rooms, 24/7 room service, restaurant, conference facilities, Wi-Fi, laundry services, and 24/7 security. All rooms are 3-4 people sharing with modern amenities.',
     category: 'accommodation',
     priority: 'medium'
   },
@@ -165,7 +165,7 @@ const faqData: FAQItem[] = [
   {
     id: 'general-4',
     question: 'What is the expected weather in Chennai?',
-    answer: 'Chennai in May is hot and humid with temperatures around 35-40°C. Bring light, breathable clothing, sunscreen, and stay hydrated. An umbrella is recommended for sudden showers.',
+    answer: 'Chennai in December is pleasant with temperatures around 25-30°C. Bring light, breathable clothing and stay hydrated.',
     category: 'general',
     priority: 'medium'
   },
@@ -207,14 +207,14 @@ const priorityIcons = {
 // Sample chatbot responses
 const chatbotResponses = [
   "Hello! I'm here to help with your ICF visit questions. How can I assist you today?",
-  "For train travel, please arrive at KSR by 8:30 AM on 23rd May. The Chennai Mail departs at 9:00 AM.",
-  "Hotel check-in is at 2:00 PM on Day 1 and check-out is at 8:00 AM on Day 3.",
+  "For train travel, please arrive at KSR by 10:10 PM on 8th December. Train 12658 SBC MAS SF MAIL departs at 10:40 PM.",
+  "Hotel check-in is at 4:30 AM - 7:30 AM on Day 2 and check-out is at 6:15 AM on Day 3.",
   "Safety equipment will be provided during factory tours. Please follow all safety instructions.",
   "For emergencies, contact +91 88614 02360. This number is available 24/7 during the visit.",
   "Photography is allowed in designated areas only. Always ask for permission before taking photos.",
   "The ICF tour includes production lines, quality control, and design departments. You'll interact with engineers.",
   "Breakfast is included on Day 2 and Day 3. Other meals will be arranged during the program.",
-  "Chennai weather in May is hot and humid (35-40°C). Bring light clothing and stay hydrated.",
+  "Chennai weather in December is pleasant (25-30°C). Bring light clothing and stay hydrated.",
   "All participants will receive a certificate of participation from ICF and the university."
 ]
 
