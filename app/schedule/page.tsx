@@ -255,6 +255,44 @@ export default function Schedule() {
           </p>
         </div>
 
+        {/* Schedule Disclaimer */}
+        <div className="mb-16">
+          <div className="card bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-l-4 border-l-amber-500">
+            <div className="flex items-center mb-4">
+              <AlertCircle className="w-6 h-6 text-amber-600 dark:text-amber-400 mr-3" />
+              <h3 className="text-xl font-semibold text-amber-900 dark:text-amber-100">
+                Important Notice
+              </h3>
+            </div>
+            <p className="text-amber-800 dark:text-amber-200 mb-4">
+              <strong>Schedule is subject to changes.</strong> Please stay updated with the latest information 
+              from Prathik P Kekare and Harshit Saroha. Any modifications to the itinerary will be communicated 
+              in advance through official channels.
+            </p>
+            <div className="space-y-2 text-amber-700 dark:text-amber-300">
+              <p className="font-medium">Key Points:</p>
+              <ul className="space-y-1 ml-4">
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  All boarding and return at KSR Bengaluru only
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  In Chennai, all activities at MGR Central
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  Hotel: Royal Paris (3-4 people sharing)
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
+                  Group size: 65 participants
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Interactive Timeline */}
         <div className="relative">
           {/* Timeline Line */}
@@ -508,44 +546,6 @@ export default function Schedule() {
                 <li className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-pink-600 dark:text-pink-400 mr-2" />
                   Cultural & Spiritual Experience
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule Disclaimer */}
-        <div className="mt-16">
-          <div className="card bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-l-4 border-l-amber-500">
-            <div className="flex items-center mb-4">
-              <AlertCircle className="w-6 h-6 text-amber-600 dark:text-amber-400 mr-3" />
-              <h3 className="text-xl font-semibold text-amber-900 dark:text-amber-100">
-                Important Notice
-              </h3>
-            </div>
-            <p className="text-amber-800 dark:text-amber-200 mb-4">
-              <strong>Schedule is subject to changes.</strong> Please stay updated with the latest information 
-              from Prathik P Kekare and Harshit Saroha. Any modifications to the itinerary will be communicated 
-              in advance through official channels.
-            </p>
-            <div className="space-y-2 text-amber-700 dark:text-amber-300">
-              <p className="font-medium">Key Points:</p>
-              <ul className="space-y-1 ml-4">
-                <li className="flex items-center">
-                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  All boarding and return at KSR Bengaluru only
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  In Chennai, all activities at MGR Central
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Hotel: Royal Paris (3-4 people sharing)
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mr-2" />
-                  Group size: 65 participants
                 </li>
               </ul>
             </div>
