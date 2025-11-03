@@ -44,8 +44,8 @@ export default function Schedule() {
           description: 'Overnight journey to Chennai. Please arrive 30 minutes early for boarding.',
           type: 'departure',
           trainDetails: {
-            trainName: 'Overnight Express',
-            trainNumber: 'TBD',
+            trainName: 'SBC MAS SF MAIL',
+            trainNumber: '12658',
             departure: '10:40 PM',
             arrival: '04:30 AM',
             platform: 'Platform TBD',
@@ -70,15 +70,15 @@ export default function Schedule() {
         },
         {
           time: '04:30 AM - 07:30 AM',
-          title: 'Travel to Hotel, Check-in & Rest',
-          location: 'Hotel Blu Ivy',
-          description: 'Travel to hotel, complete check-in formalities, and get ready for the day.',
+          title: 'Walk to Hotel, Check-in & Rest',
+          location: 'Royal Paris Hotel',
+          description: 'Walk from MGR Central to Royal Paris Hotel, complete check-in formalities, and get ready for the day.',
           type: 'hotel'
         },
         {
           time: '07:30 AM - 08:30 AM',
           title: 'Breakfast',
-          location: 'Hotel Blu Ivy',
+          location: 'Royal Paris Hotel',
           description: 'Enjoy breakfast at hotel restaurant before starting the day.',
           type: 'breakfast'
         },
@@ -113,14 +113,14 @@ export default function Schedule() {
         {
           time: '07:00 PM - 08:00 PM',
           title: 'Dinner',
-          location: 'Hotel Blu Ivy',
+          location: 'Royal Paris Hotel',
           description: 'Return to hotel for dinner and rest.',
           type: 'dinner'
         },
         {
           time: '09:00 PM onwards',
           title: 'Return to Hotel & Rest',
-          location: 'Hotel Blu Ivy',
+          location: 'Royal Paris Hotel',
           description: 'Return to hotel, relax and rest for the night.',
           type: 'return'
         }
@@ -134,30 +134,30 @@ export default function Schedule() {
         {
           time: '05:00 AM - 06:00 AM',
           title: 'Get Ready',
-          location: 'Hotel Blu Ivy',
+          location: 'Royal Paris Hotel',
           description: 'Wake up, freshen up, and prepare for departure.',
           type: 'preparation'
         },
         {
           time: '06:15 AM',
           title: 'Check-out from Hotel',
-          location: 'Hotel Blu Ivy',
+          location: 'Royal Paris Hotel',
           description: 'Complete hotel checkout formalities and prepare for departure.',
           type: 'checkout'
         },
         {
-          time: '07:20 AM',
+          time: '07:25 AM',
           title: 'Train Departs from Chennai to Bangalore',
           location: 'MGR Central Railway Station',
           description: 'Board train for return journey to Bangalore. Please arrive 30 minutes early.',
           type: 'departure',
           trainDetails: {
-            trainName: 'Return Express',
-            trainNumber: 'TBD',
-            departure: '07:20 AM',
+            trainName: 'SBC DBLDECK EXP',
+            trainNumber: '22625',
+            departure: '07:25 AM',
             arrival: '01:10 PM',
             platform: 'Platform TBD',
-            journeyDuration: '5h 50m',
+            journeyDuration: '5h 45m',
             class: 'AC 2 Tier',
             status: 'On Time'
           }

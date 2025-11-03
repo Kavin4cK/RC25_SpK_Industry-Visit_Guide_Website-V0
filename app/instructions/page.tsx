@@ -153,7 +153,8 @@ export default function Instructions() {
         icon: Hotel,
         color: 'blue',
         items: [
-          { text: 'Hotel Blu Ivy', required: true },
+          { text: 'Royal Paris Hotel', required: true },
+          { text: '55 Sydenhams Road, Near Chennai Greater Corporation, Periyamet, Park Town', required: true },
           { text: 'Check-in: 4:30 AM - 7:30 AM on Day 2', required: true },
           { text: 'Check-out: 6:15 AM on Day 3', required: true },
           { text: 'AC rooms with modern amenities', required: true },
@@ -197,8 +198,8 @@ export default function Instructions() {
         items: [
           { text: 'All boarding and coming back at KSR Bengaluru only', required: true },
           { text: 'In Chennai, all activities at MGR Central', required: true },
-          { text: 'Overnight journey: 10:40 PM departure', required: true },
-          { text: 'Return journey: 07:20 AM departure', required: true },
+          { text: 'Outbound: Train 12658 - SBC MAS SF MAIL (10:40 PM departure)', required: true },
+          { text: 'Return: Train 22625 - SBC DBLDECK EXP (07:25 AM departure)', required: true },
           { text: 'Arrive 30 minutes early for boarding', required: true },
           { text: 'Valid ID and tickets required', required: true }
         ]
@@ -209,7 +210,7 @@ export default function Instructions() {
         color: 'green',
         items: [
           { text: 'Air-conditioned bus for local travel', required: true },
-          { text: 'Pickup from MGR Central to Hotel Blu Ivy', required: true },
+          { text: 'Walk from MGR Central to Royal Paris Hotel', required: true },
           { text: 'Transport to ICF and cultural locations', required: true },
           { text: 'Drop to MGR Central station on Day 3', required: true }
         ]

@@ -194,7 +194,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-secondary-700 dark:text-secondary-300">Hotel Blu Ivy stay</span>
+                    <span className="text-secondary-700 dark:text-secondary-300">Royal Paris Hotel stay</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-secondary-200 dark:border-secondary-700">

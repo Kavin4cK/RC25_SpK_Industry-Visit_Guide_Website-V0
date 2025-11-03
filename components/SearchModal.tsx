@@ -113,12 +113,12 @@ const searchData: SearchResult[] = [
   {
     id: 'accommodation-info',
     title: 'Accommodation Details',
-    description: 'Hotel Blu Ivy - 3-4 people sharing accommodation',
+    description: 'Royal Paris Hotel - 3-4 people sharing accommodation',
     category: 'Information',
     page: 'Home',
     icon: Hotel,
     url: '/',
-    keywords: ['accommodation', 'hotel', 'blu', 'ivy', 'sharing', '3-4', 'people', 'room']
+    keywords: ['accommodation', 'hotel', 'royal', 'paris', 'sharing', '3-4', 'people', 'room']
   },
 
   // Schedule page content
@@ -133,24 +133,24 @@ const searchData: SearchResult[] = [
     keywords: ['chennai', 'mail', '12658', 'train', 'ksr', 'chennai central']
   },
   {
-    id: 'humsafar-express',
-    title: 'Humsafar Express 22353',
-    description: 'Train from Perambur to SMVT Bengaluru',
+    id: 'return-train',
+    title: 'SBC DBLDECK EXP 22625',
+    description: 'Train from MGR Central to KSR Bengaluru',
     category: 'Transport',
     page: 'Schedule',
     icon: Train,
     url: '/schedule',
-    keywords: ['humsafar', 'express', '22353', 'perambur', 'smvt', 'return']
+    keywords: ['sbc', 'dbldeck', 'exp', '22625', 'mgr', 'central', 'ksr', 'return']
   },
   {
-    id: 'hotel-grand',
-    title: 'Hotel Grand Chennai',
-    description: 'Accommodation in T. Nagar, Chennai',
+    id: 'royal-paris-hotel',
+    title: 'Royal Paris Hotel',
+    description: 'Hotel near MGR Central Chennai',
     category: 'Accommodation',
     page: 'Schedule',
     icon: Hotel,
     url: '/schedule',
-    keywords: ['hotel', 'grand', 'chennai', 'accommodation', 't nagar']
+    keywords: ['royal', 'paris', 'hotel', 'chennai', 'accommodation', 'sydenhams', 'road', 'park', 'town']
   },
   {
     id: 'icf-tour',

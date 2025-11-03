@@ -6,8 +6,10 @@ A modern, responsive event management website for the **65-participant industry 
 - **Dates**: December 8-10, 2025
 - **Participants**: 65 students
 - **Destinations**: Integral Coach Factory (ICF) & Rail Museum Chennai
-- **Accommodation**: Hotel Blu Ivy (3-4 people sharing)
-- **Transport**: Overnight train journeys (KSR Bengaluru ↔ MGR Central Chennai)
+- **Accommodation**: Royal Paris Hotel (3-4 people sharing)
+- **Transport**: 
+  - **Outbound**: Train 12658 - SBC MAS SF MAIL (Departs KSR Bengaluru 22:40)
+  - **Return**: Train 22625 - SBC DBLDECK EXP (Departs MGR Chennai Central 07:25)
 - **Cultural Visit**: Matsya Narayana Temple
 
 ## 🚀 Features
@@ -120,8 +122,10 @@ The website is fully responsive with breakpoints:
 ### **Content Updates**
 - ✅ **December 2025 Schedule**: Complete 3-day itinerary with exact timings
 - ✅ **Updated Contact Information**: New coordinators and email addresses
-- ✅ **Hotel Information**: Hotel Blu Ivy accommodation details
-- ✅ **Transport Details**: KSR Bengaluru and MGR Central Chennai information
+- ✅ **Hotel Information**: Royal Paris Hotel accommodation details
+- ✅ **Train Details**: 
+  - Outbound: 12658 - SBC MAS SF MAIL (22:40 from KSR Bengaluru)
+  - Return: 22625 - SBC DBLDECK EXP (07:25 from MGR Chennai Central)
 - ✅ **Dress Code Guidelines**: Updated requirements for boys and girls
 - ✅ **Advisory Section**: Minimal luggage requirements and safety protocols
 
@@ -170,6 +174,5 @@ For technical support and development questions:
 - **Developer**: Kavin Krishnan. C
 - **Email**: kavinkrishnanc@gmail.com
 - **Phone**: +91 95133 44481
-Test change
 
 For program-related inquiries, please contact the program coordinators listed above.
