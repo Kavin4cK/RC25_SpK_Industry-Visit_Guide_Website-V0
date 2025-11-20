@@ -29,11 +29,6 @@ import {
   Footprints,
   Pill,
   Clipboard,
-  Shirt,
-  User,
-  UserCheck,
-  AlertCircle,
-  Info,
   Train,
   Navigation,
   Phone,
@@ -46,7 +41,6 @@ import {
 import useScrollAnimation from '@/hooks/useScrollAnimation'
 import ObjectivesSection from '@/components/ObjectivesSection'
 import AccessoriesChecklist from '@/components/AccessoriesChecklist'
-import DressCodeSection from '@/components/DressCodeSection'
 import StationsPreviewSection from '@/components/StationsPreviewSection'
 
 export default function Home() {
@@ -107,9 +101,6 @@ export default function Home() {
 
       {/* Goals and Objectives Section */}
       <ObjectivesSection />
-
-      {/* Dress Code Section */}
-      <DressCodeSection />
 
       {/* Arrival & Departure Stations Preview */}
       <StationsPreviewSection />
