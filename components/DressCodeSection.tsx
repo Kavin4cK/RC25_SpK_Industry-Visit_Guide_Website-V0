@@ -123,13 +123,13 @@ export default function DressCodeSection() {
             to ensure a safe, comfortable, and professional experience during your three-day program.
           </p>
           
-          {/* Dress Code Image */}
-          <div className="mt-8 max-w-2xl mx-auto">
-            <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
+          {/* Dress Code Image - Smaller and with reduced spacing */}
+          <div className="mt-4 max-w-md mx-auto">
+            <div className="rounded-lg overflow-hidden shadow-lg">
               <img 
                 src="/drscd1.jpeg" 
                 alt="Professional dress code example"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-contain max-h-64 mx-auto"
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function DressCodeSection() {
         {/* Dress Code Cards */}
         <div 
           ref={cardsRef}
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 ${cardsVisible ? 'animate' : ''}`}
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8 mb-12 ${cardsVisible ? 'animate' : ''}`}
         >
           {/* Boys Dress Code */}
           <div className="fade-in-left stagger-1">
@@ -312,8 +312,8 @@ export default function DressCodeSection() {
           ))}
         </div>
 
-        {/* Important Notes */}
-        <div className="card bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-l-amber-500">
+        {/* Important Notes - Moved up */}
+        <div className="card bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-l-amber-500 mt-8">
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-800 rounded-full flex items-center justify-center">
               <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
