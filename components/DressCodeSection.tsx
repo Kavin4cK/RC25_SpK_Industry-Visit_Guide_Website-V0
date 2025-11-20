@@ -122,6 +122,24 @@ export default function DressCodeSection() {
             Professional attire is required for the Integral Coach Factory visit. Please follow these guidelines 
             to ensure a safe, comfortable, and professional experience during your three-day program.
           </p>
+          
+          {/* Dress Code Images */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
+              <img 
+                src="/drscd1.jpeg" 
+                alt="Professional dress code example 1"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
+              <img 
+                src="/drscd2.jpeg" 
+                alt="Professional dress code example 2"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Dress Code Cards */}
