@@ -123,19 +123,12 @@ export default function DressCodeSection() {
             to ensure a safe, comfortable, and professional experience during your three-day program.
           </p>
           
-          {/* Dress Code Images */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
+          {/* Dress Code Image */}
+          <div className="mt-8 max-w-2xl mx-auto">
+            <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
               <img 
                 src="/drscd1.jpeg" 
-                alt="Professional dress code example 1"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
-              <img 
-                src="/drscd2.jpeg" 
-                alt="Professional dress code example 2"
+                alt="Professional dress code example"
                 className="w-full h-auto object-cover"
               />
             </div>
