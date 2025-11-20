@@ -164,26 +164,36 @@ export default function StationsPreviewSection() {
                     </div>
                   </div>
 
-                  {/* Map Preview */}
+                  {/* Directions Link */}
                   <div className="mb-6">
-                    <div className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-lg overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center">
-                          <Map className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                          <p className="text-sm text-gray-500 dark:text-gray-400">
-                            Map Preview
-                          </p>
-                          <p className="text-xs text-gray-400 dark:text-gray-500">
-                            {station.coordinates}
-                          </p>
-                        </div>
+                    <a 
+                      href={station.id === 'ksr' 
+                        ? 'https://www.google.com/maps/dir//KSR+Bengaluru+City+Junction+(Bangalore),+M.G.+Railway+Colony,+Majestic,+Bengaluru,+Karnataka+560023/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee?sa=X&ved=1t:57443&ictx=111'
+                        : 'https://www.google.com/maps/dir//Puratchi+Thalaivar+Dr+MGR+Central+railway+station,+Periamet,+Kannappar+Thidal,+Chennai,+Tamil+Nadu+600003/@13.0821872,80.2706423,17z/data=!4m17!1m8!3m7!1s0x3a5266000af86837:0xb82ae0604cf7ec4d!2sPuratchi+Thalaivar+Dr+MGR+Central+railway+station!8m2!3d13.0821872!4d80.2754059!15sCg9jaGVubmFpIGNlbnRyYWxaESIPY2hlbm5haSBjZW50cmFskgEXbG9naWNhbF90cmFuc2l0X3N0YXRpb26qAUQQASoLIgdjZW50cmFsKAAyHhABIhreJyIifz9d8mD4g0w6ax6Sd_9J1wAx5mVnRzITEAIiD2NoZW5uYWkgY2VudHJhbOABAA!16s%2Fg%2F11cs3gxqdf!4m7!1m0!1m5!1m1!1s0x3a5266000af86837:0xb82ae0604cf7ec4d!2m2!1d80.2754059!2d13.0821872?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D'
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-lg overflow-hidden hover:opacity-90 transition-opacity"
+                    >
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+                        <Map className="w-8 h-8 text-gray-600 dark:text-gray-300 mb-2" />
+                        <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                          Get Directions to {station.name}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                          {station.coordinates}
+                        </p>
+                        <p className="text-xs text-blue-600 dark:text-blue-400 mt-2 flex items-center justify-center">
+                          <span>Open in Google Maps</span>
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </p>
                       </div>
                       <div className="absolute top-2 right-2">
                         <div className={`w-3 h-3 rounded-full ${
                           station.color === 'blue' ? 'bg-blue-500' : 'bg-green-500'
                         } animate-pulse`}></div>
                       </div>
-                    </div>
+                    </a>
                   </div>
 
                   {/* Key Information */}
