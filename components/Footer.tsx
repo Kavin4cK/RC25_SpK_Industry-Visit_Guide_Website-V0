@@ -10,9 +10,9 @@ export default function Footer() {
     <footer className="bg-white dark:bg-black border-t border-secondary-200 dark:border-secondary-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* SPARK Logo - Larger size */}
+          {/* SPARK Logo - Extra Large size */}
           <div className="flex items-center mb-4 md:mb-0">
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40">
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-56 lg:h-56">
               <Image
                 src={theme === 'dark' ? '/SPK_WHITE.png' : '/SPK_BLACK.png'}
                 alt="SPARK Logo"
