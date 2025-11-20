@@ -122,9 +122,29 @@ export default function DressCodeSection() {
             Professional attire is required for the Integral Coach Factory visit. Please follow these guidelines 
             to ensure a safe, comfortable, and professional experience during your three-day program.
           </p>
+
+          {/* Important Safety Notes */}
+          <div className="card bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-l-amber-500 mt-6 max-w-4xl mx-auto w-full">
+            <div className="flex items-start space-x-4 p-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-800 rounded-full flex items-center justify-center">
+                <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-3">
+                  Important Safety Notes
+                </h3>
+                <div className="space-y-2 text-amber-800 dark:text-amber-200">
+                  <p>• <strong>Closed-toe shoes are mandatory</strong> for safety in the manufacturing facility</p>
+                  <p>• <strong>Long hair must be tied back</strong> to prevent accidents with machinery</p>
+                  <p>• <strong>No loose jewelry or accessories</strong> that could get caught in equipment</p>
+                  <p>• <strong>Comfortable clothing</strong> is recommended for long hours of walking and standing</p>
+                </div>
+              </div>
+            </div>
+          </div>
           
           {/* Dress Code Image - Rounded and compact */}
-          <div className="mt-2 max-w-md mx-auto">
+          <div className="mt-6 max-w-md mx-auto">
             <img 
               src="/drscd1.jpeg" 
               alt="Professional dress code example"
@@ -310,25 +330,6 @@ export default function DressCodeSection() {
           ))}
         </div>
 
-        {/* Important Notes - Moved up */}
-        <div className="card bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-l-amber-500 mt-8">
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-800 rounded-full flex items-center justify-center">
-              <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-2">
-                Important Safety Notes
-              </h3>
-              <div className="space-y-2 text-amber-800 dark:text-amber-200">
-                <p>• <strong>Closed-toe shoes are mandatory</strong> for safety in the manufacturing facility</p>
-                <p>• <strong>Long hair must be tied back</strong> to prevent accidents with machinery</p>
-                <p>• <strong>No loose jewelry or accessories</strong> that could get caught in equipment</p>
-                <p>• <strong>Comfortable clothing</strong> is recommended for long hours of walking and standing</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </section>
