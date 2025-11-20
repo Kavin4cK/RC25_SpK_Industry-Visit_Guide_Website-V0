@@ -48,7 +48,7 @@ export default function Schedule() {
             trainNumber: '12658',
             departure: '10:40 PM',
             arrival: '04:30 AM',
-            platform: 'Platform TBD',
+            platform: 'Platform TBD (Probably 1)',
             journeyDuration: '5h 50m',
             class: 'AC 2 Tier',
             status: 'On Time'
@@ -156,7 +156,7 @@ export default function Schedule() {
             trainNumber: '22625',
             departure: '07:25 AM',
             arrival: '01:10 PM',
-            platform: 'Platform TBD',
+            platform: 'Platform TBD (Probably 7)',
             journeyDuration: '5h 45m',
             class: 'AC 2 Tier',
             status: 'On Time'
