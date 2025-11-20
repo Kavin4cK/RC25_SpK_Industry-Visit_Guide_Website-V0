@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* SPARK Logo - Extra Large size */}
           <div className="flex items-center mb-4 md:mb-0">
-            <div className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-56 lg:h-56">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
               <Image
                 src={theme === 'dark' ? '/SPK_WHITE.png' : '/SPK_BLACK.png'}
                 alt="SPARK Logo"

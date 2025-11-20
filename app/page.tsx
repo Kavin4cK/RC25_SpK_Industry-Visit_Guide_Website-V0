@@ -102,11 +102,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Goals and Objectives Section */}
-      <ObjectivesSection />
-
       {/* Accessories Checklist Section */}
       <AccessoriesChecklist />
+
+      {/* Goals and Objectives Section */}
+      <ObjectivesSection />
 
       {/* Dress Code Section */}
       <DressCodeSection />
