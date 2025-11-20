@@ -123,22 +123,20 @@ export default function DressCodeSection() {
             to ensure a safe, comfortable, and professional experience during your three-day program.
           </p>
           
-          {/* Dress Code Image - Smaller and with reduced spacing */}
-          <div className="mt-4 max-w-md mx-auto">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/drscd1.jpeg" 
-                alt="Professional dress code example"
-                className="w-full h-auto object-contain max-h-64 mx-auto"
-              />
-            </div>
+          {/* Dress Code Image - Rounded and compact */}
+          <div className="mt-2 max-w-md mx-auto">
+            <img 
+              src="/drscd1.jpeg" 
+              alt="Professional dress code example"
+              className="w-full h-auto object-contain max-h-60 mx-auto rounded-2xl shadow-lg"
+            />
           </div>
         </div>
 
         {/* Dress Code Cards */}
         <div 
           ref={cardsRef}
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8 mb-12 ${cardsVisible ? 'animate' : ''}`}
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 mb-10 ${cardsVisible ? 'animate' : ''}`}
         >
           {/* Boys Dress Code */}
           <div className="fade-in-left stagger-1">
