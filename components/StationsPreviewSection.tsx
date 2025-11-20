@@ -50,30 +50,30 @@ export default function StationsPreviewSection() {
       address: 'Station Rd, Kempegowda, Bengaluru, Karnataka 560023'
     },
     {
-      id: 'smvt',
-      name: 'SMVT Bengaluru',
-      fullName: 'Sir M. Visvesvaraya Terminal',
-      code: 'SMVB',
-      type: 'Terminal Station',
+      id: 'chennai-central',
+      name: 'Chennai Central (MAS)',
+      fullName: 'Puratchi Thalaivar Dr. M.G. Ramachandran Central',
+      code: 'MAS',
+      type: 'Terminal Station (Main Terminus)',
       color: 'green',
-      location: 'Baiyappanahalli, Bengaluru',
-      coordinates: '12.9918° N, 77.6604° E',
-      distance: '8 km from Integral Coach Factory',
-      travelTime: '25-35 minutes',
+      location: 'Park Town, Chennai, Tamil Nadu',
+      coordinates: '13.0760° N, 80.2718° E',
+      distance: 'About 5 km from central Chennai',
+      travelTime: '~10 minutes driving (varies)',
       facilities: [
-        'Modern terminal',
-        'Air-conditioned waiting',
-        'Food outlets',
-        'Parking available',
-        'Metro station nearby',
-        'Bus connectivity'
+        '17 platforms',
+        'Executive/Lounge Area',
+        'Food & Dining',
+        'Cloakroom',
+        'Metro connectivity',
+        'City bus and taxi access'
       ],
       mapPreview: {
-        lat: 12.9918,
-        lng: 77.6604,
+        lat: 13.0760,
+        lng: 80.2718,
         zoom: 15
       },
-      address: 'Baiyappanahalli, Bengaluru, Karnataka 560038'
+      address: 'Park Town, Chennai, Tamil Nadu 600003, India'
     }
   ]
 
@@ -109,10 +109,10 @@ export default function StationsPreviewSection() {
             <Train className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white mb-6">
-            Arrival & Departure Stations
+            Departure and Arrival Stations
           </h2>
           <p className="text-lg md:text-xl text-secondary-600 dark:text-secondary-400 max-w-4xl mx-auto leading-relaxed">
-            Key railway stations for your journey to Integral Coach Factory. Choose your preferred station 
+            Key railway stations for your journey. Choose your preferred station 
             and plan your arrival/departure accordingly.
           </p>
         </div>
