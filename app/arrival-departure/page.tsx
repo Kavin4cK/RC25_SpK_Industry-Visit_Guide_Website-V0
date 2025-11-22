@@ -288,27 +288,34 @@ export default function ArrivalDeparturePage() {
               <div className="space-y-6">
                 <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
                   <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
-                    <div className="text-center">
-                      <Map className="w-16 h-16 text-blue-500 mx-auto mb-4" />
+                    <div className="text-center p-6">
+                      <MapPin className="w-16 h-16 text-blue-500 mx-auto mb-4" />
                       <p className="text-blue-700 dark:text-blue-300 font-medium">
-                        Google Maps Integration
-                      </p>
-                      <p className="text-sm text-blue-600 dark:text-blue-400">
                         {activeStation === 'ksr' ? 'KSR Bengaluru City Station' : 'MGR Central Chennai Station'}
+                      </p>
+                      <p className="text-sm text-blue-600 dark:text-blue-400 mt-2">
+                        Click below for directions
                       </p>
                     </div>
                   </div>
                   <div className="p-6">
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                      Interactive Map
+                      Get Directions
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                      Get real-time directions and traffic updates
+                      Open in Google Maps for real-time directions
                     </p>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center gap-2">
+                    <a 
+                      href={activeStation === 'ksr' 
+                        ? 'https://www.google.com/maps/dir//KSR+Bengaluru+City+Junction+(Bangalore),+M.G.+Railway+Colony,+Majestic,+Bengaluru,+Karnataka+560023/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!3e0?sa=X&ved=1t:3747&ictx=111' 
+                        : 'https://www.google.com/maps/dir//Puratchi+Thalaivar+Dr+MGR+Central+railway+station,+Periamet,+Kannappar+Thidal,+Chennai,+Tamil+Nadu+600003/@13.0821872,80.2706423,17z/data=!4m17!1m8!3m7!1s0x3a5266000af86837:0xb82ae0604cf7ec4d!2sPuratchi+Thalaivar+Dr+MGR+Central+railway+station!8m2!3d13.0821872!4d80.2754059!15sCg9jaGVubmFpIGNlbnRyYWySARdsb2dpY2FsX3RyYW5zaXRfc3RhdGlvbqoBRBABKgsiB2NlbnRyYWwoADIeEAEiGt4nIiJ_P13yYPiDTDprHpJ3_0nXADHmZWdHMhMQAiIPY2hlbm5haSBjZW50cmFs4AEA!16s%2Fg%2F11cs3gxqdf!4m7!1m0!1m5!1m1!1s0x3a5266000af86837:0xb82ae0604cf7ec4d!2m2!1d80.2754059!2d13.0821872?entry=ttu&g_ep=EgoyMDI1MTEyMC4xIKXMDSoASAFQAw%3D%3D'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center gap-2 inline-block"
+                    >
                       <ExternalLink className="w-4 h-4" />
-                      Open in Maps
-                    </button>
+                      {activeStation === 'ksr' ? 'Directions to KSR Bengaluru' : 'Directions to MGR Chennai Central'}
+                    </a>
                   </div>
                 </div>
 
