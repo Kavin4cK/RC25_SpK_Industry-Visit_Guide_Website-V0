@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { 
-  Search, 
   Sun, 
   Moon, 
   Menu, 
@@ -17,7 +16,6 @@ import {
   MapPin
 } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
-import SearchModal from './SearchModal'
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
@@ -29,22 +27,11 @@ const navigation = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
-  }
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSearchOpen(true)
-  }
-
-  const handleSearchClick = () => {
-    setIsSearchOpen(true)
   }
 
   return (
@@ -103,18 +90,8 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Right Section: Search + Theme Toggle */}
+          {/* Right Section: Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4 flex-shrink-0 ml-8">
-            {/* Search */}
-            <button
-              onClick={handleSearchClick}
-              className="flex items-center gap-1 px-2 py-2 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg text-sm hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            >
-              <Search className="w-4 h-4 text-secondary-400" />
-              <span className="text-secondary-500 dark:text-secondary-400 hidden lg:inline">Search...</span>
-            </button>
-
-            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="p-1.5 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -130,13 +107,6 @@ export default function Navigation() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <button
-              onClick={handleSearchClick}
-              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5 text-secondary-600 dark:text-secondary-300" />
-            </button>
             <button
               onClick={toggleTheme}
               className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
@@ -167,17 +137,6 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-4 pt-4 pb-6 space-y-3 bg-white dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-700">
-            {/* Mobile Search */}
-            <div className="px-2 py-2">
-              <button
-                onClick={handleSearchClick}
-                className="w-full flex items-center gap-3 px-4 py-3 bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg text-sm hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-all duration-200 min-h-[44px]"
-              >
-                <Search className="w-5 h-5 text-secondary-400" />
-                <span className="text-secondary-500 dark:text-secondary-400">Search...</span>
-              </button>
-            </div>
-
             {/* Mobile Navigation Links */}
             {navigation.map((item) => {
               const Icon = item.icon
@@ -199,9 +158,6 @@ export default function Navigation() {
           </div>
         </div>
       )}
-
-      {/* Search Modal */}
-      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
   )
 }
