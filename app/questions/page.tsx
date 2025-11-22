@@ -54,7 +54,7 @@ const faqData: FAQItem[] = [
   {
     id: 'travel-4',
     question: 'What happens if I miss the train?',
-    answer: 'If you miss the train, immediately contact Prathik P Kekare at +91 88614 02360 or Harshit Saroha at +91 87083 12327. We will arrange alternative transportation to Chennai, but you may miss some scheduled activities.',
+    answer: 'If you miss the train, immediately contact Rupini Hulikatti at +91 99014 15295 or Tejas S Math at +91 93531 49945. We will arrange alternative transportation to Chennai, but you may miss some scheduled activities.',
     category: 'travel',
     priority: 'high'
   },
@@ -84,21 +84,21 @@ const faqData: FAQItem[] = [
   {
     id: 'accommodation-3',
     question: 'Can I request a single room?',
-    answer: 'Single rooms are not available as per the program arrangement. All participants will be accommodated in twin-sharing rooms with same-gender roommates.',
+    answer: 'Single rooms are not available as per the program arrangement. All participants will be accommodated in 3-4 sharing rooms with same-gender roommates.',
     category: 'accommodation',
     priority: 'medium'
   },
   {
     id: 'accommodation-4',
     question: 'What should I do if I have issues with my room?',
-    answer: 'Contact the hotel front desk immediately for any room-related issues. For program-specific concerns, reach out to Prathik P Kekare at +91 88614 02360 or Harshit Saroha at +91 87083 12327.',
+    answer: 'Contact the hotel front desk immediately for any room-related issues. For program-specific concerns, reach out to Rupini Hulikatti at +91 99014 15295 or Tejas S Math at +91 93531 49945.',
     category: 'accommodation',
     priority: 'medium'
   },
   {
     id: 'accommodation-5',
     question: 'Are meals included in the accommodation?',
-    answer: 'Breakfast is included on Day 2 and Day 3. Lunch and dinner arrangements will be communicated during the program. The hotel restaurant offers various meal options.',
+    answer: 'Breakfast of day 2 is only included. Rest others to be brought by students.',
     category: 'accommodation',
     priority: 'medium'
   },
@@ -144,14 +144,14 @@ const faqData: FAQItem[] = [
   {
     id: 'general-1',
     question: 'What is the emergency contact number?',
-    answer: 'For emergencies, contact Prathik P Kekare at +91 88614 02360 or Harshit Saroha at +91 87083 12327. The emergency contact +91 88614 02360 is available 24/7 during the visit.',
+    answer: 'For emergencies, contact Rupini Hulikatti at +91 99014 15295 or Tejas S Math at +91 93531 49945. The emergency contact +91 99014 15295 is available 24/7 during the visit.',
     category: 'general',
     priority: 'high'
   },
   {
     id: 'general-2',
     question: 'What should I do if I feel unwell during the visit?',
-    answer: 'Inform Prathik P Kekare (+91 88614 02360) or Harshit Saroha (+91 87083 12327) immediately. The hotel has a doctor on call, and we can arrange medical assistance. Keep your health insurance details handy.',
+    answer: 'Inform Rupini Hulikatti (+91 99014 15295) or Tejas S Math (+91 93531 49945) immediately. The hotel has a doctor on call, and we can arrange medical assistance. Keep your health insurance details handy.',
     category: 'general',
     priority: 'high'
   },

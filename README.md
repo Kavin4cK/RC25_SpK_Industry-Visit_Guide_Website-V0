@@ -138,10 +138,10 @@ The website is fully responsive with breakpoints:
 ## 📞 **Contact Information**
 
 ### **Program Coordinators**
-- **Prathik P Kekare**: +91 88614 02360
-- **Harshit Saroha**: +91 87083 12327
+- **Rupini Hulikatti**: +91 99014 15295
+- **Tejas S Math**: +91 93531 49945
 - **Email**: spark.iucee@rvce.edu.in
-- **Emergency Contact**: +91 88614 02360
+- **Emergency Contact**: +91 99014 15295
 
 ## 🚀 Deployment
 

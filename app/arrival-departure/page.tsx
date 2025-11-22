@@ -222,7 +222,7 @@ export default function ArrivalDeparturePage() {
                     
                     <div className="mt-6 pt-4 border-t border-amber-200 dark:border-amber-700">
                       <p className="text-sm text-amber-600 dark:text-amber-400">
-                        For any queries or assistance, contact Prathik P Kekare (+91 88614 02360) or Harshit Saroha (+91 87083 12327).
+                        For any queries or assistance, contact Rupini Hulikatti (+91 99014 15295) or Tejas S Math (+91 93531 49945).
                       </p>
                     </div>
                   </div>

@@ -50,7 +50,7 @@ export default function Schedule() {
             arrival: '04:30 AM',
             platform: 'Platform TBD (Probably 1)',
             journeyDuration: '5h 50m',
-            class: 'AC 2 Tier',
+            class: 'AC 3 Tier',
             status: 'On Time'
           }
         }
@@ -111,10 +111,10 @@ export default function Schedule() {
           type: 'sightseeing'
         },
         {
-          time: '07:00 PM - 08:00 PM',
-          title: 'Dinner',
-          location: 'Royal Paris Hotel',
-          description: 'Return to hotel for dinner and rest.',
+          time: '08:00 PM - 09:00 PM',
+          title: 'Dinner at A2B',
+          location: 'A2B - Adyar Ananda Bhavan, Near Kovalam Beach',
+          description: 'Enjoy a delicious dinner at A2B restaurant near Kovalam Beach, featuring a variety of South Indian and North Indian vegetarian cuisine.',
           type: 'dinner'
         },
         {
@@ -158,7 +158,7 @@ export default function Schedule() {
             arrival: '01:10 PM',
             platform: 'Platform TBD (Probably 7)',
             journeyDuration: '5h 45m',
-            class: 'AC 2 Tier',
+            class: 'AC Chair Car',
             status: 'On Time'
           }
         },
@@ -266,7 +266,7 @@ export default function Schedule() {
             </div>
             <p className="text-amber-800 dark:text-amber-200 mb-4">
               <strong>Schedule is subject to changes.</strong> Please stay updated with the latest information 
-              from Prathik P Kekare and Harshit Saroha. Any modifications to the itinerary will be communicated 
+              from Rupini Hulikatti and Tejas S Math. Any modifications to the itinerary will be communicated 
               in advance through official channels.
             </p>
             <div className="space-y-2 text-amber-700 dark:text-amber-300">
@@ -593,10 +593,10 @@ export default function Schedule() {
                 <strong>Program Coordinators:</strong>
               </div>
               <div>
-                <strong>Prathik P Kekare:</strong> +91 88614 02360
+                <strong>Rupini Hulikatti:</strong> +91 99014 15295
               </div>
               <div>
-                <strong>Harshit Saroha:</strong> +91 87083 12327
+                <strong>Tejas S Math:</strong> +91 93531 49945
               </div>
               <div>
                 <strong>Email:</strong> spark.iucee@rvce.edu.in

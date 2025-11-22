@@ -109,7 +109,7 @@ export default function Instructions() {
         color: 'blue',
         items: [
           { text: 'Formal shirt + formal pants (required)', required: true },
-          { text: 'Round necked t-shirts are allowed', required: false },
+          { text: 'T-shirts are NOT allowed - only formal wear', required: true },
           { text: 'Shorts are NOT allowed', required: false },
           { text: 'Closed-toe formal shoes (Black or Brown leather)', required: true },
           { text: 'Matching leather belt', required: true },
@@ -122,7 +122,7 @@ export default function Instructions() {
         color: 'purple',
         items: [
           { text: 'Chudidar (required)', required: true },
-          { text: 'Round necked t-shirts are allowed', required: false },
+          { text: 'T-shirts are NOT allowed - only formal wear', required: true },
           { text: 'Shorts are NOT allowed', required: false },
           { text: 'Closed-toe formal shoes (low heels preferred)', required: true },
           { text: 'Minimal, professional accessories', required: false },
@@ -167,7 +167,7 @@ export default function Instructions() {
         color: 'green',
         items: [
           { text: '3-4 people sharing accommodation', required: true },
-          { text: 'Room allocation by Prathik P Kekare and Harshit Saroha', required: true },
+          { text: 'Room allocation by Rupini Hulikatti and Tejas S Math', required: true },
           { text: 'Separate rooms for boys and girls', required: true },
           { text: 'Room keys to be returned during checkout', required: true }
         ]
@@ -450,8 +450,8 @@ export default function Instructions() {
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <div>
-                  <p className="font-medium text-blue-900 dark:text-blue-100">Prathik P Kekare</p>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 88614 02360</p>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Rupini Hulikatti</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 99014 15295</p>
                 </div>
               </div>
             </div>
@@ -459,14 +459,15 @@ export default function Instructions() {
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <div>
-                  <p className="font-medium text-blue-900 dark:text-blue-100">Harshit Saroha</p>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 87083 12327</p>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">Tejas S Math</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 93531 49945</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <div>
                   <p className="font-medium text-blue-900 dark:text-blue-100">Emergency Contact</p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">+91 99014 15295</p>
                   <p className="text-sm text-blue-700 dark:text-blue-300">+91 88614 02360</p>
                 </div>
               </div>
