@@ -99,11 +99,11 @@ export default function Home() {
       {/* Accessories Checklist Section */}
       <AccessoriesChecklist />
 
-      {/* Goals and Objectives Section */}
-      <ObjectivesSection />
-
       {/* Arrival & Departure Stations Preview */}
       <StationsPreviewSection />
+      
+      {/* Goals and Objectives Section */}
+      <ObjectivesSection />
 
       {/* Three-Day Journey Overview */}
       <section className="py-20 bg-white dark:bg-secondary-900">

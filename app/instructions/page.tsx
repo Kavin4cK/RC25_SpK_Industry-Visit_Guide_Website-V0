@@ -177,8 +177,6 @@ export default function Instructions() {
         icon: Star,
         color: 'purple',
         items: [
-          { text: 'Restaurant with multi-cuisine options', required: false },
-          { text: 'Conference room for orientation', required: false },
           { text: 'Wi-Fi connectivity', required: false },
           { text: 'Laundry services available', required: false },
           { text: '24/7 security and front desk', required: true }
