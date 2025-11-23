@@ -221,7 +221,8 @@ export default function Instructions() {
           { text: 'No private vehicles allowed during visits', required: true },
           { text: 'Follow group transportation schedule', required: true },
           { text: 'Keep emergency contact numbers handy', required: true },
-          { text: 'Report any transport issues immediately', required: true }
+          { text: 'Report any transport issues immediately', required: true },
+          { text: 'Organizers are not responsible for lost, stolen, or damaged luggage', required: true }
         ]
       }
     ]

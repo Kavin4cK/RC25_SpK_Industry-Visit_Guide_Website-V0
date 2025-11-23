@@ -34,7 +34,7 @@ export default function Schedule() {
   const scheduleData = [
     {
       date: '2025-12-08',
-      day: 'Sunday',
+      day: 'Monday',
       dayNumber: 'Day 1',
       events: [
         {
@@ -58,7 +58,7 @@ export default function Schedule() {
     },
     {
       date: '2025-12-09',
-      day: 'Monday',
+      day: 'Tuesday',
       dayNumber: 'Day 2',
       events: [
         {
@@ -128,7 +128,7 @@ export default function Schedule() {
     },
     {
       date: '2025-12-10',
-      day: 'Tuesday',
+      day: 'Wednesday',
       dayNumber: 'Day 3',
       events: [
         {
