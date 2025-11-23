@@ -90,32 +90,48 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Right Section: Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-4 flex-shrink-0 ml-8">
-            <button
-              onClick={toggleTheme}
-              className="p-1.5 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              aria-label="Toggle theme"
+          {/* Right Section: Theme Toggle and Credits */}
+          <div className="hidden md:flex items-center space-x-6 flex-shrink-0 ml-8">
+            <a
+              href="https://linktr.ee/Kavin_Krishnan_C"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-secondary-700 dark:text-secondary-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
             >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-yellow-500" />
-              ) : (
-                <Moon className="w-4 h-4 text-secondary-600" />
-              )}
-            </button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+              Credits
+            </a>
             <button
               onClick={toggleTheme}
-              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="p-2.5 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
               ) : (
                 <Moon className="w-5 h-5 text-secondary-600" />
+              )}
+            </button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-3">
+            <a
+              href="https://linktr.ee/Kavin_Krishnan_C"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center text-sm font-medium text-secondary-700 dark:text-secondary-300"
+            >
+              Credits
+            </a>
+            <button
+              onClick={toggleTheme}
+              className="p-3 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-6 h-6 text-yellow-500" />
+              ) : (
+                <Moon className="w-6 h-6 text-secondary-600" />
               )}
             </button>
             <button

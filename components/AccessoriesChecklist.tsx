@@ -45,14 +45,6 @@ export default function AccessoriesChecklist() {
       essential: true
     },
     {
-      id: 4,
-      name: 'Face Mask',
-      description: 'Safety mask for facility visits',
-      icon: Shield,
-      color: 'orange',
-      essential: true
-    },
-    {
       id: 5,
       name: 'Water Bottle',
       description: 'Stay hydrated during the visit',
