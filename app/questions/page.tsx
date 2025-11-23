@@ -145,7 +145,7 @@ const faqData: FAQItem[] = [
   {
     id: 'general-1',
     question: 'What is the emergency contact number?',
-    answer: 'For emergencies, contact Rupini Hulikatti at +91 99014 15295 or Tejas S Math at +91 93531 49945. The emergency contact +91 99014 15295 is available 24/7 during the visit.',
+    answer: 'For emergencies, contact +91 93531 49945. This number is available 24/7 during the visit.',
     category: 'general',
     priority: 'high'
   },
