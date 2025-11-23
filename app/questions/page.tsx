@@ -169,13 +169,6 @@ const faqData: FAQItem[] = [
     answer: 'Chennai in December is pleasant with temperatures around 25-30°C. Bring light, breathable clothing and stay hydrated.',
     category: 'general',
     priority: 'medium'
-  },
-  {
-    id: 'general-5',
-    question: 'Will there be a certificate of participation?',
-    answer: 'Yes, all participants will receive a certificate of participation from ICF and the university. Certificates will be distributed at the end of the program.',
-    category: 'general',
-    priority: 'low'
   }
 ]
 
