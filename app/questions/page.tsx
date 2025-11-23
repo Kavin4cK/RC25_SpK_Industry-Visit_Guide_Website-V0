@@ -16,7 +16,8 @@ import {
   Clock,
   CheckCircle,
   AlertCircle,
-  Info
+  Info,
+  Phone
 } from 'lucide-react'
 import useScrollAnimation from '@/hooks/useScrollAnimation'
 
@@ -276,6 +277,24 @@ export default function QuestionsPage() {
     }
   }
 
+  const EmergencyBanner = () => (
+    <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-4 mb-8 rounded-lg shadow-xl border-l-4 border-white">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div className="flex items-center mb-2 md:mb-0">
+          <AlertCircle className="h-6 w-6 mr-3 text-white animate-pulse" />
+          <span className="text-lg font-bold">24/7 EMERGENCY CONTACT:</span>
+        </div>
+        <a 
+          href="tel:+919353149945" 
+          className="text-2xl font-extrabold hover:underline flex items-center bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition-colors"
+        >
+          <Phone className="h-5 w-5 mr-2 text-white" /> 
+          <span className="tracking-wide">+91 93531 49945</span>
+        </a>
+      </div>
+    </div>
+  )
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900">
       {/* Header Section */}
@@ -308,6 +327,9 @@ export default function QuestionsPage() {
           </div>
         </div>
       </div>
+
+      {/* Emergency Contact Banner */}
+      <EmergencyBanner />
 
       {/* Category Filter */}
       <div className="container mx-auto px-4 mb-8">
