@@ -241,6 +241,7 @@ export default function Instructions() {
           { text: 'Wear provided safety equipment when required', required: true },
           { text: 'Stay with assigned groups at all times', required: true },
           { text: 'No photography without explicit permission', required: true },
+          { text: 'Electronics (including mobile phones, smartwatches, etc.) are not allowed inside the facility', required: true },
           { text: 'Report any safety concerns immediately', required: true }
         ]
       },
